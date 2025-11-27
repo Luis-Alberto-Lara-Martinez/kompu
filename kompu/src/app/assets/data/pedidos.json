@@ -4,21 +4,24 @@
             "id": 1,
             "idUsuario": 2,
             "fecha": "2025-11-20",
-            "productos": [
+            "listaProductos": [
                 {
                     "idProducto": 1,
                     "cantidad": 1,
                     "precio": 899.99
                 }
             ],
-            "total": 899.99,
-            "estado": "entregado"
+            "precioTotal": 899.99,
+            "estado": "entregado",
+            "numFactura": 1001,
+            "subprecio": 899.99,
+            "iva": 189.00
         },
         {
             "id": 2,
             "idUsuario": 4,
             "fecha": "2025-11-22",
-            "productos": [
+            "listaProductos": [
                 {
                     "idProducto": 3,
                     "cantidad": 1,
@@ -30,28 +33,34 @@
                     "precio": 69.99
                 }
             ],
-            "total": 199.98,
-            "estado": "enviado"
+            "precioTotal": 199.98,
+            "estado": "enviado",
+            "numFactura": 1002,
+            "subprecio": 199.98,
+            "iva": 42.00
         },
         {
             "id": 3,
             "idUsuario": 6,
             "fecha": "2025-11-23",
-            "productos": [
+            "listaProductos": [
                 {
                     "idProducto": 2,
                     "cantidad": 1,
                     "precio": 299.99
                 }
             ],
-            "total": 299.99,
-            "estado": "enviado"
+            "precioTotal": 299.99,
+            "estado": "enviado",
+            "numFactura": 1003,
+            "subprecio": 299.99,
+            "iva": 63.00
         },
         {
             "id": 4,
             "idUsuario": 9,
             "fecha": "2025-11-24",
-            "productos": [
+            "listaProductos": [
                 {
                     "idProducto": 5,
                     "cantidad": 1,
@@ -63,22 +72,28 @@
                     "precio": 139.99
                 }
             ],
-            "total": 789.98,
-            "estado": "pendiente"
+            "precioTotal": 789.98,
+            "estado": "pendiente",
+            "numFactura": 1004,
+            "subprecio": 789.98,
+            "iva": 165.90
         },
         {
             "id": 5,
             "idUsuario": 2,
             "fecha": "2025-11-25",
-            "productos": [
+            "listaProductos": [
                 {
                     "idProducto": 8,
                     "cantidad": 1,
                     "precio": 179.99
                 }
             ],
-            "total": 179.99,
-            "estado": "pendiente"
+            "precioTotal": 179.99,
+            "estado": "pendiente",
+            "numFactura": 1005,
+            "subprecio": 179.99,
+            "iva": 37.80
         }
     ]
 }

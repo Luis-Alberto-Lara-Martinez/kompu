@@ -9,10 +9,10 @@ export class PiePagina {
   year: number = new Date().getFullYear();
 
   onAppleHover(imagenApple: HTMLImageElement): void {
-    imagenApple.src = 'assets/images/apple-store-negro.png';
+    imagenApple.src = 'assets/images/icons/apple-store-negro.png';
   }
 
   onAppleLeave(imagenApple: HTMLImageElement): void {
-    imagenApple.src = 'assets/images/apple-store-blanco.png';
+    imagenApple.src = 'assets/images/icons/apple-store-blanco.png';
   }
 }

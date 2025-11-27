@@ -1,197 +1,195 @@
-{
-    "usuarios": [
-        {
-            "id": 1,
-            "nombre": "Juan Pérez",
-            "email": "juan.perez@email.com",
-            "contraseña": "Admin123!",
-            "telefono": "612345678",
-            "direccion": "Calle Mayor 123, Madrid",
-            "rol": "administrador",
-            "estado": "activado",
-            "carrito": [],
-            "listaDeseos": []
-        },
-        {
-            "id": 2,
-            "nombre": "María García",
-            "email": "maria.garcia@email.com",
-            "contraseña": "Maria2024",
-            "telefono": "623456789",
-            "direccion": "Avenida Diagonal 456, Barcelona",
-            "rol": "usuario",
-            "estado": "activado",
-            "carrito": [
-                {
-                    "idProducto": 2,
-                    "cantidad": 1
-                },
-                {
-                    "idProducto": 3,
-                    "cantidad": 2
-                }
-            ],
-            "listaDeseos": [
-                {
-                    "idProducto": 1
-                },
-                {
-                    "idProducto": 5
-                },
-                {
-                    "idProducto": 7
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "nombre": "Carlos López",
-            "email": "carlos.lopez@email.com",
-            "contraseña": "Carlos456",
-            "telefono": "634567890",
-            "direccion": "Plaza España 78, Valencia",
-            "rol": "usuario",
-            "estado": "activado",
-            "carrito": [],
-            "listaDeseos": []
-        },
-        {
-            "id": 4,
-            "nombre": "Ana Martínez",
-            "email": "ana.martinez@email.com",
-            "contraseña": "Ana789!",
-            "telefono": "645678901",
-            "direccion": "Calle Real 234, Sevilla",
-            "rol": "usuario",
-            "estado": "activado",
-            "carrito": [
-                {
-                    "idProducto": 5,
-                    "cantidad": 1
-                }
-            ],
-            "listaDeseos": [
-                {
-                    "idProducto": 2
-                },
-                {
-                    "idProducto": 6
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "nombre": "David Sánchez",
-            "email": "david.sanchez@email.com",
-            "contraseña": "Admin456!",
-            "telefono": "656789012",
-            "direccion": "Avenida Libertad 90, Bilbao",
-            "rol": "administrador",
-            "estado": "activado",
-            "carrito": [],
-            "listaDeseos": []
-        },
-        {
-            "id": 6,
-            "nombre": "Laura Fernández",
-            "email": "laura.fernandez@email.com",
-            "contraseña": "Laura2024",
-            "telefono": "667890123",
-            "direccion": "Calle Sol 12, Zaragoza",
-            "rol": "usuario",
-            "estado": "activado",
-            "carrito": [
-                {
-                    "idProducto": 2,
-                    "cantidad": 1
-                },
-                {
-                    "idProducto": 8,
-                    "cantidad": 1
-                }
-            ],
-            "listaDeseos": [
-                {
-                    "idProducto": 1
-                },
-                {
-                    "idProducto": 3
-                },
-                {
-                    "idProducto": 9
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "nombre": "Pedro Ruiz",
-            "email": "pedro.ruiz@email.com",
-            "contraseña": "Pedro123",
-            "telefono": "678901234",
-            "direccion": "Avenida Principal 45, Málaga",
-            "rol": "usuario",
-            "estado": "desactivado",
-            "carrito": [],
-            "listaDeseos": [
-                {
-                    "idProducto": 4
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "nombre": "Carmen Díaz",
-            "email": "carmen.diaz@email.com",
-            "contraseña": "Carmen987",
-            "telefono": "689012345",
-            "direccion": "Plaza Mayor 67, Murcia",
-            "rol": "usuario",
-            "estado": "activado",
-            "carrito": [],
-            "listaDeseos": []
-        },
-        {
-            "id": 9,
-            "nombre": "Miguel Torres",
-            "email": "miguel.torres@email.com",
-            "contraseña": "Miguel555",
-            "telefono": "690123456",
-            "direccion": "Calle Luna 89, Alicante",
-            "rol": "usuario",
-            "estado": "activado",
-            "carrito": [
-                {
-                    "idProducto": 4,
-                    "cantidad": 1
-                }
-            ],
-            "listaDeseos": [
-                {
-                    "idProducto": 5
-                },
-                {
-                    "idProducto": 6
-                },
-                {
-                    "idProducto": 10
-                }
-            ]
-        },
-        {
-            "id": 10,
-            "nombre": "Isabel Moreno",
-            "email": "isabel.moreno@email.com",
-            "contraseña": "Isabel321",
-            "telefono": "601234567",
-            "direccion": "Avenida Mar 34, A Coruña",
-            "rol": "usuario",
-            "estado": "activado",
-            "carrito": [],
-            "listaDeseos": [
-                {
-                    "idProducto": 8
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "nombre": "Juan Pérez",
+        "email": "juan.perez@gmail.com",
+        "contraseña": "Admin1234-",
+        "telefono": "612345678",
+        "direccion": "Calle Mayor 123, Madrid",
+        "rol": "administrador",
+        "estado": "activado",
+        "carrito": [],
+        "listaDeseos": []
+    },
+    {
+        "id": 2,
+        "nombre": "María García",
+        "email": "maria.garcia@gmail.com",
+        "contraseña": "Cliente123@",
+        "telefono": "623456789",
+        "direccion": "Avenida Diagonal 456, Barcelona",
+        "rol": "usuario",
+        "estado": "activado",
+        "carrito": [
+            {
+                "idProducto": 2,
+                "cantidad": 1
+            },
+            {
+                "idProducto": 3,
+                "cantidad": 2
+            }
+        ],
+        "listaDeseos": [
+            {
+                "idProducto": 1
+            },
+            {
+                "idProducto": 5
+            },
+            {
+                "idProducto": 7
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Carlos López",
+        "email": "carlos.lopez@email.com",
+        "contraseña": "Carlos456",
+        "telefono": "634567890",
+        "direccion": "Plaza España 78, Valencia",
+        "rol": "usuario",
+        "estado": "activado",
+        "carrito": [],
+        "listaDeseos": []
+    },
+    {
+        "id": 4,
+        "nombre": "Ana Martínez",
+        "email": "ana.martinez@email.com",
+        "contraseña": "Ana789!",
+        "telefono": "645678901",
+        "direccion": "Calle Real 234, Sevilla",
+        "rol": "usuario",
+        "estado": "activado",
+        "carrito": [
+            {
+                "idProducto": 5,
+                "cantidad": 1
+            }
+        ],
+        "listaDeseos": [
+            {
+                "idProducto": 2
+            },
+            {
+                "idProducto": 6
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "David Sánchez",
+        "email": "david.sanchez@email.com",
+        "contraseña": "Admin456!",
+        "telefono": "656789012",
+        "direccion": "Avenida Libertad 90, Bilbao",
+        "rol": "administrador",
+        "estado": "activado",
+        "carrito": [],
+        "listaDeseos": []
+    },
+    {
+        "id": 6,
+        "nombre": "Laura Fernández",
+        "email": "laura.fernandez@email.com",
+        "contraseña": "Laura2024",
+        "telefono": "667890123",
+        "direccion": "Calle Sol 12, Zaragoza",
+        "rol": "usuario",
+        "estado": "activado",
+        "carrito": [
+            {
+                "idProducto": 2,
+                "cantidad": 1
+            },
+            {
+                "idProducto": 8,
+                "cantidad": 1
+            }
+        ],
+        "listaDeseos": [
+            {
+                "idProducto": 1
+            },
+            {
+                "idProducto": 3
+            },
+            {
+                "idProducto": 9
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "Pedro Ruiz",
+        "email": "pedro.ruiz@email.com",
+        "contraseña": "Pedro123",
+        "telefono": "678901234",
+        "direccion": "Avenida Principal 45, Málaga",
+        "rol": "usuario",
+        "estado": "desactivado",
+        "carrito": [],
+        "listaDeseos": [
+            {
+                "idProducto": 4
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "Carmen Díaz",
+        "email": "carmen.diaz@email.com",
+        "contraseña": "Carmen987",
+        "telefono": "689012345",
+        "direccion": "Plaza Mayor 67, Murcia",
+        "rol": "usuario",
+        "estado": "activado",
+        "carrito": [],
+        "listaDeseos": []
+    },
+    {
+        "id": 9,
+        "nombre": "Miguel Torres",
+        "email": "miguel.torres@email.com",
+        "contraseña": "Miguel555",
+        "telefono": "690123456",
+        "direccion": "Calle Luna 89, Alicante",
+        "rol": "usuario",
+        "estado": "activado",
+        "carrito": [
+            {
+                "idProducto": 4,
+                "cantidad": 1
+            }
+        ],
+        "listaDeseos": [
+            {
+                "idProducto": 5
+            },
+            {
+                "idProducto": 6
+            },
+            {
+                "idProducto": 10
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "nombre": "Isabel Moreno",
+        "email": "isabel.moreno@email.com",
+        "contraseña": "Isabel321",
+        "telefono": "601234567",
+        "direccion": "Avenida Mar 34, A Coruña",
+        "rol": "usuario",
+        "estado": "activado",
+        "carrito": [],
+        "listaDeseos": [
+            {
+                "idProducto": 8
+            }
+        ]
+    }
+]

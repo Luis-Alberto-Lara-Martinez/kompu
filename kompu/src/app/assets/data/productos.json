@@ -1,162 +1,191 @@
-{
-    "productos": [
-        {
-            "id": 1,
-            "nombre": "Portátil ASUS TUF Gaming F15",
-            "marca": "ASUS",
-            "categoria": "Portátiles",
-            "precio": 899.99,
-            "imagen": "assets/images/portatil-asus.jpg",
-            "descripcion": "Portátil gaming Intel Core i5, 16GB RAM, 512GB SSD, RTX 3050",
-            "valoraciones": [
-                {
-                    "idUsuario": 2,
-                    "nota": 5,
-                    "comentario": "Excelente portátil, funciona perfecto para juegos"
-                },
-                {
-                    "idUsuario": 6,
-                    "nota": 4,
-                    "comentario": "Muy buena relación calidad-precio"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "nombre": "Monitor LG UltraGear 27\"",
-            "marca": "LG",
-            "categoria": "Monitores",
-            "precio": 299.99,
-            "imagen": "assets/images/monitor-lg.jpg",
-            "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
-            "valoraciones": [
-                {
-                    "idUsuario": 4,
-                    "nota": 5,
-                    "comentario": "Calidad de imagen espectacular"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "nombre": "Teclado Mecánico Logitech",
-            "marca": "Logitech",
-            "categoria": "Periféricos",
-            "precio": 129.99,
-            "imagen": "assets/images/teclado-logitech.jpg",
-            "descripcion": "Teclado mecánico RGB gaming",
-            "valoraciones": [
-                {
-                    "idUsuario": 9,
-                    "nota": 4,
-                    "comentario": "Muy bueno, las teclas son muy responsivas"
-                },
-                {
-                    "idUsuario": 2,
-                    "nota": 5,
-                    "comentario": "El mejor teclado que he tenido"
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "nombre": "Ratón Razer DeathAdder",
-            "marca": "Razer",
-            "categoria": "Periféricos",
-            "precio": 69.99,
-            "imagen": "assets/images/raton-razer.jpg",
-            "descripcion": "Ratón gaming ergonómico RGB",
-            "valoraciones": [
-                {
-                    "idUsuario": 6,
-                    "nota": 5,
-                    "comentario": "Ergonómico y preciso, ideal para gaming"
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "nombre": "Tarjeta Gráfica RTX 4070",
-            "marca": "MSI",
-            "categoria": "Componentes",
-            "precio": 649.99,
-            "imagen": "assets/images/gpu-msi.jpg",
-            "descripcion": "Tarjeta gráfica NVIDIA RTX 4070 12GB",
-            "valoraciones": [
-                {
-                    "idUsuario": 9,
-                    "nota": 5,
-                    "comentario": "Potencia increíble, corre todos los juegos en ultra"
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "nombre": "Procesador AMD Ryzen 7",
-            "marca": "AMD",
-            "categoria": "Componentes",
-            "precio": 449.99,
-            "imagen": "assets/images/cpu-amd.jpg",
-            "descripcion": "Procesador AMD Ryzen 7 8 núcleos",
-            "valoraciones": []
-        },
-        {
-            "id": 7,
-            "nombre": "Memoria RAM 32GB DDR5",
-            "marca": "Corsair",
-            "categoria": "Componentes",
-            "precio": 139.99,
-            "imagen": "assets/images/ram-corsair.jpg",
-            "descripcion": "Kit RAM 32GB DDR5 6000MHz RGB",
-            "valoraciones": [
-                {
-                    "idUsuario": 4,
-                    "nota": 4,
-                    "comentario": "Buena RAM, funciona a la perfección"
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "nombre": "SSD Samsung 2TB",
-            "marca": "Samsung",
-            "categoria": "Almacenamiento",
-            "precio": 179.99,
-            "imagen": "assets/images/ssd-samsung.jpg",
-            "descripcion": "SSD NVMe M.2 2TB alta velocidad",
-            "valoraciones": [
-                {
-                    "idUsuario": 2,
-                    "nota": 5,
-                    "comentario": "Velocidades impresionantes, muy recomendado"
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "nombre": "Auriculares HyperX Wireless",
-            "marca": "HyperX",
-            "categoria": "Periféricos",
-            "precio": 149.99,
-            "imagen": "assets/images/auriculares-hyperx.jpg",
-            "descripcion": "Auriculares gaming inalámbricos",
-            "valoraciones": []
-        },
-        {
-            "id": 10,
-            "nombre": "Webcam Logitech Full HD",
-            "marca": "Logitech",
-            "categoria": "Periféricos",
-            "precio": 129.99,
-            "imagen": "assets/images/webcam-logitech.jpg",
-            "descripcion": "Cámara web Full HD 1080p 60fps",
-            "valoraciones": [
-                {
-                    "idUsuario": 10,
-                    "nota": 4,
-                    "comentario": "Buena calidad de imagen para videoconferencias"
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "nombre": "Portátil ASUS TUF Gaming FA808UM-S8005",
+        "marca": "Asus",
+        "categoria": "Portátiles",
+        "precio": 1099.99,
+        "listaImagenes": [
+            "assets/images/portatil-asus-1.jpg",
+            "assets/images/portatil-asus-2.jpg",
+            "assets/images/portatil-asus-3.jpg"
+        ],
+        "descripcion": "Portátil gaming Intel Core i5, 16GB RAM, 512GB SSD, RTX 3050",
+        "valoraciones": [
+            {
+                "idUsuario": 2,
+                "nota": 5,
+                "comentario": "Excelente portátil, funciona perfecto para juegos"
+            },
+            {
+                "idUsuario": 6,
+                "nota": 4,
+                "comentario": "Muy buena relación calidad-precio"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Monitor LG UltraGear 27\"",
+        "marca": "LG",
+        "categoria": "Monitores",
+        "precio": 299.99,
+        "listaImagenes": [
+            "assets/images/monitor-lg-1.jpg",
+            "assets/images/monitor-lg-2.jpg"
+        ],
+        "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
+        "valoraciones": [
+            {
+                "idUsuario": 4,
+                "nota": 5,
+                "comentario": "Calidad de imagen espectacular"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Teclado Mecánico Logitech",
+        "marca": "Logitech",
+        "categoria": "Periféricos",
+        "precio": 129.99,
+        "listaImagenes": [
+            "assets/images/teclado-logitech-1.jpg",
+            "assets/images/teclado-logitech-2.jpg"
+        ],
+        "descripcion": "Teclado mecánico RGB gaming",
+        "valoraciones": [
+            {
+                "idUsuario": 9,
+                "nota": 4,
+                "comentario": "Muy bueno, las teclas son muy responsivas"
+            },
+            {
+                "idUsuario": 2,
+                "nota": 5,
+                "comentario": "El mejor teclado que he tenido"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Ratón Razer DeathAdder",
+        "marca": "Razer",
+        "categoria": "Periféricos",
+        "precio": 69.99,
+        "listaImagenes": [
+            "assets/images/raton-razer-1.jpg",
+            "assets/images/raton-razer-2.jpg"
+        ],
+        "descripcion": "Ratón gaming ergonómico RGB",
+        "valoraciones": [
+            {
+                "idUsuario": 6,
+                "nota": 5,
+                "comentario": "Ergonómico y preciso, ideal para gaming"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Tarjeta Gráfica RTX 4070",
+        "marca": "MSI",
+        "categoria": "Componentes",
+        "precio": 649.99,
+        "listaImagenes": [
+            "assets/images/rtx4070-msi-1.jpg",
+            "assets/images/rtx4070-msi-2.jpg"
+        ],
+        "descripcion": "Tarjeta gráfica NVIDIA RTX 4070 12GB",
+        "valoraciones": [
+            {
+                "idUsuario": 9,
+                "nota": 5,
+                "comentario": "Potencia increíble, corre todos los juegos en ultra"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Procesador AMD Ryzen 7",
+        "marca": "AMD",
+        "categoria": "Componentes",
+        "precio": 449.99,
+        "listaImagenes": [
+            "assets/images/ryzen7-amd-1.jpg",
+            "assets/images/ryzen7-amd-2.jpg"
+        ],
+        "descripcion": "Procesador AMD Ryzen 7 8 núcleos",
+        "valoraciones": []
+    },
+    {
+        "id": 7,
+        "nombre": "Memoria RAM 32GB DDR5",
+        "marca": "Corsair",
+        "categoria": "Componentes",
+        "precio": 139.99,
+        "listaImagenes": [
+            "assets/images/ram-corsair-1.jpg",
+            "assets/images/ram-corsair-2.jpg"
+        ],
+        "descripcion": "Kit RAM 32GB DDR5 6000MHz RGB",
+        "valoraciones": [
+            {
+                "idUsuario": 4,
+                "nota": 4,
+                "comentario": "Buena RAM, funciona a la perfección"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "SSD Samsung 2TB",
+        "marca": "Samsung",
+        "categoria": "Almacenamiento",
+        "precio": 179.99,
+        "listaImagenes": [
+            "assets/images/ssd-samsung-1.jpg",
+            "assets/images/ssd-samsung-2.jpg"
+        ],
+        "descripcion": "SSD NVMe M.2 2TB alta velocidad",
+        "valoraciones": [
+            {
+                "idUsuario": 2,
+                "nota": 5,
+                "comentario": "Velocidades impresionantes, muy recomendado"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "Auriculares HyperX Wireless",
+        "marca": "HyperX",
+        "categoria": "Periféricos",
+        "precio": 149.99,
+        "listaImagenes": [
+            "assets/images/auriculares-hyperx-1.jpg",
+            "assets/images/auriculares-hyperx-2.jpg"
+        ],
+        "descripcion": "Auriculares gaming inalámbricos",
+        "valoraciones": []
+    },
+    {
+        "id": 10,
+        "nombre": "Webcam Logitech Full HD",
+        "marca": "Logitech",
+        "categoria": "Periféricos",
+        "precio": 129.99,
+        "listaImagenes": [
+            "assets/images/webcam-logitech-1.jpg",
+            "assets/images/webcam-logitech-2.jpg"
+        ],
+        "descripcion": "Cámara web Full HD 1080p 60fps",
+        "valoraciones": [
+            {
+                "idUsuario": 10,
+                "nota": 4,
+                "comentario": "Buena calidad de imagen para videoconferencias"
+            }
+        ]
+    }
+]
