@@ -1,39 +1,31 @@
-<div class="container bg-secondary d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow-lg p-4 rounded-3 login-card animate__animated animate__fadeInDown">
-        <h2 class="text-center mb-4">Iniciar sesión</h2>
-        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" novalidate>
+<div class="d-flex vh-100">
+    <div class="flex-fill text-white d-flex flex-column justify-content-center px-5"
+        style="background: linear-gradient(135deg, #ff6a00, #ee0979);">
+        <h1 class="display-5 fw-bold">Bienvenido a Kompu</h1>
+        <p class="fs-5 mt-3">Tu tienda de informática de confianza. Encuentra lo último en tecnología y accesorios.</p>
+    </div>
 
-            <!-- Email -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" id="email" class="form-control" formControlName="email" aria-describedby="emailHelp"
-                    required>
-                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
-                    class="text-danger mt-1">
-                    Ingresa un correo válido.
-                </div>
+    <div class="flex-fill d-flex align-items-center justify-content-center bg-white">
+        <form (ngSubmit)="onLogin()" class="w-100" style="max-width: 400px;">
+            <h2 class="text-primary mb-4">INICIO DE SESIÓN</h2>
+
+            <div class="input-group mb-3 border-bottom">
+                <span class="input-group-text bg-white border-0 text-primary"><i class="fa fa-user"></i></span>
+                <input type="text" class="form-control border-0" placeholder="Usuario" [(ngModel)]="email"
+                    name="username" required />
             </div>
 
-            <!-- Password -->
-            <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" id="password" class="form-control" formControlName="password" required
-                    aria-required="true">
-                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
-                    class="text-danger mt-1">
-                    Ingresa tu contraseña.
-                </div>
+            <div class="input-group mb-3 border-bottom">
+                <span class="input-group-text bg-white border-0 text-primary"><i class="fa fa-lock"></i></span>
+                <input type="password" class="form-control border-0" placeholder="Contraseña" [(ngModel)]="clave"
+                    name="password" required />
             </div>
 
-            <!-- Submit -->
-            <button type="submit" class="btn btn-primary w-100 mt-3 animate__animated animate__pulse"
-                [disabled]="loginForm.invalid">
-                Iniciar sesión
-            </button>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <a href="#" class="text-primary text-decoration-none">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2">INGRESAR</button>
         </form>
-
-        <p class="text-center mt-3">
-            <a href="#" class="link-primary">¿Olvidaste tu contraseña?</a>
-        </p>
     </div>
 </div>
