@@ -1,7 +1,7 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { isPlatformBrowser } from '@angular/common';
 import { Usuarios } from '../../services/usuarios/usuarios';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +10,13 @@ import { Usuarios } from '../../services/usuarios/usuarios';
   styleUrl: './login.css',
 })
 export class Login {
+  cargando: boolean = false;
+  error: string = '';
+
   email: string = '';
   clave: string = '';
 
-  constructor(private servicio: Usuarios) { }
+  constructor(private servicio: Usuarios, private router: Router) { }
 
   ngOnInit() {
     this.cargarUsuarios();
@@ -30,19 +33,27 @@ export class Login {
   }
 
   onLogin() {
+    this.cargando = true;
+    setTimeout(() => {
+      this.error = '';
+    }, 1);
     this.servicio.iniciarSesion(this.email, this.clave).subscribe({
       next: token => {
-        alert("Token JWT: " + token);
+        this.cargando = false;
+        localStorage.setItem("token", token);
+        this.router.navigate(['/home']);
       },
       error: err => {
         if (err.status === 403) {
-          alert("Error: No se pudo acceder a la lista de usuarios.");
+          this.cargando = false;
+          this.error = "Error: lista de usuarios no existente. Se recargará la lista y vuelva a intentarlo.";
           this.cargarUsuarios();
           return;
         }
 
         if (err.status === 401) {
-          alert("Error: Credenciales incorrectas.");
+          this.cargando = false;
+          this.error = "Email y/o clave incorrectos";
           return;
         }
       }

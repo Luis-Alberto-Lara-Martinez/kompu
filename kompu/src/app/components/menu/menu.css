@@ -1,0 +1,12 @@
+#cerrarSesion {
+    cursor: pointer;
+}
+
+nav {
+    background-color: #5170FE;
+}
+
+a>img {
+    width: 40px;
+    height: 40px;
+}

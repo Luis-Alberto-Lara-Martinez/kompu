@@ -1,1 +1,125 @@
-<p>menu works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark px-3">
+    <div class="container-fluid">
+        <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a routerLink="/home" class="navbar-brand">
+            <img src="assets/images/icons/kompu-menu.png" alt="Logo de Kompu">
+        </a>
+
+        <form class="d-flex flex-grow-1 mx-3" (submit)="onSearch(searchInput.value)" role="search">
+            <div class="input-group rounded-pill overflow-hidden bg-white">
+                <button class="btn btn-success" type="submit" aria-label="Buscar">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+                <input #searchInput class="form-control" type="search" placeholder="Buscar productos ..."
+                    aria-label="Buscar productos">
+            </div>
+        </form>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item me-3">
+                    <a class="nav-link text-white" routerLink="/productos" routerLinkActive="active">
+                        <i class="fa-solid fa-desktop me-1" aria-hidden="true"></i>
+                        <span>Productos</span>
+                    </a>
+                </li>
+                <li class="nav-item me-3">
+                    <a class="nav-link text-white" routerLink="/carrito" routerLinkActive="active">
+                        <i class="fa-solid fa-heart me-1" aria-hidden="true"></i>
+                        <span>Favoritos</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" id="perfilDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user me-1" aria-hidden="true"></i>
+                        @if (userName=="") {
+                        <span>Perfil</span>
+                        }@else {
+                        <span>{{userName}}</span>
+                        }
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="perfilDropdown">
+                        @if (userName=="") {
+                        <li>
+                            <a class="dropdown-item" routerLink="/login">
+                                <i class="fa-solid fa-right-to-bracket me-1" aria-hidden="true"></i>
+                                <span>Iniciar sesión</span>
+                            </a>
+                        </li>
+                        }@else {
+                        <li>
+                            <a class="dropdown-item" routerLink="/login">
+                                <i class="fa-solid fa-user-gear me-1" aria-hidden="true"></i>
+                                <span>Datos personales</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="/login">
+                                <i class="fa-solid fa-book me-1" aria-hidden="true"></i>
+                                <span>Historial de pedidos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="cerrarSesion" class="dropdown-item" data-bs-toggle="modal"
+                                data-bs-target="#cierreSesionModal">
+                                <i class="fa-solid fa-right-from-bracket fa-flip-horizontal me-1"
+                                    aria-hidden="true"></i>
+                                <span>Cerrar sesión</span>
+                            </a>
+                        </li>
+                        }
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-warning" href="#" id="adminDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-shield me-1" aria-hidden="true"></i>
+                        <span>Administración</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" routerLink="/admin/usuarios">
+                                <i class="fas fa-users me-2" aria-hidden="true"></i> Gestión de Usuarios
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" routerLink="/admin/productos">
+                                <i class="fas fa-boxes me-2" aria-hidden="true"></i> Gestión de Productos
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item me-3">
+                    <a class="nav-link text-white" routerLink="/carrito" routerLinkActive="active">
+                        <i class="fas fa-shopping-cart me-1" aria-hidden="true"></i>
+                        <span>Mi cesta</span>
+                    </a>
+                </li>
+
+                <div class="modal fade" id="cierreSesionModal" tabindex="-1" role="dialog"
+                    aria-labelledby="cierreSesionModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cierreSesionModalLabel">CIERRE DE SESIÓN</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Está seguro/a de que desea cerrar sesión?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">CANCELAR</button>
+                                <button type="button" class="btn btn-danger" (click)="cerrarSesion()">CERRAR
+                                    SESIÓN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
