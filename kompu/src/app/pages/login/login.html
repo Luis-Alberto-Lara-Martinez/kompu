@@ -31,10 +31,17 @@
             }
 
             <a href="#" class="text-primary text-decoration-none">¿Olvidaste tu contraseña?</a>
+
+            <div class="text-center mt-3">
+                <p>¿No tienes una cuenta? 
+                    <a href="/registro" class="text-primary text-decoration-none">Registrate aqui</a>
+                </p>
+            </div>
+
             @if (cargando) {
             <button class="btn btn-primary w-100 py-2 mt-4" type="button" disabled>
                 <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                CARGARNDO ...
+                CARGANDO ...
             </button>
             }@else {
             <button type="submit" class="btn btn-primary w-100 py-2 mt-4">INGRESAR</button>

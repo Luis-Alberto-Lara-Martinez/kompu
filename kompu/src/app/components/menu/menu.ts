@@ -64,4 +64,32 @@ export class Menu {
       this.router.navigate(['/home']);
     }
   }
+
+  abrirCarrito(){
+    this.router.navigate(['/carrito']);
+  }
+
+  verProductos(){
+    this.router.navigate(['/productos']);
+  }
+
+  verFavoritos(){
+    this.router.navigate(['/favoritos']);
+  }
+
+  verHistorialPedidos(){
+    this.router.navigate(['/historial-pedidos']);
+  }
+
+  verDatosPersonales(){
+    this.router.navigate(['/datos-personales']);
+  }
+
+  gestionarUsuarios(){
+    this.router.navigate(['/gestion-usuarios']);
+  }
+
+  gestionarProductos(){
+    this.router.navigate(['/gestion-productos']);
+  }
 }
