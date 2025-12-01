@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Usuarios } from '../../services/usuarios/usuarios';
 import { Router } from '@angular/router';
 import emailjs from '@emailjs/browser';
+import { UsuariosService } from '../../services/usuarios/usuarios-service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class Login {
   email: string = "";
   clave: string = "";
 
-  constructor(private servicio: Usuarios, private router: Router) { }
+  constructor(private servicio: UsuariosService, private router: Router) { }
 
   ngOnInit() {
     this.cargarUsuarios();

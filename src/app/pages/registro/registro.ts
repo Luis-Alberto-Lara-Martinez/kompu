@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Usuarios } from '../../services/usuarios/usuarios';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Usuario } from '../../models/usuario';
+import { UsuariosService } from '../../services/usuarios/usuarios-service';
 
 @Component({
   selector: 'app-registro',
@@ -26,12 +26,12 @@ export class Registro {
   telefono: string = '';
   direccion: string = '';
 
-  constructor(private servicio: Usuarios, private router: Router) { }
+  constructor(private servicio: UsuariosService, private router: Router) { }
 
   // Método principal de REGISTRO
   onRegister() {
     console.log('1. INICIANDO REGISTRO...');
-    
+
     // Resetear mensajes
     this.error = '';
     this.mensajeExito = '';
@@ -72,13 +72,13 @@ export class Registro {
   // METODO SINCRONO
   private registrarUsuario(usuarioData: any): any {
     console.log('REGISTRO: Iniciando...');
-    
+
     // 1. Obtener lista actual de usuarios del localStorage
     const listaUsuariosRaw = localStorage.getItem("listaUsuarios");
     console.log('localStorage actual:', listaUsuariosRaw);
-    
+
     let listaUsuarios: Usuario[] = [];
-    
+
     if (listaUsuariosRaw) {
       listaUsuarios = JSON.parse(listaUsuariosRaw);
     }
@@ -86,15 +86,15 @@ export class Registro {
     console.log('Usuarios existentes:', listaUsuarios.length);
 
     // 2. Verificar si el email ya existe
-    const usuarioExistente = listaUsuarios.find(u => 
+    const usuarioExistente = listaUsuarios.find(u =>
       u.email.toLowerCase() === usuarioData.email.toLowerCase()
     );
 
     if (usuarioExistente) {
       console.log('EMAIL YA EXISTE:', usuarioExistente.email);
-      throw new HttpErrorResponse({ 
-        status: 409, 
-        statusText: 'El email ya esta registrado' 
+      throw new HttpErrorResponse({
+        status: 409,
+        statusText: 'El email ya esta registrado'
       });
     }
 
@@ -120,44 +120,44 @@ export class Registro {
 
     // 5. Guardar en localStorage
     localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
-    
+
     console.log('GUARDADO EN localStorage exitosamente');
 
     // 6. Retornar exito
-    return { 
-      success: true, 
+    return {
+      success: true,
       message: 'Usuario registrado exitosamente',
-      usuario: nuevoUsuario 
+      usuario: nuevoUsuario
     };
   }
 
   // Metodo auxiliar para generar nuevo ID
   private generarNuevoId(usuarios: Usuario[]): number {
-  if (usuarios.length === 0) {
-    return 1;
-  }
-  
-  // Filtrar solo IDs numéricos válidos
-  const idsValidos: number[] = [];
-  
-  for (let i = 0; i < usuarios.length; i++) {
-    const id = usuarios[i].id;
-    // Verificar que sea número, no sea NaN y sea mayor que 0
-    if (typeof id === 'number' && !isNaN(id) && id > 0) {
-      idsValidos.push(id);
+    if (usuarios.length === 0) {
+      return 1;
     }
+
+    // Filtrar solo IDs numéricos válidos
+    const idsValidos: number[] = [];
+
+    for (let i = 0; i < usuarios.length; i++) {
+      const id = usuarios[i].id;
+      // Verificar que sea número, no sea NaN y sea mayor que 0
+      if (typeof id === 'number' && !isNaN(id) && id > 0) {
+        idsValidos.push(id);
+      }
+    }
+
+    if (idsValidos.length === 0) {
+      return 1;
+    }
+
+    const maxId = Math.max.apply(Math, idsValidos);
+    const nuevoId = maxId + 1;
+
+    console.log('Generando nuevo ID:', nuevoId);
+    return nuevoId;
   }
-  
-  if (idsValidos.length === 0) {
-    return 1;
-  }
-  
-  const maxId = Math.max.apply(Math, idsValidos);
-  const nuevoId = maxId + 1;
-  
-  console.log('Generando nuevo ID:', nuevoId);
-  return nuevoId;
-}
 
   // Metodo para validar campos
   private validarCampos(): boolean {
@@ -191,10 +191,10 @@ export class Registro {
   // Manejar registro exitoso
   private manejarRegistroExitoso(response: any) {
     this.mensajeExito = 'Usuario registrado exitosamente!';
-    
+
     // Limpiar formulario
     this.limpiarFormulario();
-    
+
     // Redirigir al login después de 2 segundos
     setTimeout(() => {
       this.router.navigate(['/login']);

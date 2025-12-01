@@ -3,7 +3,7 @@ import { Menu } from "../../components/menu/menu";
 import { PiePagina } from "../../components/pie-pagina/pie-pagina";
 import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
 import { Producto } from '../../models/producto';
-import { Productos } from '../../services/productos/productos';
+import { ProductosService } from '../../services/productos/productos-service';
 @Component({
   selector: 'app-home',
   imports: [Menu, PiePagina, ScrollToTop],
@@ -14,7 +14,7 @@ export class Home {
   ultimosProductos: Producto[] = [];
   productos: Producto[] = [];
 
-  constructor(private servicio: Productos) { }
+  constructor(private servicio: ProductosService) { }
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;

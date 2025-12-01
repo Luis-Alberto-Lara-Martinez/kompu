@@ -4,7 +4,7 @@ import { Menu } from "../../components/menu/menu";
 import { PiePagina } from "../../components/pie-pagina/pie-pagina";
 import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
 import { CommonModule } from '@angular/common';
-import { Usuarios } from '../../services/usuarios/usuarios';
+import { UsuariosService } from '../../services/usuarios/usuarios-service';
 
 interface Usuario {
     nombre: string;
@@ -23,7 +23,7 @@ interface Usuario {
 export class DatosPersonales implements OnInit {
     usuario: Usuario | null = null;
 
-    constructor(private router: Router, private usuariosService: Usuarios) { }
+    constructor(private router: Router, private usuariosService: UsuariosService) { }
 
     ngOnInit() {
         if (typeof window != "undefined") {

@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
 import { Producto } from '../../models/producto';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Productos {
+export class ProductosService {
   private urlApi = "assets/data/productos.json";
 
   constructor(private http: HttpClient) { }

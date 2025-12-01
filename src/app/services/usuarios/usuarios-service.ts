@@ -6,7 +6,7 @@ import { map, Observable, of, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class Usuarios {
+export class UsuariosService {
   private claveSecreta = "luissamuelalejandrokompu";
   private urlApi = "assets/data/usuarios.json";
 
