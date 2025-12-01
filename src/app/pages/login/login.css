@@ -15,3 +15,7 @@ video {
     min-width: 400px;
     width: 80%;
 }
+
+a{
+    cursor: pointer;
+}

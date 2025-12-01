@@ -1,7 +1,8 @@
-import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Usuarios } from '../../services/usuarios/usuarios';
 import { Router } from '@angular/router';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,11 @@ import { Router } from '@angular/router';
 })
 export class Login {
   cargando: boolean = false;
-  error: string = '';
+  error: string = "";
+  usuarioRecuperaClave: string = "";
 
-  email: string = '';
-  clave: string = '';
+  email: string = "";
+  clave: string = "";
 
   constructor(private servicio: Usuarios, private router: Router) { }
 
@@ -34,9 +36,7 @@ export class Login {
 
   onLogin() {
     this.cargando = true;
-    setTimeout(() => {
-      this.error = '';
-    }, 1);
+    this.usuarioRecuperaClave = "";
     this.servicio.iniciarSesion(this.email, this.clave).subscribe({
       next: token => {
         this.cargando = false;
@@ -58,5 +58,29 @@ export class Login {
         }
       }
     });
+  }
+
+  recuperarClave() {
+    let cifradoRecuperacionClave = btoa("");
+    this.usuarioRecuperaClave = "";
+    // const templateParams = {
+    //   email: "luisalbertolaramartinez3c@gmail.com",
+    //   nombre: "Luis Alberto",
+    //   linkWeb: "https://kompu.vercel.app",
+    //   urlLogo: "https://kompu.vercel.app/assets/images/icons/kompu.png"
+    // };
+
+    // emailjs.send(
+    //   'servicio_correo_kompu',    // tu service_id
+    //   'plantilla_bienvenida',   // tu template_id
+    //   templateParams,
+    //   'UXLui2Yw1nIYtD-OL'        // clave pública
+    // )
+    //   .then((response) => {
+    //     this.usuarioRecuperaClave = "Correo enviado exitosamente";
+    //   })
+    //   .catch((err) => {
+    //     this.usuarioRecuperaClave = "Error al enviar el correo";
+    //   });
   }
 }

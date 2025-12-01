@@ -30,10 +30,20 @@
             <div class="alert alert-danger" role="alert">{{error}}</div>
             }
 
-            <a href="#" class="text-primary text-decoration-none">¿Olvidaste tu contraseña?</a>
+            <a (click)="recuperarClave()" class="text-primary text-decoration-none">
+                ¿Olvidaste tu contraseña?
+            </a>
+
+
+            @if (usuarioRecuperaClave=="Correo enviado exitosamente") {
+            <div class="alert alert-success mt-3" role="alert">{{usuarioRecuperaClave}}</div>
+            }
+            @if (usuarioRecuperaClave=="Error al enviar el correo") {
+            <div class="alert alert-danger mt-3" role="alert">{{usuarioRecuperaClave}}</div>
+            }
 
             <div class="mt-3">
-                <p>¿No tienes una cuenta? 
+                <p>¿No tienes una cuenta?
                     <a href="/registro" class="text-primary text-decoration-none">Registrate aqui</a>
                 </p>
             </div>
