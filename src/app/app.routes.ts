@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { RenderMode } from '@angular/ssr';
 
 export const routes: Routes = [
     {
@@ -7,7 +8,8 @@ export const routes: Routes = [
     },
     {
         path: 'productos/:id',
-        loadComponent: () => import('./pages/detalles-producto/detalles-producto').then(m => m.DetallesProducto)
+        loadComponent: () => import('./pages/detalles-producto/detalles-producto').then(m => m.DetallesProducto),
+        data: { RenderMode: "server" }
     },
     {
         path: 'login',
