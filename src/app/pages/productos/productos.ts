@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { Menu } from "../../components/menu/menu";
 import { PiePagina } from "../../components/pie-pagina/pie-pagina";
 import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Producto } from '../../models/producto';
 import { ProductosService } from '../../services/productos/productos-service';
 import { FormsModule } from '@angular/forms';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-productos',
-  imports: [Menu, PiePagina, ScrollToTop, FormsModule],
+  imports: [Menu, PiePagina, ScrollToTop, FormsModule, RouterLink],
   templateUrl: './productos.html',
   styleUrl: './productos.css',
 })
@@ -33,13 +34,9 @@ export class Productos {
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;
-
     const cache = localStorage.getItem('listaProductos');
     if (cache) {
-      this.productos = JSON.parse(cache).map((p: any) => ({
-        ...p,
-        fechaLanzamiento: new Date(p.fechaLanzamiento)
-      }));
+      this.productos = JSON.parse(cache);
       this.inicializarFiltros();
     } else {
       this.productosService.obtenerProductos().subscribe({
@@ -116,29 +113,66 @@ export class Productos {
     }
   }
 
-  añadirFavorito(producto: Producto) {
-    // Verificar si hay usuario autenticado
-    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual') || '{}');
+  anadirFavorito(producto: Producto): void {
 
-    if (!usuarioActual.id) {
-      alert('Debes iniciar sesión para añadir favoritos');
-      this.router.navigate(['/login']);
+    // 1. Obtener el token del usuario logueado
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert('Debe iniciar sesión para añadir favoritos.');
       return;
     }
 
-    // Obtener lista de favoritos del usuario
-    const favoritos = JSON.parse(localStorage.getItem(`favoritos_${usuarioActual.id}`) || '[]');
+    // 2. Extraer el id del usuario desde el token
+    const payload = JSON.parse(atob(token.split(".")[1]));
 
-    // Verificar si el producto ya está en favoritos
-    if (favoritos.some((p: Producto) => p.id === producto.id)) {
-      alert('Este producto ya está en tus favoritos');
+    // 3. Cargar la lista de usuarios
+    const listaUsuarios: Usuario[] = JSON.parse(localStorage.getItem("listaUsuarios") || '[]');
+
+    // 4. Buscar el usuario actual
+    const usuario = listaUsuarios.find(u => u.id == payload.id);
+    if (!usuario) {
+      alert('Usuario no encontrado.');
       return;
     }
 
-    // Añadir el producto a favoritos
-    favoritos.push(producto);
-    localStorage.setItem(`favoritos_${usuarioActual.id}`, JSON.stringify(favoritos));
+    // 5. Verificar si ya está en favoritos
+    if (usuario.listaDeseos.includes(producto.id)) {
+      alert('Este producto ya está en tus favoritos.');
+      return;
+    }
 
-    alert('Producto añadido a favoritos');
+    // 6. Añadir el producto
+    usuario.listaDeseos.push(producto.id);
+
+    // 7. Guardar cambios
+    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
+    alert('Añadido a favoritos.');
+  }
+
+  anadirCarrito(producto: Producto): void {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert('Debe iniciar sesión para añadir al carrito.');
+      return;
+    }
+
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    const listaUsuarios: Usuario[] = JSON.parse(localStorage.getItem("listaUsuarios") || '[]');
+    const usuario = listaUsuarios.find(u => u.id == payload.id);
+
+    if (!usuario) {
+      alert('Usuario no encontrado.');
+      return;
+    }
+
+    if (usuario.carrito[producto.id]) {
+      alert("El producto ya está en el carrito.");
+      return
+    }
+    
+    usuario.carrito[producto.id] // Añadir con cantidad 1
+    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
+    alert('Producto añadido al carrito.');
+
   }
 }

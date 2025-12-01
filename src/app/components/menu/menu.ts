@@ -32,7 +32,7 @@ export class Menu {
       this.router.navigate(['/productos']);
     } else {
       this.router.navigate(['/productos'], {
-        queryParams: { buscar: term }
+        queryParams: { terminoABuscar: term }
       });
     }
   }

@@ -6,6 +6,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/home/home').then(m => m.Home)
     },
     {
+        path: 'productos/:id',
+        loadComponent: () => import('./pages/detalles-producto/detalles-producto').then(m => m.DetallesProducto)
+    },
+    {
         path: 'login',
         loadComponent: () => import('./pages/login/login').then(m => m.Login)
     },
@@ -42,13 +46,17 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/gestion-productos/gestion-productos').then(m => m.GestionProductos)
     },
     {
+        path: 'restablecimiento',
+        loadComponent: () => import('./pages/restablecimiento/restablecimiento').then(m => m.Restablecimiento)
+    },
+    {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {
         path: '**',
-        redirectTo: 'home',
+        redirectTo: 'login',
         pathMatch: 'full'
     }
 ];

@@ -1,0 +1,61 @@
+<app-menu></app-menu>
+<app-scroll-to-top></app-scroll-to-top>
+
+<main class="container py-4" role="main">
+    @if (producto) {
+    <nav class="mb-3" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a routerLink="/productos">Productos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ producto.nombre }}</li>
+        </ol>
+    </nav>
+
+    <div class="row g-4">
+        <!-- Imagenes de cada producto -->
+        <div class="col-12 col-lg-6">
+            <div class="card">
+                <div class="ratio ratio-4x3 bg-light">
+                    <img [src]="producto.listaImagenes[imagenActivaIndex]" class="w-100 h-100"
+                        style="object-fit: cover;" [alt]="producto.nombre">
+                </div>
+                <div class="d-flex flex-wrap gap-2 p-3 border-top">
+
+                    <!--Recorrer la lista de imagenes de cada produco-->
+                    @for (img of producto.listaImagenes; track $index; let i = $index) {
+                    <button type="button" class="btn p-0 border-0" (click)="imagenActivaIndex = i">
+                        <img [src]="img" [alt]="producto.nombre + ' miniatura ' + (i + 1)" class="rounded" width="72"
+                            height="72" style="object-fit: cover;" [class.border]="true"
+                            [class.border-primary]="imagenActivaIndex === i" />
+                    </button>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Detalle -->
+        <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+            <div>
+                <h1 class="h4 mb-1">{{ producto.nombre }}</h1>
+                <div class="text-body-secondary small">
+                    <h3>Descripcion:</h3>
+                    <span class="me-2">Marca: <strong>{{ producto.marca }}</strong></span>
+                    <p></p>
+                    <span>Categoria: <strong>{{ producto.categoria }}</strong></span>
+                </div>
+            </div>
+
+            <div class="display-6 fw-semibold">{{ producto.precio }}€</div>
+
+            <p class="mb-0">{{ producto.descripcion }}</p>
+
+
+            <div class="mt-3">
+                <a routerLink="/productos" class="btn btn-link px-0">← Volver a productos</a>
+            </div>
+        </div>
+    </div>
+    }
+</main>
+<!-- Valoraciones -->
+<app-pie-pagina></app-pie-pagina>

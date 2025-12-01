@@ -1,68 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Menu } from "../../components/menu/menu";
 import { PiePagina } from "../../components/pie-pagina/pie-pagina";
 import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
 import { Router } from '@angular/router';
+import { Producto } from '../../models/producto';
+import { Usuario } from '../../models/usuario';
+import { PaypalButton } from "../../components/paypal-button/paypal-button";
 
 @Component({
   selector: 'app-carrito',
-  imports: [Menu, PiePagina, ScrollToTop],
+  imports: [Menu, PiePagina, ScrollToTop, CommonModule, PaypalButton],
   templateUrl: './carrito.html',
   styleUrl: './carrito.css',
 })
-export class Carrito {
-  carro: Carrito[] = [];
-  usuarioLogueado: boolean = false;
+export class Carrito implements OnInit {
+  carrito: Producto[] = [];
 
   constructor(private router: Router) { }
-   
-   ngOnInit(): void {
-    this.cargarCarrito();
-   }
 
-   cargarCarrito(): void {
-    try {
-      // 1. Verificar si hay token (usuario logueado)
-      const token = localStorage.getItem('token');
-      
-      if (!token) {
-        console.log('No hay usuario logueado');
-        this.usuarioLogueado = false;
-        return;
-      }
-      
-      this.usuarioLogueado = true;
-      
-      // 2. Obtener el ID del usuario del token
-      const tokenParts = token.split('.');
-      if (tokenParts.length !== 3) {
-        console.error('Token inválido');
-        return;
-      }
-      
-      const payload = JSON.parse(atob(tokenParts[1]));
-      const usuarioId = payload.id;
-      
-      if (!usuarioId) {
-        console.error('Token no contiene ID de usuario');
-        return;
-      }
-      
-      // 3. Buscar el carrito del usuario en localStorage
-      const carritoKey = `carrito_${usuarioId}`;
-      const carritoStr = localStorage.getItem(carritoKey);
-      
-      if (carritoStr) {
-        this.carro = JSON.parse(carritoStr);
-        console.log('Carrito cargado:', this.carro);
-      } else {
-        this.carro = [];
-        console.log('El usuario no tiene productos en el carrito');
-      }
-      
-    } catch (error) {
-      console.error('Error al cargar el carrito:', error);
-      this.carro = [];
-    }
+  ngOnInit(): void {
+    if (typeof window === 'undefined') return;
+    const tokenString = localStorage.getItem("token");
+    if (!tokenString) return;
+    const payload = JSON.parse(atob(tokenString.split(".")[1]));
+    if (!payload) return;
+    const listaUsuariosString = localStorage.getItem("listaUsuarios");
+    if (!listaUsuariosString) return;
+    const listaUsuarios: Usuario[] = JSON.parse(listaUsuariosString);
+    const usuario = listaUsuarios.find(u => u.id == payload.id)
+    if (!usuario) return;
+    const listaProductosString = localStorage.getItem("listaProductos");
+    if (!listaProductosString) return;
+    const listaProductos: Producto[] = JSON.parse(listaProductosString);
+    usuario.carrito.forEach(productoEnCarrito => {
+      const producto = listaProductos.find(p => p.id == productoEnCarrito.idProducto)
+      if (!producto) return;
+      this.carrito.push(producto);
+    })
+  }
+
+  eliminarDelCarrito(idProducto: number): void {
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual') || '{}');
+    // this.favoritos = this.favoritos.filter(p => p.id !== idProducto);
+    // localStorage.setItem(`favoritos_${usuarioActual.id}`, JSON.stringify(this.favoritos));
   }
 }

@@ -22,20 +22,23 @@ export class UsuariosService {
     );
   }
 
-  iniciarSesion(email: string, clave: string): Observable<string> {
-    const listaUsuariosRaw = localStorage.getItem("listaUsuarios");
-    if (!listaUsuariosRaw) {
-      return throwError(() => new HttpErrorResponse({ status: 403 }));
-    }
+  crearTokenRestablecerClave(email: string): string {
+    let header = btoa(JSON.stringify({
+      alg: "HS256",
+      typ: "JWT"
+    }));
 
-    const listaUsuarios: Usuario[] = JSON.parse(listaUsuariosRaw);
+    let payload = btoa(JSON.stringify({
+      email: email,
+      exp: Math.floor(Date.now() / 1000) + (5 * 3600)
+    }));
 
-    const usuario = listaUsuarios.find(u => u.email.toLowerCase() === email.toLowerCase() && u.clave === btoa(clave));
+    let firma = btoa(this.claveSecreta);
 
-    if (!usuario) {
-      return throwError(() => new HttpErrorResponse({ status: 401 }));
-    }
+    return `${header}.${payload}.${firma}`;
+  }
 
+  crearToken(usuario: Usuario): string {
     let header = btoa(JSON.stringify({
       alg: "HS256",
       typ: "JWT"
@@ -50,6 +53,6 @@ export class UsuariosService {
 
     let firma = btoa(this.claveSecreta);
 
-    return of(`${header}.${payload}.${firma}`);
+    return `${header}.${payload}.${firma}`;
   }
 }

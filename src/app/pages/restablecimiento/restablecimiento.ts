@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import emailjs from '@emailjs/browser';
 import { UsuariosService } from '../../services/usuarios/usuarios-service';
+import { Router } from '@angular/router';
 import { Usuario } from '../../models/usuario';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-restablecimiento',
   imports: [FormsModule],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  templateUrl: './restablecimiento.html',
+  styleUrl: './restablecimiento.css',
 })
-export class Login {
+export class Restablecimiento {
   cargando: boolean = false;
   error: string = "";
 
@@ -24,6 +24,7 @@ export class Login {
   constructor(private servicio: UsuariosService, private router: Router) { }
 
   ngOnInit() {
+
     if (typeof window == "undefined") return;
     let tokenString = localStorage.getItem("token");
     if (tokenString) {
@@ -67,8 +68,6 @@ export class Login {
 
   cambiarEstado() {
     this.restablecer = !this.restablecer;
-    this.error = "";
-    this.estadoRestablecerClave = "";
   }
 
   recuperarClave() {
@@ -79,15 +78,15 @@ export class Login {
       urlLogo: "https://kompu.vercel.app/assets/images/icons/kompu.png",
       urlLink: "https://kompu.vercel.app/tokenR?=" + tokenRestablecimiento
     };
-    emailjs.send(
-      'servicio_correo_kompu',
-      'plantilla_resetear_clave',
-      templateParams,
-      'UXLui2Yw1nIYtD-OL'
-    ).then(() => {
-      this.estadoRestablecerClave = "Correo enviado exitosamente";
-    }).catch(() => {
-      this.estadoRestablecerClave = "Error al enviar el correo";
-    });
+    // emailjs.send(
+    //   'servicio_correo_kompu',
+    //   'plantilla_resetear_clave',
+    //   templateParams,
+    //   'UXLui2Yw1nIYtD-OL'
+    // ).then(() => {
+    //   this.estadoRestablecerClave = "Correo enviado exitosamente";
+    // }).catch(() => {
+    //   this.estadoRestablecerClave = "Error al enviar el correo";
+    // });
   }
 }
