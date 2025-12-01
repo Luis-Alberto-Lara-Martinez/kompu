@@ -7,11 +7,11 @@ import { CommonModule } from '@angular/common';
 import { Usuarios } from '../../services/usuarios/usuarios';
 
 interface Usuario {
-  nombre: string;
-  correo: string;
-  clave: string;
-  telefono: string;
-  direccion: string;
+    nombre: string;
+    correo: string;
+    clave: string;
+    telefono: string;
+    direccion: string;
 }
 
 @Component({
@@ -23,16 +23,18 @@ interface Usuario {
 export class DatosPersonales implements OnInit {
     usuario: Usuario | null = null;
 
-    constructor(private router: Router, private usuariosService: Usuarios) {}
+    constructor(private router: Router, private usuariosService: Usuarios) { }
 
     ngOnInit() {
-        this.obtenerDatosUsuario();
+        if (typeof window != "undefined") {
+            this.obtenerDatosUsuario();
+        }
     }
 
     obtenerDatosUsuario(): void {
         try {
             const usuarioGuardado = localStorage.getItem('usuarioActual');
-            
+
             if (usuarioGuardado) {
                 this.usuario = JSON.parse(usuarioGuardado);
                 console.log('Datos del usuario:', this.usuario);
