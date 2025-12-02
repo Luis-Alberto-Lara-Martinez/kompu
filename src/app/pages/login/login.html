@@ -11,7 +11,7 @@
     </div>
 
     @if (restablecer) {
-    <div id="divFormulario" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
+    <div id="bienvenido" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
         <form id="formulario" (ngSubmit)="recuperarClave()" class="bg-white p-5 rounded shadow w-100">
             <h2 class="text-primary mb-4">RECUPERAR CONTRASEÑA</h2>
 
@@ -43,7 +43,7 @@
         </form>
     </div>
     }@else {
-    <div id="divFormulario" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
+    <div id="bienvenido" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
         <form id="formulario" (ngSubmit)="onLogin()" class="bg-white p-5 rounded shadow">
             <h2 class=" text-primary mb-4">INICIO DE SESIÓN</h2>
 
@@ -71,7 +71,7 @@
 
             <div class="mt-3">
                 <p>¿No tienes una cuenta?
-                    <a href="/registro" class="text-primary text-decoration-none">Registrate aqui</a>
+                    <a routerLink="/registro" class="text-primary text-decoration-none">Regístrate aquí</a>
                 </p>
             </div>
 

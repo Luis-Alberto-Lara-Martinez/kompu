@@ -1,0 +1,17 @@
+video {
+    object-fit: cover;
+    z-index: -1;
+}
+
+#bienvenido {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#formulario {
+    min-width: 400px;
+    width: 80%;
+}
+
+a {
+    cursor: pointer;
+}

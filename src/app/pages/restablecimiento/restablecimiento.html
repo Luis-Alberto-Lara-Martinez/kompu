@@ -10,25 +10,30 @@
         <p class="fs-4 mt-3">Tu tienda de informática de confianza. Encuentra lo último en tecnología y accesorios.</p>
     </div>
 
-    @if (restablecer) {
-    <div id="divFormulario" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
-        <form id="formulario" (ngSubmit)="recuperarClave()" class="bg-white p-5 rounded shadow w-100">
+    <div id="bienvenido" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
+        <form id="formulario" (ngSubmit)="crearNuevaClave()" class="bg-white p-5 rounded shadow w-100">
             <h2 class="text-primary mb-4">RECUPERAR CONTRASEÑA</h2>
 
+            <!-- Input para la nueva contraseña -->
             <div class="input-group mb-4 border-bottom">
                 <span class="input-group-text bg-white border-0 text-primary">
-                    <i class="fa-solid fa-envelope"></i>
+                    <i class="fa-solid fa-lock"></i>
                 </span>
-                <input type="email" class="form-control border-0" placeholder="Email" [(ngModel)]="email" name="email"
-                    required />
+                <input type="password" class="form-control border-0" placeholder="Nueva contraseña"
+                    [(ngModel)]="nuevaClave" name="nuevaClave" required />
+            </div>
+
+            <!-- Input para confirmar la nueva contraseña -->
+            <div class="input-group mb-4 border-bottom">
+                <span class="input-group-text bg-white border-0 text-primary">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+                <input type="password" class="form-control border-0" placeholder="Confirmar nueva contraseña"
+                    [(ngModel)]="confirmarNuevaClave" name="confirmarNuevaClave" required />
             </div>
 
             @if (error!="") {
             <div class="alert alert-danger" role="alert"> {{ error }} </div>
-            }
-
-            @if (estadoRestablecerClave!="") {
-            <div class="alert alert-success" role="alert"> {{ estadoRestablecerClave }} </div>
             }
 
             <button type="submit" class="btn btn-primary w-100 py-2 mt-4" [disabled]="cargando">
@@ -37,53 +42,6 @@
                 }
                 {{ cargando ? 'ENVIANDO...' : 'ENVIAR' }}
             </button>
-            <button type="button" class="btn btn-outline-secondary w-100 py-2 mt-3" (click)="cambiarEstado()">
-                VOLVER
-            </button>
         </form>
     </div>
-    }@else {
-    <div id="divFormulario" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
-        <form id="formulario" (ngSubmit)="onLogin()" class="bg-white p-5 rounded shadow">
-            <h2 class=" text-primary mb-4">INICIO DE SESIÓN</h2>
-
-            <div class="input-group mb-4 border-bottom">
-                <span class="input-group-text bg-white border-0 text-primary">
-                    <i class="fa-solid fa-envelope"></i>
-                </span>
-                <input type="text" class="form-control border-0" placeholder="Email" [(ngModel)]="email" name="username"
-                    required />
-            </div>
-
-            <div class="input-group mb-4 border-bottom">
-                <span class="input-group-text bg-white border-0 text-primary"><i class="fa fa-lock"></i></span>
-                <input type="password" class="form-control border-0" placeholder="Contraseña" [(ngModel)]="clave"
-                    name="password" required />
-            </div>
-
-            @if (error!="") {
-            <div class="alert alert-danger" role="alert">{{error}}</div>
-            }
-
-            <a (click)="cambiarEstado()" class="text-primary text-decoration-none">
-                ¿Olvidaste tu contraseña?
-            </a>
-
-            <div class="mt-3">
-                <p>¿No tienes una cuenta?
-                    <a href="/registro" class="text-primary text-decoration-none">Registrate aqui</a>
-                </p>
-            </div>
-
-            @if (cargando) {
-            <button class="btn btn-primary w-100 py-2 mt-4" type="button" disabled>
-                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                CARGANDO ...
-            </button>
-            }@else {
-            <button type="submit" class="btn btn-primary w-100 py-2 mt-4">INGRESAR</button>
-            }
-        </form>
-    </div>
-    }
 </div>
