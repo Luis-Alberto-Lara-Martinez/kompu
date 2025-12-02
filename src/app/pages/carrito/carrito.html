@@ -30,7 +30,7 @@
     <p>No tienes productos en tu carrito</p>
   </div> -->
   <p class="form-control-static">SUBPRECIO: {{(precioTotal*0.79).toFixed(2)}}</p>
-  <p class="form-control-static">PRECIO CON IVA: {{precioTotal}}</p>
+  <p class="form-control-static">PRECIO CON IVA: {{(precioTotal).toFixed(2)}}</p>
 </div>
 <!-- <p>TOTAL</p> -->
 <app-paypal-button [totalCompra]="precioTotal"></app-paypal-button>
