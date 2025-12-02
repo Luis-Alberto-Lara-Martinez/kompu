@@ -1,6 +1,13 @@
 <app-menu></app-menu>
 <app-scroll-to-top></app-scroll-to-top>
 
+<!-- Mensaje emergente -->
+@if (mensajeEmergente) {
+<div class="mensaje-emergente">
+  {{ mensajeEmergente }}
+</div>
+}
+
 <main class="container-fluid py-4" role="main">
   <div class="row">
     <!-- Sidebar de Filtros -->
@@ -62,6 +69,18 @@
     <section class="col-lg-9 col-md-8">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="h3 fw-semibold mb-0">Productos</h1>
+        <!-- Buscador de productos -->
+        <div class="input-group" style="max-width: 400px;">
+          <input type="text" class="form-control" placeholder="Buscar productos..." [(ngModel)]="buscador"
+            (input)="aplicarFiltros()" aria-label="Buscar productos">
+          @if (buscador) {
+          <button class="btn btn-outline-secondary" type="button" (click)="limpiarBuscador()"
+            aria-label="Limpiar búsqueda">
+            ✕
+          </button>
+          }
+        </div>
+        <!-- Ordenar -->
         <div class="d-flex align-items-center gap-3">
           <select class="form-select form-select-sm" style="width: auto;" [(ngModel)]="ordenSeleccionado"
             (change)="aplicarFiltros()">
@@ -77,6 +96,7 @@
       <div class="row g-3" aria-live="polite">
         @for (p of productosFiltrados; track p.id) {
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <!--Animacion-->
           <article class="card h-100" tabindex="0">
             <div class="ratio ratio-4x3 bg-light border-bottom">
               <a [routerLink]="['/productos', p.id]" class="d-block w-100 h-100">

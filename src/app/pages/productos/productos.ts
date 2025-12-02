@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Menu } from "../../components/menu/menu";
 import { PiePagina } from "../../components/pie-pagina/pie-pagina";
 import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Producto } from '../../models/producto';
 import { ProductosService } from '../../services/productos/productos-service';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +23,9 @@ export class Productos {
   mostrarFiltros: boolean = false;
   ordenSeleccionado: string = '';
 
+  buscador: string = '';
+  mensajeEmergente: string = '';
+
   filtros = {
     categoria: '',
     marca: '',
@@ -30,9 +33,17 @@ export class Productos {
     precioMax: 0
   };
 
-  constructor(private router: Router, private productosService: ProductosService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private productosService: ProductosService) { }
 
   ngOnInit(): void {
+    // Escuchar cambios en queryParams para el buscador
+    this.route.queryParams.subscribe(params => {
+      this.buscador = params['terminoABuscar'] || '';
+      this.cargarProductos();
+    });
+  }
+
+  private cargarProductos(): void {
     if (typeof window === 'undefined') return;
     const cache = localStorage.getItem('listaProductos');
     if (cache) {
@@ -66,7 +77,13 @@ export class Productos {
       const cumpleCategoria = !this.filtros.categoria || p.categoria === this.filtros.categoria;
       const cumpleMarca = !this.filtros.marca || p.marca === this.filtros.marca;
       const cumplePrecio = p.precio >= this.filtros.precioMin && p.precio <= this.filtros.precioMax;
-      return cumpleCategoria && cumpleMarca && cumplePrecio;
+
+      // Búsqueda por término en nombre o descripción
+      const cumpleBuscador = !this.buscador ||
+        p.nombre.toLowerCase().includes(this.buscador.toLowerCase()) ||
+        p.descripcion?.toLowerCase().includes(this.buscador.toLowerCase());
+
+      return cumpleCategoria && cumpleMarca && cumplePrecio && cumpleBuscador;
     });
 
     this.ordenarProductos();
@@ -89,11 +106,25 @@ export class Productos {
       precioMin: 0,
       precioMax: this.precioMaximoProductos
     };
+    this.buscador = '';
+    this.router.navigate(['/productos']);
+    this.aplicarFiltros();
+  }
+
+  limpiarBuscador(): void {
+    this.buscador = '';
     this.aplicarFiltros();
   }
 
   toggleFiltros(): void {
     this.mostrarFiltros = !this.mostrarFiltros;
+  }
+
+  mostrarMensaje(mensaje: string): void {
+    this.mensajeEmergente = mensaje;
+    setTimeout(() => {
+      this.mensajeEmergente = '';
+    }, 2000);
   }
 
   ordenarProductos(): void {
@@ -118,7 +149,7 @@ export class Productos {
     // 1. Obtener el token del usuario logueado
     const token = localStorage.getItem("token");
     if (!token) {
-      alert('Debe iniciar sesión para añadir favoritos.');
+      this.router.navigate(['/login']);
       return;
     }
 
@@ -131,13 +162,13 @@ export class Productos {
     // 4. Buscar el usuario actual
     const usuario = listaUsuarios.find(u => u.id == payload.id);
     if (!usuario) {
-      alert('Usuario no encontrado.');
+      this.mostrarMensaje('Usuario no encontrado.');
       return;
     }
 
     // 5. Verificar si ya está en favoritos
     if (usuario.listaDeseos.includes(producto.id)) {
-      alert('Este producto ya está en tus favoritos.');
+      this.mostrarMensaje('Este producto ya está en tus favoritos.');
       return;
     }
 
@@ -146,13 +177,13 @@ export class Productos {
 
     // 7. Guardar cambios
     localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
-    alert('Añadido a favoritos.');
+    this.mostrarMensaje('Añadido a favoritos.');
   }
 
   anadirCarrito(producto: Producto): void {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert('Debe iniciar sesión para añadir al carrito.');
+      this.router.navigate(['/login']);
       return;
     }
 
@@ -161,18 +192,18 @@ export class Productos {
     const usuario = listaUsuarios.find(u => u.id == payload.id);
 
     if (!usuario) {
-      alert('Usuario no encontrado.');
+      this.mostrarMensaje('Usuario no encontrado.');
       return;
     }
 
     if (usuario.carrito[producto.id]) {
-      alert("El producto ya está en el carrito.");
+      this.mostrarMensaje("El producto ya está en el carrito.");
       return
     }
-    
+
     usuario.carrito[producto.id] // Añadir con cantidad 1
     localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
-    alert('Producto añadido al carrito.');
+    this.mostrarMensaje('Producto añadido al carrito.');
 
   }
 }

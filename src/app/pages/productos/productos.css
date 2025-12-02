@@ -1,0 +1,52 @@
+/* Animación para las tarjetas de productos */
+article.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Animación suave para las imágenes */
+article.card img {
+    transition: transform 0.3s ease;
+}
+
+article.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Asegurar que el contenedor de la imagen no desborde */
+.ratio {
+    overflow: hidden;
+}
+
+/* Mensaje emergente */
+.mensaje-emergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

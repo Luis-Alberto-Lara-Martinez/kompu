@@ -40,8 +40,20 @@ export class Favoritos implements OnInit {
   }
 
   eliminarFavorito(idProducto: number): void {
-    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual') || '{}');
+    if (typeof window === 'undefined') return;
+    const tokenString = localStorage.getItem("token");
+    if (!tokenString) return;
+    const payload = JSON.parse(atob(tokenString.split(".")[1]));
+    if (!payload) return;
+    const listaUsuariosString = localStorage.getItem("listaUsuarios");
+    if (!listaUsuariosString) return;
+    const listaUsuarios: Usuario[] = JSON.parse(listaUsuariosString);
+    const usuarioIndex = listaUsuarios.findIndex(u => u.id == payload.id)
+    if (usuarioIndex === -1) return;
+    const productoIndex = listaUsuarios[usuarioIndex].listaDeseos.indexOf(idProducto);
+    if (productoIndex === -1) return;
+    listaUsuarios[usuarioIndex].listaDeseos.splice(productoIndex, 1);
+    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
     this.favoritos = this.favoritos.filter(p => p.id !== idProducto);
-    localStorage.setItem(`favoritos_${usuarioActual.id}`, JSON.stringify(this.favoritos));
   }
 }
