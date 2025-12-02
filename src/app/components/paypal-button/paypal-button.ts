@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 declare var paypal: any;
 
 @Component({
@@ -9,29 +9,30 @@ declare var paypal: any;
 })
 export class PaypalButton {
 
+  @Input() totalCompra: number = 0;
+
   ngOnInit(): void {
     if (typeof paypal == "undefined") return;
 
     paypal.Buttons({
-      createOrder: (data: any, actions: any) => {
+      createOrder: (_: any, actions: any) => {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: '19.99' // 💰 precio del producto
+              value: this.totalCompra.toFixed(2)
             }
           }]
         });
       },
 
-      onApprove: (data: any, actions: any) => {
+      onApprove: (_: any, actions: any) => {
         return actions.order.capture().then((details: any) => {
-          alert(`Pago completado por ${details.payer.name.given_name}`);
-          console.log('Detalles del pago:', details);
+          location.reload();
         });
       },
 
-      onError: (err: any) => {
-        console.error('Error en el pago:', err);
+      onError: (error: any) => {
+        console.error('Error en el pago:', error);
       }
 
     }).render('#paypal-button-container');

@@ -7,10 +7,8 @@
         "precio": 1099.99,
         "stock": 15,
         "listaImagenes": [
-            "assets/images/products/portatil-asus-1.webp",
-            "assets/images/products/portatil-asus-2.webp",
-            "assets/images/products/portatil-asus-3.webp",
-            "assets/images/products/portatil-asus-5.webp"
+            "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800",
+            "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800"
         ],
         "descripcion": "Portátil gaming Intel Core i5, 16GB RAM, 512GB SSD, RTX 3050",
         "valoraciones": [
@@ -35,8 +33,8 @@
         "precio": 299.99,
         "stock": 8,
         "listaImagenes": [
-            "assets/images/monitor-lg-1.jpg",
-            "assets/images/monitor-lg-2.jpg"
+            "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800",
+            "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800"
         ],
         "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
         "valoraciones": [
@@ -56,8 +54,8 @@
         "precio": 129.99,
         "stock": 25,
         "listaImagenes": [
-            "assets/images/teclado-logitech-1.jpg",
-            "assets/images/teclado-logitech-2.jpg"
+            "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800",
+            "https://images.unsplash.com/photo-1595225476474-87563907a212?w=800"
         ],
         "descripcion": "Teclado mecánico RGB gaming",
         "valoraciones": [
@@ -82,8 +80,8 @@
         "precio": 69.99,
         "stock": 30,
         "listaImagenes": [
-            "assets/images/raton-razer-1.jpg",
-            "assets/images/raton-razer-2.jpg"
+            "https://images.unsplash.com/photo-1527814050087-3793815479db?w=800",
+            "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800"
         ],
         "descripcion": "Ratón gaming ergonómico RGB",
         "valoraciones": [
@@ -103,8 +101,8 @@
         "precio": 649.99,
         "stock": 5,
         "listaImagenes": [
-            "assets/images/rtx4070-msi-1.jpg",
-            "assets/images/rtx4070-msi-2.jpg"
+            "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800",
+            "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=800"
         ],
         "descripcion": "Tarjeta gráfica NVIDIA RTX 4070 12GB",
         "valoraciones": [
@@ -124,8 +122,8 @@
         "precio": 449.99,
         "stock": 12,
         "listaImagenes": [
-            "assets/images/ryzen7-amd-1.jpg",
-            "assets/images/ryzen7-amd-2.jpg"
+            "https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=800",
+            "https://images.unsplash.com/photo-1591238372408-0a300b06ec89?w=800"
         ],
         "descripcion": "Procesador AMD Ryzen 7 8 núcleos",
         "valoraciones": [],
@@ -139,8 +137,8 @@
         "precio": 139.99,
         "stock": 20,
         "listaImagenes": [
-            "assets/images/ram-corsair-1.jpg",
-            "assets/images/ram-corsair-2.jpg"
+            "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?w=800",
+            "https://images.unsplash.com/photo-1562976540-1502c2145186?w=800"
         ],
         "descripcion": "Kit RAM 32GB DDR5 6000MHz RGB",
         "valoraciones": [
@@ -160,8 +158,8 @@
         "precio": 179.99,
         "stock": 18,
         "listaImagenes": [
-            "assets/images/ssd-samsung-1.jpg",
-            "assets/images/ssd-samsung-2.jpg"
+            "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=800",
+            "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800"
         ],
         "descripcion": "SSD NVMe M.2 2TB alta velocidad",
         "valoraciones": [
@@ -181,8 +179,8 @@
         "precio": 149.99,
         "stock": 22,
         "listaImagenes": [
-            "assets/images/auriculares-hyperx-1.jpg",
-            "assets/images/auriculares-hyperx-2.jpg"
+            "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=800",
+            "https://images.unsplash.com/photo-1545127398-14699f92334b?w=800"
         ],
         "descripcion": "Auriculares gaming inalámbricos",
         "valoraciones": [],
@@ -196,8 +194,8 @@
         "precio": 129.99,
         "stock": 14,
         "listaImagenes": [
-            "assets/images/webcam-logitech-1.jpg",
-            "assets/images/webcam-logitech-2.jpg"
+            "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=800",
+            "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=800"
         ],
         "descripcion": "Cámara web Full HD 1080p 60fps",
         "valoraciones": [
@@ -217,7 +215,7 @@
         "precio": 999.99,
         "stock": 10,
         "listaImagenes": [
-            "assets/images/portatil-dell-1.jpg"
+            "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800"
         ],
         "descripcion": "Portátil Dell i7, 16GB RAM, 512GB SSD",
         "valoraciones": [],
@@ -231,7 +229,7 @@
         "precio": 399.99,
         "stock": 6,
         "listaImagenes": [
-            "assets/images/monitor-samsung-1.jpg"
+            "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=800"
         ],
         "descripcion": "Monitor gaming 32 pulgadas QHD 240Hz",
         "valoraciones": [],
@@ -245,7 +243,7 @@
         "precio": 149.99,
         "stock": 16,
         "listaImagenes": [
-            "assets/images/teclado-razer-1.jpg"
+            "https://images.unsplash.com/photo-1601445638532-3c6f6c3aa1d6?w=800"
         ],
         "descripcion": "Teclado mecánico RGB gaming",
         "valoraciones": [],
@@ -259,7 +257,7 @@
         "precio": 59.99,
         "stock": 28,
         "listaImagenes": [
-            "assets/images/raton-logitech-1.jpg"
+            "https://images.unsplash.com/photo-1563297007-0686b7003af7?w=800"
         ],
         "descripcion": "Ratón gaming con sensor de alta precisión",
         "valoraciones": [],
@@ -273,7 +271,7 @@
         "precio": 899.99,
         "stock": 3,
         "listaImagenes": [
-            "assets/images/rtx4080-msi-1.jpg"
+            "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=800"
         ],
         "descripcion": "Tarjeta gráfica NVIDIA RTX 4080 16GB",
         "valoraciones": [],
@@ -287,7 +285,7 @@
         "precio": 599.99,
         "stock": 7,
         "listaImagenes": [
-            "assets/images/i9-intel-1.jpg"
+            "https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=800"
         ],
         "descripcion": "Procesador Intel Core i9 12 núcleos",
         "valoraciones": [],
@@ -301,7 +299,7 @@
         "precio": 79.99,
         "stock": 35,
         "listaImagenes": [
-            "assets/images/ram-kingston-1.jpg"
+            "https://images.unsplash.com/photo-1562976540-1502c2145186?w=800"
         ],
         "descripcion": "Kit RAM 16GB DDR4 3200MHz",
         "valoraciones": [],
@@ -315,7 +313,7 @@
         "precio": 119.99,
         "stock": 24,
         "listaImagenes": [
-            "assets/images/ssd-crucial-1.jpg"
+            "https://images.unsplash.com/photo-1571689935384-e47809ee023b?w=800"
         ],
         "descripcion": "SSD NVMe M.2 1TB alta velocidad",
         "valoraciones": [],
@@ -329,7 +327,7 @@
         "precio": 129.99,
         "stock": 19,
         "listaImagenes": [
-            "assets/images/auriculares-logitech-1.jpg"
+            "https://images.unsplash.com/photo-1599669454699-248893623440?w=800"
         ],
         "descripcion": "Auriculares gaming con micrófono profesional",
         "valoraciones": [],
@@ -343,7 +341,7 @@
         "precio": 109.99,
         "stock": 11,
         "listaImagenes": [
-            "assets/images/webcam-razer-1.jpg"
+            "https://images.unsplash.com/photo-1570993492903-ba4c3088f100?w=800"
         ],
         "descripcion": "Cámara web Full HD 1080p con anillo de luz",
         "valoraciones": [],
@@ -357,7 +355,7 @@
         "precio": 899.99,
         "stock": 13,
         "listaImagenes": [
-            "assets/images/portatil-hp-1.jpg"
+            "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=800"
         ],
         "descripcion": "Portátil HP i5, 16GB RAM, 512GB SSD",
         "valoraciones": [],
@@ -371,7 +369,7 @@
         "precio": 329.99,
         "stock": 9,
         "listaImagenes": [
-            "assets/images/monitor-acer-1.jpg"
+            "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800"
         ],
         "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
         "valoraciones": [],
@@ -385,7 +383,7 @@
         "precio": 139.99,
         "stock": 17,
         "listaImagenes": [
-            "assets/images/teclado-corsair-1.jpg"
+            "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=800"
         ],
         "descripcion": "Teclado mecánico RGB gaming",
         "valoraciones": [],
@@ -399,7 +397,7 @@
         "precio": 49.99,
         "stock": 32,
         "listaImagenes": [
-            "assets/images/raton-steelseries-1.jpg"
+            "https://images.unsplash.com/photo-1586130238134-c4f2e4d0fe6a?w=800"
         ],
         "descripcion": "Ratón gaming RGB con sensor óptico",
         "valoraciones": [],
@@ -413,7 +411,7 @@
         "precio": 529.99,
         "stock": 4,
         "listaImagenes": [
-            "assets/images/rtx4060-gigabyte-1.jpg"
+            "https://images.unsplash.com/photo-1591405351990-4726e331f141?w=800"
         ],
         "descripcion": "Tarjeta gráfica NVIDIA RTX 4060 8GB",
         "valoraciones": [],
