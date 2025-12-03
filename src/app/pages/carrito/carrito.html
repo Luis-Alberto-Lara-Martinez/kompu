@@ -3,39 +3,41 @@
 
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="h4 fw-semibold mb-0">Carrito</h1>
+    <h4 class="fw-semibold">Carrito</h4>
     <span class="text-muted">{{ carrito.length }} productos</span>
   </div>
 
-  <!-- Vacío -->
-  <div *ngIf="carrito.length === 0" class="alert alert-info" role="alert">
+  @if (carrito.length === 0) {
+  <div class="alert alert-info" role="alert">
     Tu carrito está vacío.
   </div>
-
-  <!-- Lista de productos en cajitas horizontales -->
+  }@else {
   <div class="d-flex flex-column gap-3">
-    <div *ngFor="let producto of carrito" class="card shadow-sm">
-      <div class="card-body d-flex flex-wrap align-items-start gap-3">
-        <!-- Imagen -->
-        <img [src]="producto.listaImagenes[0]" [alt]="producto.nombre" class="rounded border" style="width:80px;height:80px;object-fit:cover;">
+    @for (producto of carrito; track $index) {
+    <div class="card shadow-sm">
+      <div class="card-body d-flex align-items-center gap-3">
+        <img class="w-25 h-25" [src]="producto.listaImagenes[0]" [alt]="producto.nombre">
 
-        <!-- Info y controles -->
         <div class="flex-grow-1">
           <div class="d-flex justify-content-between align-items-center">
-            <h2 class="h6 mb-0">{{ producto.nombre }}</h2>
-            <div class="fw-semibold">{{ producto.precio }}€</div>
+            <h6>{{ producto.nombre }}</h6>
+            <div class="fw-semibold">{{ transformarPrecio(producto.precio) }}</div>
           </div>
-          <p class="text-body-secondary small mb-2">{{ producto.descripcion }}</p>
 
-          <div class="d-flex flex-wrap align-items-center gap-2">
-            <label class="small text-body-secondary me-2">Cantidad</label>
-            <input type="number" class="form-control form-control-sm" style="width:90px;" min="1" [value]="producto.cantidad || 1" (input)="actualizarCantidad(producto, $event)">
+          <p class="text-secondary small">{{ producto.descripcion }}</p>
 
-            <button type="button" class="btn btn-outline-danger btn-sm ms-auto" (click)="eliminarDelCarrito(producto.id)">Eliminar</button>
+          <div class="d-flex align-items-center gap-2">
+            <label class="small text-secondary me-2">Cantidad</label>
+            <input type="number" class="form-control form-control-sm w-auto" min="1" [value]="producto.cantidad || 1"
+              (input)="actualizarCantidad(producto, $event)">
+
+            <button type="button" class="btn btn-outline-danger btn-sm ms-auto"
+              (click)="eliminarDelCarrito(producto.id)">Eliminar</button>
           </div>
         </div>
       </div>
     </div>
+    }
   </div>
 
   <!-- Resumen -->
@@ -61,6 +63,6 @@
       </div>
     </div>
   </div>
-
+  }
 </div>
 <app-pie-pagina></app-pie-pagina>

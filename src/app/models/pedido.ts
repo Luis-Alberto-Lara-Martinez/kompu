@@ -2,7 +2,7 @@ export interface Pedido {
     id: number;
     idUsuario: number;
     fecha: Date;
-    listaProductos: ProductoOrden[];
+    listaProductos: ProductosCarrito[];
     precioTotal: number;
     estado: string;
     numFactura: number;
@@ -10,7 +10,7 @@ export interface Pedido {
     iva: number;
 }
 
-export interface ProductoOrden {
+export interface ProductosCarrito {
     idProducto: number;
     cantidad: number;
     precio: number;

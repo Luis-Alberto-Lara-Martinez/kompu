@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from '../../models/usuario';
 import { UsuariosService } from '../../services/usuarios/usuarios-service';
-import emailjs from '@emailjs/browser';
+import * as emailjsImport from '@emailjs/browser';
 
 @Component({
   selector: 'app-registro',
@@ -51,30 +51,31 @@ export class Registro {
   onRegister() {
     this.error = '';
 
-    if (
-      !this.nombre.trim() ||
-      !this.email.trim() ||
-      !this.clave.trim() ||
-      !this.confirmarClave.trim() ||
-      !this.telefono.trim() ||
-      !this.direccion.trim()) {
+    const nombre = this.nombre.trim();
+    const email = this.email.trim();
+    const clave = this.clave.trim();
+    const confirmarClave = this.confirmarClave.trim();
+    const telefono = this.telefono.trim();
+    const direccion = this.direccion.trim();
+
+    if (!nombre || !email || !clave || !confirmarClave || !telefono || !direccion) {
       this.error = 'Todos los campos deben ser completados';
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(this.email)) {
+    if (!emailRegex.test(email)) {
       this.error = 'Por favor, ingresa un email válido';
       return;
     }
 
-    if (this.clave !== this.confirmarClave) {
+    if (clave !== confirmarClave) {
       this.error = 'Las contraseñas no coinciden';
       return;
     }
 
     const claveRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
-    if (!claveRegex.test(this.clave)) {
+    if (!claveRegex.test(clave)) {
       this.error = "La contraseña debe tener al menos 6 caracteres, incluyendo mayúsculas, minúsculas, números y caracteres especiales";
       return;
     }
@@ -92,7 +93,7 @@ export class Registro {
 
     let listaUsuarios: Usuario[] = JSON.parse(listaUsuariosString);
     let usuario = listaUsuarios.find(u =>
-      u.email.toLowerCase() === this.email.toLowerCase()
+      u.email.toLowerCase() === email.toLowerCase()
     );
 
     if (usuario) {
@@ -103,11 +104,11 @@ export class Registro {
 
     let nuevoUsuario: Usuario = {
       id: listaUsuarios.length + 1,
-      nombre: this.nombre.trim(),
-      email: this.email.toLowerCase().trim(),
-      clave: btoa(this.clave.trim()),
-      telefono: this.telefono.trim(),
-      direccion: this.direccion.trim(),
+      nombre,
+      email: email.toLowerCase(),
+      clave: btoa(clave),
+      telefono,
+      direccion,
       rol: 'usuario',
       estado: 'activado',
       carrito: [],
@@ -117,7 +118,6 @@ export class Registro {
     listaUsuarios.push(nuevoUsuario);
     localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
     localStorage.setItem("token", this.servicio.crearToken(nuevoUsuario));
-    this.cargando = false;
 
     const templateParams = {
       email: nuevoUsuario.email,
@@ -125,7 +125,8 @@ export class Registro {
       urlWeb: "https://kompu.vercel.app",
       urlLogo: "https://kompu.vercel.app/assets/images/icons/kompu.png",
     };
-    emailjs.send(
+    const emailjs = (globalThis as any).emailjs || emailjsImport.default;
+    return emailjs.send(
       'servicio_correo_kompu',
       'plantilla_bienvenida',
       templateParams,

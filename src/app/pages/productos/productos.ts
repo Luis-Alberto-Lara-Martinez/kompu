@@ -181,45 +181,45 @@ export class Productos {
   }
 
   anadirCarrito(producto: Producto): void {
-  // 1. Obtener el token del usuario logueado
-  const token = localStorage.getItem("token");
-  if (!token) {
-    this.router.navigate(['/login']);
-    return;
-  }
+    // 1. Obtener el token del usuario logueado
+    const token = localStorage.getItem("token");
+    if (!token) {
+      this.router.navigate(['/login']);
+      return;
+    }
 
-  // 2. Extraer el id del usuario desde el token
-  const payload = JSON.parse(atob(token.split(".")[1]));
+    // 2. Extraer el id del usuario desde el token
+    const payload = JSON.parse(atob(token.split(".")[1]));
 
-  // 3. Cargar la lista de usuarios
-  const listaUsuarios: Usuario[] = JSON.parse(localStorage.getItem("listaUsuarios") || '[]');
+    // 3. Cargar la lista de usuarios
+    const listaUsuarios: Usuario[] = JSON.parse(localStorage.getItem("listaUsuarios") || '[]');
 
-  // 4. Buscar el usuario actual
-  const usuarioIndex = listaUsuarios.findIndex(u => u.id == payload.id);
-  if (usuarioIndex === -1) {
-    this.mostrarMensaje('Usuario no encontrado.');
-    return;
-  }
+    // 4. Buscar el usuario actual
+    const usuarioIndex = listaUsuarios.findIndex(u => u.id == payload.id);
+    if (usuarioIndex === -1) {
+      this.mostrarMensaje('Usuario no encontrado.');
+      return;
+    }
 
-  // 5. Verificar si ya está en carrito (buscar por ID)
-  const productoEnCarrito = listaUsuarios[usuarioIndex].carrito
-    .find((item: any) => item.idProducto === producto.id);
+    // 5. Verificar si ya está en carrito (buscar por ID)
+    const productoEnCarrito = listaUsuarios[usuarioIndex].carrito
+      .find((item: any) => item.idProducto === producto.id);
 
-  if (productoEnCarrito) {
-    // Si ya existe, aumentar la cantidad
-    productoEnCarrito.cantidad += 1;
-    this.mostrarMensaje('Cantidad aumentada en el carrito.');
-  } else {
-    // Si no existe, añadirlo con cantidad 1
-    const nuevoProductoCarrito = {
-      idProducto: producto.id,
-      cantidad: 1
-    };
-    listaUsuarios[usuarioIndex].carrito.push(nuevoProductoCarrito);
-    this.mostrarMensaje('Añadido al carrito.');
-  }
+    if (productoEnCarrito) {
+      // Si ya existe, aumentar la cantidad
+      productoEnCarrito.cantidad += 1;
+      this.mostrarMensaje('Cantidad aumentada en el carrito');
+    } else {
+      // Si no existe, añadirlo con cantidad 1
+      const nuevoProductoCarrito = {
+        idProducto: producto.id,
+        cantidad: 1
+      };
+      listaUsuarios[usuarioIndex].carrito.push(nuevoProductoCarrito);
+      this.mostrarMensaje('Añadido al carrito.');
+    }
 
-  // 6. Guardar cambios
-  localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
+    // 6. Guardar cambios
+    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import emailjs from '@emailjs/browser';
+import * as emailjsImport from '@emailjs/browser';
 import { UsuariosService } from '../../services/usuarios/usuarios-service';
 import { Usuario } from '../../models/usuario';
 
@@ -106,6 +106,7 @@ export class Login {
       urlLogo: "https://kompu.vercel.app/assets/images/icons/kompu.png",
       urlLink: "https://kompu.vercel.app/restablecimiento?tokenR=" + tokenRestablecimiento
     };
+    const emailjs = (globalThis as any).emailjs || emailjsImport.default;
     emailjs.send(
       'servicio_correo_kompu',
       'plantilla_resetear_clave',

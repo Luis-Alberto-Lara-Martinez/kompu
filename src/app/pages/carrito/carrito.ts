@@ -43,7 +43,7 @@ export class Carrito implements OnInit {
     this.calcularTotal();
   }
 
-  
+
   eliminarDelCarrito(idProducto: number): void {
     if (typeof window === 'undefined') return;
     const tokenString = localStorage.getItem("token");
@@ -62,23 +62,29 @@ export class Carrito implements OnInit {
     this.carrito = this.carrito.filter(p => p.id !== idProducto);
     this.calcularTotal();
   }
-    
 
-  /*
-  calcularTotal(): void{
-    this.precioTotal = this.carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
+
+  transformarPrecio(precio: number): string {
+    if (isNaN(precio)) return '0,00€';
+
+    const fijo = precio.toFixed(2); // "1234.56"
+    const [enteroStr, decStr] = fijo.split('.');
+
+    // Insertar puntos de miles
+    const conMiles = enteroStr.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+    return `${conMiles},${decStr}€`;
   }
-  */
 
   actualizarCantidad(producto: any, event: any): void {
     const nuevaCantidad = parseInt(event.target.value, 10) || 1;
-    
+
     // Actualizar cantidad en el objeto producto
     producto.cantidad = nuevaCantidad;
-    
+
     // Actualizar en localStorage
     this.actualizarCantidadEnLocalStorage(producto.id, nuevaCantidad);
-    
+
     // Recalcular el total
     this.calcularTotal();
   }
@@ -86,20 +92,20 @@ export class Carrito implements OnInit {
   private actualizarCantidadEnLocalStorage(idProducto: number, cantidad: number): void {
     const tokenString = localStorage.getItem("token");
     if (!tokenString) return;
-    
+
     const payload = JSON.parse(atob(tokenString.split(".")[1]));
     if (!payload) return;
-    
+
     const listaUsuariosString = localStorage.getItem("listaUsuarios");
     if (!listaUsuariosString) return;
-    
+
     const listaUsuarios: Usuario[] = JSON.parse(listaUsuariosString);
     const usuarioIndex = listaUsuarios.findIndex(u => u.id == payload.id);
-    
+
     if (usuarioIndex !== -1) {
       const productoIndex = listaUsuarios[usuarioIndex].carrito
         .findIndex((item: any) => item.idProducto === idProducto);
-      
+
       if (productoIndex !== -1) {
         listaUsuarios[usuarioIndex].carrito[productoIndex].cantidad = cantidad;
         localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
