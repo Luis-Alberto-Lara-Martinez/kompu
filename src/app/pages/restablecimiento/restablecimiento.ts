@@ -25,7 +25,6 @@ export class Restablecimiento {
     let token = this.route.snapshot.queryParams['tokenR'];
     console.log('Token recibido:', token);
     if (!token) {
-      console.log('No hay token, redirigiendo...');
       this.router.navigate(['/login']);
       return;
     }
@@ -37,16 +36,6 @@ export class Restablecimiento {
         base64 += '=';
       }
       payload = JSON.parse(atob(base64));
-      if (!payload || !payload.exp) {
-        this.router.navigate(['/login']);
-        return;
-      }
-      const ahora = Math.floor(Date.now() / 1000);
-      if (payload.exp < ahora) {
-        this.router.navigate(['/login']);
-        return;
-      }
-      console.log('Token válido, email:', payload.email);
     } catch (e) {
       this.router.navigate(['/login']);
       return;
