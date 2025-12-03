@@ -23,30 +23,43 @@ export class Restablecimiento {
 
   ngOnInit() {
     let token = this.route.snapshot.queryParams['tokenR'];
+    console.log('Token recibido:', token);
     if (!token) {
-      this.router.navigate(['/login']);
+      console.log('No hay token, redirigiendo...');
+      // this.router.navigate(['/login']);
       return;
     }
     let payload;
     try {
       let payloadPart = token.split(".")[1];
+      console.log('Payload part:', payloadPart);
       // Manejar tanto Base64URL (sin padding) como Base64 estándar (con padding)
       let base64 = payloadPart.replace(/-/g, '+').replace(/_/g, '/');
       // Solo agregar padding si no tiene
       while (base64.length % 4 !== 0) {
         base64 += '=';
       }
+      console.log('Base64 con padding:', base64);
       payload = JSON.parse(atob(base64));
+      console.log('Payload decodificado:', payload);
       if (!payload || !payload.exp) {
-        this.router.navigate(['/login']);
+        console.log('Payload inválido o sin exp');
+        // this.router.navigate(['/login']);
         return;
       }
-      if (payload.exp < Math.floor(Date.now() / 1000)) {
-        this.router.navigate(['/login']);
+      const ahora = Math.floor(Date.now() / 1000);
+      console.log('Tiempo actual:', ahora);
+      console.log('Token expira:', payload.exp);
+      console.log('Diferencia (segundos):', payload.exp - ahora);
+      if (payload.exp < ahora) {
+        console.log('Token expirado, redirigiendo...');
+        // this.router.navigate(['/login']);
         return;
       }
+      console.log('Token válido, email:', payload.email);
     } catch (e) {
-      this.router.navigate(['/login']);
+      console.error('Error al decodificar token:', e);
+      // this.router.navigate(['/login']);
       return;
     }
     this.email = payload.email;
