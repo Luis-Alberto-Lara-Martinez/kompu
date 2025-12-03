@@ -7,8 +7,10 @@
         "precio": 1099.99,
         "stock": 15,
         "listaImagenes": [
-            "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=800",
-            "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800"
+            "https://thumb.pccomponentes.com/w-530-530/articles/1087/10878956/1982-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-b75b5fe1-0127-45f8-a91f-347823ee8a57.jpg",
+            "https://img.pccomponentes.com/articles/1087/10878956/3244-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-98435336-ab35-4c3f-ac3d-ccad23891950.jpg",
+            "https://img.pccomponentes.com/articles/1087/10878956/4480-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-b92252bc-f269-4e87-adb9-e33a8a315a06.jpg",
+            "https://img.pccomponentes.com/articles/1087/10878956/5212-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-60e92696-20d9-46f4-9f3a-247c827d245e.jpg"
         ],
         "descripcion": "Portátil gaming Intel Core i5, 16GB RAM, 512GB SSD, RTX 3050",
         "valoraciones": [
@@ -33,8 +35,9 @@
         "precio": 299.99,
         "stock": 8,
         "listaImagenes": [
-            "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800",
-            "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800"
+            "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/111-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-opiniones.jpg",
+            "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/9264-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-186d27c2-943b-4442-ae57-7061881d189b.jpg",
+            "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/10393-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-94bd0e3c-7873-4267-89b3-5f56fe126502.jpg"
         ],
         "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
         "valoraciones": [
@@ -101,8 +104,8 @@
         "precio": 649.99,
         "stock": 5,
         "listaImagenes": [
-            "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800",
-            "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=800"
+            "https://thumb.pccomponentes.com/w-530-530/articles/1070/10706592/1556-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3.jpg",
+            "https://thumb.pccomponentes.com/w-530-530/articles/1070/10706592/2721-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3-comprar.jpg"
         ],
         "descripcion": "Tarjeta gráfica NVIDIA RTX 4070 12GB",
         "valoraciones": [
@@ -313,7 +316,9 @@
         "precio": 119.99,
         "stock": 24,
         "listaImagenes": [
-            "https://images.unsplash.com/photo-1571689935384-e47809ee023b?w=800"
+            "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/1627-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme.jpg",
+            "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/2456-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme-comprar.jpg",
+            "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/3427-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme-mejor-precio.jpg"
         ],
         "descripcion": "SSD NVMe M.2 1TB alta velocidad",
         "valoraciones": [],
@@ -397,7 +402,9 @@
         "precio": 49.99,
         "stock": 32,
         "listaImagenes": [
-            "https://images.unsplash.com/photo-1586130238134-c4f2e4d0fe6a?w=800"
+            "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/1428-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-caracteristicas.jpg",
+            "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/3824-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-review.jpg",
+            "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/4354-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-foto.jpg"
         ],
         "descripcion": "Ratón gaming RGB con sensor óptico",
         "valoraciones": [],

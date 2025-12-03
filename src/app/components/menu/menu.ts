@@ -20,8 +20,15 @@ export class Menu {
       this.router.navigate(['/login']);
       return;
     }
-    let payload = JSON.parse(atob(token.split(".")[1]));
-    if (!payload || !payload.exp || Math.floor(Date.now() / 1000) >= payload.exp) {
+    let payload;
+    try {
+      payload = JSON.parse(atob(token.split(".")[1]));
+      if (!payload.exp || payload.exp <= Math.floor(Date.now() / 1000)) {
+        localStorage.removeItem("token");
+        this.router.navigate(['/login']);
+        return;
+      }
+    } catch (error) {
       localStorage.removeItem("token");
       this.router.navigate(['/login']);
       return;

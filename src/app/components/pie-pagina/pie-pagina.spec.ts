@@ -10,7 +10,7 @@ describe('PiePagina', () => {
     await TestBed.configureTestingModule({
       imports: [PiePagina]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PiePagina);
     component = fixture.componentInstance;
@@ -19,5 +19,28 @@ describe('PiePagina', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('debe mostrar el año actual', () => {
+    const currentYear = new Date().getFullYear();
+    expect(component.year).toBe(currentYear);
+  });
+
+  it('debe cambiar la imagen de Apple a negro en hover', () => {
+    const img = document.createElement('img') as HTMLImageElement;
+    img.src = 'assets/images/icons/apple-store-blanco.png';
+
+    component.onAppleHover(img);
+
+    expect(img.src).toContain('assets/images/icons/apple-store-negro.png');
+  });
+
+  it('debe cambiar la imagen de Apple a blanco en leave', () => {
+    const img = document.createElement('img') as HTMLImageElement;
+    img.src = 'assets/images/icons/apple-store-negro.png';
+
+    component.onAppleLeave(img);
+
+    expect(img.src).toContain('assets/images/icons/apple-store-blanco.png');
   });
 });
