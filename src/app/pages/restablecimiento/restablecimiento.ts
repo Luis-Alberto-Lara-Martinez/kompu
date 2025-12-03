@@ -22,6 +22,7 @@ export class Restablecimiento {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    if (typeof window === 'undefined') return;
     let token = this.route.snapshot.queryParams['tokenR'];
 
     let payloadPart = token.split(".")[1];
