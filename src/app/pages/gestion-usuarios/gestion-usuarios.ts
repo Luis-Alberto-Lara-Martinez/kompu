@@ -21,7 +21,15 @@ export class GestionUsuarios {
     if (typeof window === 'undefined') return;
     const tokenString = localStorage.getItem('token');
     if (!tokenString) { this.router.navigate(['/home']); return; }
-    const payload = JSON.parse(atob(tokenString.split('.')?.[1] || ''));
+
+    let payload;
+    try {
+      payload = JSON.parse(atob(tokenString.split('.')?.[1] || ''));
+    } catch (e) {
+      this.router.navigate(['/home']);
+      return;
+    }
+
     if (!payload || payload.rol !== 'administrador') { this.router.navigate(['/home']); return; }
     const listaUsuariosString = localStorage.getItem('listaUsuarios');
     if (!listaUsuariosString) return;

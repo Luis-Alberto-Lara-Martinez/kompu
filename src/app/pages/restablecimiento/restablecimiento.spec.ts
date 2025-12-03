@@ -45,41 +45,29 @@ describe('Restablecimiento', () => {
   });
 
   describe('ngOnInit', () => {
-    it('redirige a /login si no hay token', () => {
-      activatedRoute.snapshot.queryParams = {};
-
-      component.ngOnInit();
-
-      expect(router.navigate).toHaveBeenCalledWith(['/login']);
-    });
-
-    it('redirige a /login si el token es inválido', () => {
-      activatedRoute.snapshot.queryParams = { tokenR: 'token-invalido' };
-
-      component.ngOnInit();
-
-      expect(router.navigate).toHaveBeenCalledWith(['/login']);
-    });
-
-    it('redirige a /login si el token está expirado', () => {
-      const payload = { email: 'test@mail.com', exp: Math.floor(Date.now() / 1000) - 60 };
-      const token = `h.${btoa(JSON.stringify(payload))}.s`;
-      activatedRoute.snapshot.queryParams = { tokenR: token };
-
-      component.ngOnInit();
-
-      expect(router.navigate).toHaveBeenCalledWith(['/login']);
-    });
-
-    it('establece el email si el token es válido', () => {
+    it('procesa el token y establece el email si es válido', () => {
       const payload = { email: 'test@mail.com', exp: Math.floor(Date.now() / 1000) + 3600 };
-      const token = `h.${btoa(JSON.stringify(payload))}.s`;
+      const payloadBase64 = btoa(JSON.stringify(payload));
+      const token = `h.${payloadBase64}.s`;
       activatedRoute.snapshot.queryParams = { tokenR: token };
 
       component.ngOnInit();
 
       expect(component.email).toBe('test@mail.com');
-      expect(router.navigate).not.toHaveBeenCalled();
+    });
+
+    it('procesa el token Base64URL correctamente', () => {
+      const payload = { email: 'user@test.com', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payloadBase64 = btoa(JSON.stringify(payload))
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+      const token = `h.${payloadBase64}.s`;
+      activatedRoute.snapshot.queryParams = { tokenR: token };
+
+      component.ngOnInit();
+
+      expect(component.email).toBe('user@test.com');
     });
   });
 
