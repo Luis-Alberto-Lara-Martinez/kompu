@@ -30,10 +30,14 @@ export class GestionProductos {
   // Campo auxiliar para 1 URL de imagen en el formulario
   listaImagenUrl: string = '';
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;
+    const tokenString = localStorage.getItem('token');
+    if (!tokenString) { this.router.navigate(['/home']); return; }
+    const payload = JSON.parse(atob(tokenString.split('.')?.[1] || ''));
+    if (!payload || payload.rol !== 'administrador') { this.router.navigate(['/home']); return; }
     const listaString = localStorage.getItem('listaProductos');
     if (listaString) {
       this.productos = JSON.parse(listaString);

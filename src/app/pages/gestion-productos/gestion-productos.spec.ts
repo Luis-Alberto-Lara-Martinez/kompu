@@ -60,7 +60,9 @@ describe('GestionProductos', () => {
   });
 
   describe('ngOnInit comportamiento', () => {
-    it('carga productos desde localStorage si existe', () => {
+    it('carga productos desde localStorage si existe (rol administrador)', () => {
+      const payloadAdmin = { id: 999, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       component.ngOnInit();
       expect(component.productos).toHaveLength(2);
@@ -68,8 +70,26 @@ describe('GestionProductos', () => {
     });
 
     it('mantiene array vacío si no hay listaProductos en localStorage', () => {
+      const payloadAdmin = { id: 999, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.removeItem('listaProductos');
       component.ngOnInit();
+      expect(component.productos).toHaveLength(0);
+    });
+
+    it('redirige a /home si no hay token', () => {
+      localStorage.removeItem('token');
+      localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
+      component.ngOnInit();
+      expect(router.navigate).toHaveBeenCalledWith(['/home']);
+    });
+
+    it('redirige a /home si el rol no es administrador', () => {
+      const payloadUsuario = { id: 1, rol: 'usuario', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadUsuario))}.s`);
+      localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
+      component.ngOnInit();
+      expect(router.navigate).toHaveBeenCalledWith(['/home']);
       expect(component.productos).toHaveLength(0);
     });
   });
@@ -86,6 +106,8 @@ describe('GestionProductos', () => {
 
   describe('iniciarEdicion y cancelarEdicion', () => {
     beforeEach(() => {
+      const payloadAdmin = { id: 999, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       component.ngOnInit();
     });
@@ -105,6 +127,8 @@ describe('GestionProductos', () => {
 
   describe('guardarEdicion', () => {
     beforeEach(() => {
+      const payloadAdmin = { id: 999, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       component.ngOnInit();
       component.editandoId = 1;
@@ -151,6 +175,8 @@ describe('GestionProductos', () => {
 
   describe('eliminarProducto', () => {
     beforeEach(() => {
+      const payloadAdmin = { id: 999, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       component.ngOnInit();
     });
@@ -180,6 +206,8 @@ describe('GestionProductos', () => {
 
   describe('agregarProducto', () => {
     beforeEach(() => {
+      const payloadAdmin = { id: 999, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       component.ngOnInit();
     });

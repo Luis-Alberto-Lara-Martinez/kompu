@@ -15,10 +15,14 @@ import { Usuario } from '../../models/usuario';
 export class GestionUsuarios {
   usuarios: Usuario[] = [];
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;
+    const tokenString = localStorage.getItem('token');
+    if (!tokenString) { this.router.navigate(['/home']); return; }
+    const payload = JSON.parse(atob(tokenString.split('.')?.[1] || ''));
+    if (!payload || payload.rol !== 'administrador') { this.router.navigate(['/home']); return; }
     const listaUsuariosString = localStorage.getItem('listaUsuarios');
     if (!listaUsuariosString) return;
     this.usuarios = JSON.parse(listaUsuariosString);

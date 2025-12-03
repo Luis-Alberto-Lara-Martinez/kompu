@@ -72,7 +72,9 @@ describe('GestionUsuarios', () => {
   });
 
   describe('ngOnInit comportamiento', () => {
-    it('carga usuarios desde localStorage si existe', () => {
+    it('carga usuarios desde localStorage si existe (rol admin)', () => {
+      const payloadAdmin = { id: 3, rol: 'admin', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       component.ngOnInit();
       expect(component.usuarios).toHaveLength(3);
@@ -80,21 +82,43 @@ describe('GestionUsuarios', () => {
     });
 
     it('no carga usuarios si no hay listaUsuarios en localStorage', () => {
+      const payloadAdmin = { id: 3, rol: 'admin', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.removeItem('listaUsuarios');
       component.ngOnInit();
       expect(component.usuarios).toHaveLength(0);
     });
 
     it('mantiene el array vacío si listaUsuarios es null', () => {
+      const payloadAdmin = { id: 3, rol: 'admin', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.removeItem('listaUsuarios');
       component.usuarios = mockUsuarios.slice();
       component.ngOnInit();
       expect(component.usuarios).toHaveLength(3); // No se modifica si no hay datos
     });
+
+    it('redirige a /home si no hay token', () => {
+      localStorage.removeItem('token');
+      localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
+      component.ngOnInit();
+      expect(router.navigate).toHaveBeenCalledWith(['/home']);
+    });
+
+    it('redirige a /home si el rol no es admin', () => {
+      const payloadUsuario = { id: 1, rol: 'usuario', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadUsuario))}.s`);
+      localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
+      component.ngOnInit();
+      expect(router.navigate).toHaveBeenCalledWith(['/home']);
+      expect(component.usuarios).toHaveLength(0);
+    });
   });
 
   describe('toggleEstado comportamiento', () => {
     beforeEach(() => {
+      const payloadAdmin = { id: 3, rol: 'admin', exp: Math.floor(Date.now() / 1000) + 3600 };
+      localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       component.ngOnInit();
     });
