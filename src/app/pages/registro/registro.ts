@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Usuario } from '../../models/usuario';
-import { UsuariosService } from '../../services/usuarios/usuarios-service';
+import {Component} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Usuario} from '../../models/usuario';
+import {UsuariosService} from '../../services/usuarios/usuarios-service';
 import * as emailjsImport from '@emailjs/browser';
 
 @Component({
@@ -22,7 +22,8 @@ export class Registro {
   telefono: string = '';
   direccion: string = '';
 
-  constructor(private servicio: UsuariosService, private router: Router) { }
+  constructor(private servicio: UsuariosService, private router: Router) {
+  }
 
   ngOnInit() {
     if (typeof window == "undefined") return;

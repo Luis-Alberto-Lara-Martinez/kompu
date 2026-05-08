@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { vi } from 'vitest';
-import { ScrollToTop } from './scroll-to-top';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {vi} from 'vitest';
+import {ScrollToTop} from './scroll-to-top';
 
 describe('ScrollToTop', () => {
   let component: ScrollToTop;
@@ -84,11 +84,12 @@ describe('ScrollToTop', () => {
   });
 
   it('debe llamar a window.scrollTo con comportamiento smooth', () => {
-    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation(() => { });
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation(() => {
+    });
 
     component.scrollToTop();
 
-    expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+    expect(scrollToSpy).toHaveBeenCalledWith({top: 0, behavior: 'smooth'});
   });
 
   it('debe manejar múltiples cambios de scroll', () => {
@@ -158,6 +159,6 @@ describe('ScrollToTop', () => {
     component.scrollToTop();
 
     expect(scrollToSpy).toHaveBeenCalledTimes(3);
-    expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+    expect(scrollToSpy).toHaveBeenCalledWith({top: 0, behavior: 'smooth'});
   });
 });

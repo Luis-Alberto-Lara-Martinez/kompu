@@ -1,22 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { provideRouter } from '@angular/router';
-import { of } from 'rxjs';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {provideRouter, Router} from '@angular/router';
+import {of} from 'rxjs';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 
-import { Login } from './login';
-import { UsuariosService } from '../../services/usuarios/usuarios-service';
+import {Login} from './login';
+import {UsuariosService} from '../../services/usuarios/usuarios-service';
 
 class UsuariosServiceMock {
   obtenerUsuarios = vi.fn(() => of([]));
   crearToken = vi.fn((usuario: any) => {
-    const payload = { id: usuario.id, exp: Math.floor(Date.now() / 1000) + 3600 };
+    const payload = {id: usuario.id, exp: Math.floor(Date.now() / 1000) + 3600};
     return `header.${btoa(JSON.stringify(payload))}.signature`;
   });
   crearTokenRestablecerClave = vi.fn((email: string) => `token-${email}`);
 }
 
-const emailjsMock = { send: vi.fn() };
+const emailjsMock = {send: vi.fn()};
 
 describe('Login', () => {
   let component: Login;
@@ -31,7 +30,7 @@ describe('Login', () => {
       imports: [Login],
       providers: [
         provideRouter([]),
-        { provide: UsuariosService, useValue: usuariosService }
+        {provide: UsuariosService, useValue: usuariosService}
       ]
     }).compileComponents();
 
@@ -53,7 +52,7 @@ describe('Login', () => {
 
   describe('ngOnInit', () => {
     it('redirige a /home si el token es válido', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 60 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 60};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
 
       component.ngOnInit();
@@ -69,10 +68,10 @@ describe('Login', () => {
 
     it('carga listaUsuarios si no existe en localStorage', () => {
       localStorage.removeItem('listaUsuarios');
-      usuariosService.obtenerUsuarios = vi.fn(() => of([{ id: 1 }] as any));
+      usuariosService.obtenerUsuarios = vi.fn(() => of([{id: 1}] as any));
 
       component.ngOnInit();
-      expect(localStorage.getItem('listaUsuarios')).toBe(JSON.stringify([{ id: 1 }]));
+      expect(localStorage.getItem('listaUsuarios')).toBe(JSON.stringify([{id: 1}]));
     });
   });
 
@@ -87,7 +86,7 @@ describe('Login', () => {
 
     it('muestra error si credenciales incorrectas', () => {
       localStorage.setItem('listaUsuarios', JSON.stringify([
-        { id: 1, email: 'user@mail.com', clave: btoa('pass'), estado: 'activado' }
+        {id: 1, email: 'user@mail.com', clave: btoa('pass'), estado: 'activado'}
       ]));
       component.email = 'otro@mail.com';
       component.clave = 'otra';
@@ -98,7 +97,7 @@ describe('Login', () => {
     });
 
     it('navega a /home y guarda token si credenciales correctas', () => {
-      const usuario = { id: 1, email: 'user@mail.com', clave: btoa('pass'), estado: 'activado' };
+      const usuario = {id: 1, email: 'user@mail.com', clave: btoa('pass'), estado: 'activado'};
       localStorage.setItem('listaUsuarios', JSON.stringify([usuario]));
       component.email = 'user@mail.com';
       component.clave = 'pass';
@@ -138,7 +137,7 @@ describe('Login', () => {
     it('envía correo correctamente', async () => {
       component.email = 'user@mail.com';
       const sendMock = vi.fn(() => Promise.resolve());
-      (globalThis as any).emailjs = { send: sendMock };
+      (globalThis as any).emailjs = {send: sendMock};
 
       component.recuperarClave();
 
@@ -154,7 +153,7 @@ describe('Login', () => {
     it('maneja error al enviar correo', async () => {
       component.email = 'user@mail.com';
       const sendMock = vi.fn(() => Promise.reject('error'));
-      (globalThis as any).emailjs = { send: sendMock };
+      (globalThis as any).emailjs = {send: sendMock};
 
       component.recuperarClave();
 

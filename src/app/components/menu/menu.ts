@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import {Component} from '@angular/core';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +11,8 @@ export class Menu {
   esAdministrador: boolean = false;
   userName: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     if (typeof window === 'undefined') return;

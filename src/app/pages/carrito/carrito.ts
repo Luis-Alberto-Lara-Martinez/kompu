@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Menu } from "../../components/menu/menu";
-import { PiePagina } from "../../components/pie-pagina/pie-pagina";
-import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { Router } from '@angular/router';
-import { Producto } from '../../models/producto';
-import { Usuario } from '../../models/usuario';
-import { PaypalButton } from "../../components/paypal-button/paypal-button";
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Menu} from "../../components/menu/menu";
+import {PiePagina} from "../../components/pie-pagina/pie-pagina";
+import {ScrollToTop} from "../../components/scroll-to-top/scroll-to-top";
+import {Router, RouterModule} from '@angular/router';
+import {Producto} from '../../models/producto';
+import {Usuario} from '../../models/usuario';
+import {PaypalButton} from "../../components/paypal-button/paypal-button";
 
 @Component({
   selector: 'app-carrito',
-  imports: [Menu, PiePagina, ScrollToTop, CommonModule, PaypalButton],
+  imports: [Menu, PiePagina, ScrollToTop, CommonModule, PaypalButton, RouterModule],
   templateUrl: './carrito.html',
   styleUrl: './carrito.css',
 })
@@ -18,7 +18,8 @@ export class Carrito implements OnInit {
   carrito: any[] = [];
   precioTotal: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;

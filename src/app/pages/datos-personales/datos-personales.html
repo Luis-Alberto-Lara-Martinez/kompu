@@ -2,46 +2,46 @@
 <app-scroll-to-top></app-scroll-to-top>
 
 <div class="container my-4">
-    <h1 class="mb-4">Perfil de Usuario</h1>
-    
-    @if (!nombre) {
-        <div class="alert alert-warning">
-            No hay usuario logueado. Por favor, <a routerLink="/login">inicia sesión</a>.
-        </div>
-    } @else {
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                <h2 class="h5 mb-0">Información Personal</h2>
+  <h1 class="mb-4">Perfil de Usuario</h1>
+
+  @if (!nombre) {
+    <div class="alert alert-warning">
+      No hay usuario logueado. Por favor, <a routerLink="/login">inicia sesión</a>.
+    </div>
+  } @else {
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h2 class="h5 mb-0">Información Personal</h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="form-label fw-bold">Nombre:</label>
+              <p class="form-control-static">{{ nombre }}</p>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Nombre:</label>
-                            <p class="form-control-static">{{nombre}}</p>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Correo:</label>
-                            <p class="form-control-static">{{email}}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Teléfono:</label>
-                            <p class="form-control-static">{{telefono || 'No especificado'}}</p>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Dirección:</label>
-                            <p class="form-control-static">{{direccion || 'No especificado'}}</p>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Correo:</label>
+              <p class="form-control-static">{{ email }}</p>
             </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="form-label fw-bold">Teléfono:</label>
+              <p class="form-control-static">{{ telefono || 'No especificado' }}</p>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Dirección:</label>
+              <p class="form-control-static">{{ direccion || 'No especificado' }}</p>
+            </div>
+          </div>
         </div>
-    }
+      </div>
+    </div>
+  }
 </div>
 
 <app-pie-pagina></app-pie-pagina>

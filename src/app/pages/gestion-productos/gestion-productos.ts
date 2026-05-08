@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Menu } from "../../components/menu/menu";
-import { PiePagina } from "../../components/pie-pagina/pie-pagina";
-import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { Producto } from '../../models/producto';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Menu} from "../../components/menu/menu";
+import {PiePagina} from "../../components/pie-pagina/pie-pagina";
+import {ScrollToTop} from "../../components/scroll-to-top/scroll-to-top";
+import {Router} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {Producto} from '../../models/producto';
 
 @Component({
   selector: 'app-gestion-productos',
@@ -30,14 +30,21 @@ export class GestionProductos {
   // Campo auxiliar para 1 URL de imagen en el formulario
   listaImagenUrl: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;
     const tokenString = localStorage.getItem('token');
-    if (!tokenString) { this.router.navigate(['/home']); return; }
+    if (!tokenString) {
+      this.router.navigate(['/home']);
+      return;
+    }
     const payload = JSON.parse(atob(tokenString.split('.')?.[1] || ''));
-    if (!payload || payload.rol !== 'administrador') { this.router.navigate(['/home']); return; }
+    if (!payload || payload.rol !== 'administrador') {
+      this.router.navigate(['/home']);
+      return;
+    }
     const listaString = localStorage.getItem('listaProductos');
     if (listaString) {
       this.productos = JSON.parse(listaString);

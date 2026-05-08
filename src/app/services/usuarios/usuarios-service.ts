@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Usuario } from '../../models/usuario';
-import { map, Observable, of, throwError } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Usuario} from '../../models/usuario';
+import {map, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +10,14 @@ export class UsuariosService {
   private claveSecreta = "luissamuelalejandrokompu";
   private urlApi = "assets/data/usuarios.json";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   obtenerUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.urlApi).pipe(
       map(usuarios => {
         return usuarios.map(usuario => {
-          return { ...usuario, clave: btoa(usuario.clave) };
+          return {...usuario, clave: btoa(usuario.clave)};
         });
       })
     );

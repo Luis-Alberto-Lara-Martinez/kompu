@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { provideRouter, Router } from '@angular/router';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
+import {provideRouter, Router} from '@angular/router';
 
-import { GestionUsuarios } from './gestion-usuarios';
-import { Usuario } from '../../models/usuario';
+import {GestionUsuarios} from './gestion-usuarios';
+import {Usuario} from '../../models/usuario';
 
 const mockUsuarios: Usuario[] = [
   {
@@ -73,7 +73,7 @@ describe('GestionUsuarios', () => {
 
   describe('ngOnInit comportamiento', () => {
     it('carga usuarios desde localStorage si existe (rol administrador)', () => {
-      const payloadAdmin = { id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payloadAdmin = {id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       component.ngOnInit();
@@ -82,7 +82,7 @@ describe('GestionUsuarios', () => {
     });
 
     it('no carga usuarios si no hay listaUsuarios en localStorage', () => {
-      const payloadAdmin = { id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payloadAdmin = {id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.removeItem('listaUsuarios');
       component.ngOnInit();
@@ -90,7 +90,7 @@ describe('GestionUsuarios', () => {
     });
 
     it('mantiene el array vacío si listaUsuarios es null', () => {
-      const payloadAdmin = { id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payloadAdmin = {id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.removeItem('listaUsuarios');
       component.usuarios = mockUsuarios.slice();
@@ -106,7 +106,7 @@ describe('GestionUsuarios', () => {
     });
 
     it('redirige a /home si el rol no es administrador', () => {
-      const payloadUsuario = { id: 1, rol: 'usuario', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payloadUsuario = {id: 1, rol: 'usuario', exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadUsuario))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       component.ngOnInit();
@@ -131,7 +131,7 @@ describe('GestionUsuarios', () => {
 
   describe('toggleEstado comportamiento', () => {
     beforeEach(() => {
-      const payloadAdmin = { id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payloadAdmin = {id: 3, rol: 'administrador', exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payloadAdmin))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       component.ngOnInit();

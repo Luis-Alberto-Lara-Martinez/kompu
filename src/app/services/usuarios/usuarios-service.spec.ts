@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { UsuariosService } from './usuarios-service';
-import { Usuario } from '../../models/usuario';
-import { provideHttpClient } from '@angular/common/http';
+import {TestBed} from '@angular/core/testing';
+import {HttpTestingController, provideHttpClientTesting} from '@angular/common/http/testing';
+import {UsuariosService} from './usuarios-service';
+import {Usuario} from '../../models/usuario';
+import {provideHttpClient} from '@angular/common/http';
 
 describe('UsuariosService', () => {
 
@@ -255,8 +255,8 @@ describe('UsuariosService', () => {
         "rol": "usuario",
         "estado": "activado",
         "carrito": [
-          { "idProducto": 1, "cantidad": 3 },
-          { "idProducto": 5, "cantidad": 1 }
+          {"idProducto": 1, "cantidad": 3},
+          {"idProducto": 5, "cantidad": 1}
         ],
         "listaDeseos": [2, 4, 6]
       }
@@ -284,7 +284,7 @@ describe('UsuariosService', () => {
         "direccion": "Calle Completa 999",
         "rol": "administrador",
         "estado": "activado",
-        "carrito": [{ "idProducto": 10, "cantidad": 5 }],
+        "carrito": [{"idProducto": 10, "cantidad": 5}],
         "listaDeseos": [1, 2, 3]
       }
     ];
@@ -464,8 +464,8 @@ describe('UsuariosService', () => {
       "rol": "usuario",
       "estado": "activado",
       "carrito": [
-        { "idProducto": 1, "cantidad": 2 },
-        { "idProducto": 3, "cantidad": 1 }
+        {"idProducto": 1, "cantidad": 2},
+        {"idProducto": 3, "cantidad": 1}
       ],
       "listaDeseos": [5, 10, 15]
     };
@@ -498,8 +498,8 @@ describe('UsuariosService', () => {
     const headerUsuario = JSON.parse(atob(tokenUsuario.split('.')[0]));
     const headerReset = JSON.parse(atob(tokenReset.split('.')[0]));
 
-    expect(headerUsuario).toEqual({ alg: 'HS256', typ: 'JWT' });
-    expect(headerReset).toEqual({ alg: 'HS256', typ: 'JWT' });
+    expect(headerUsuario).toEqual({alg: 'HS256', typ: 'JWT'});
+    expect(headerReset).toEqual({alg: 'HS256', typ: 'JWT'});
   });
 
   it('debe codificar correctamente claves con caracteres especiales', () => {

@@ -1,13 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { provideRouter, Router } from '@angular/router';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
+import {provideRouter, Router} from '@angular/router';
 
-import { HistorialPedidos } from './historial-pedidos';
+import {HistorialPedidos} from './historial-pedidos';
 
 const mockProductos = [
-  { id: 1, nombre: 'Teclado Mecánico', listaImagenes: ['teclado.jpg'], precio: 50 },
-  { id: 2, nombre: 'Ratón Gamer', listaImagenes: ['raton.jpg'], precio: 30 },
-  { id: 3, nombre: 'Monitor 4K', listaImagenes: ['monitor.jpg'], precio: 400 },
+  {id: 1, nombre: 'Teclado Mecánico', listaImagenes: ['teclado.jpg'], precio: 50},
+  {id: 2, nombre: 'Ratón Gamer', listaImagenes: ['raton.jpg'], precio: 30},
+  {id: 3, nombre: 'Monitor 4K', listaImagenes: ['monitor.jpg'], precio: 400},
 ] as any;
 
 const mockPedidos = [
@@ -18,8 +18,8 @@ const mockPedidos = [
     estado: 'entregado',
     total: 80,
     listaProductos: [
-      { idProducto: 1, cantidad: 1, precio: 50 },
-      { idProducto: 2, cantidad: 1, precio: 30 },
+      {idProducto: 1, cantidad: 1, precio: 50},
+      {idProducto: 2, cantidad: 1, precio: 30},
     ],
   },
   {
@@ -29,7 +29,7 @@ const mockPedidos = [
     estado: 'enviado',
     total: 400,
     listaProductos: [
-      { idProducto: 3, cantidad: 1, precio: 400 },
+      {idProducto: 3, cantidad: 1, precio: 400},
     ],
   },
   {
@@ -39,7 +39,7 @@ const mockPedidos = [
     estado: 'pendiente',
     total: 30,
     listaProductos: [
-      { idProducto: 2, cantidad: 1, precio: 30 },
+      {idProducto: 2, cantidad: 1, precio: 30},
     ],
   },
 ] as any;
@@ -82,7 +82,7 @@ describe('HistorialPedidos', () => {
     });
 
     it('no carga pedidos si no hay listaPedidos en localStorage', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.removeItem('listaPedidos');
@@ -92,7 +92,7 @@ describe('HistorialPedidos', () => {
     });
 
     it('carga productos desde localStorage', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.setItem('listaPedidos', JSON.stringify(mockPedidos));
@@ -102,7 +102,7 @@ describe('HistorialPedidos', () => {
     });
 
     it('filtra pedidos por usuario actual', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.setItem('listaPedidos', JSON.stringify(mockPedidos));
@@ -113,7 +113,7 @@ describe('HistorialPedidos', () => {
     });
 
     it('enriquece pedidos con información de productos', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.setItem('listaPedidos', JSON.stringify(mockPedidos));
@@ -126,7 +126,7 @@ describe('HistorialPedidos', () => {
     });
 
     it('ordena pedidos por fecha descendente (más recientes primero)', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.setItem('listaPedidos', JSON.stringify(mockPedidos));
@@ -139,7 +139,7 @@ describe('HistorialPedidos', () => {
     });
 
     it('maneja productos no encontrados con nombre por defecto', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
 
@@ -149,7 +149,7 @@ describe('HistorialPedidos', () => {
         fecha: '2024-12-01T10:00:00.000Z',
         estado: 'pendiente',
         total: 100,
-        listaProductos: [{ idProducto: 999, cantidad: 1, precio: 100 }],
+        listaProductos: [{idProducto: 999, cantidad: 1, precio: 100}],
       }];
       localStorage.setItem('listaPedidos', JSON.stringify(pedidoConProductoInexistente));
 

@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { provideRouter, Router, ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
+import {ActivatedRoute, provideRouter, Router} from '@angular/router';
+import {of} from 'rxjs';
 
-import { DetallesProducto } from './detalles-producto';
-import { ProductosService } from '../../services/productos/productos-service';
-import { Producto } from '../../models/producto';
-import { Usuario } from '../../models/usuario';
+import {DetallesProducto} from './detalles-producto';
+import {ProductosService} from '../../services/productos/productos-service';
+import {Producto} from '../../models/producto';
+import {Usuario} from '../../models/usuario';
 
 const mockProductos: Producto[] = [
   {
@@ -19,8 +19,8 @@ const mockProductos: Producto[] = [
     listaImagenes: ['teclado1.jpg', 'teclado2.jpg'],
     descripcion: 'Teclado RGB',
     valoraciones: [
-      { idUsuario: 2, nota: 5, comentario: 'Excelente' },
-      { idUsuario: 3, nota: 4, comentario: 'Muy bueno' },
+      {idUsuario: 2, nota: 5, comentario: 'Excelente'},
+      {idUsuario: 3, nota: 4, comentario: 'Muy bueno'},
     ],
     fechaLanzamiento: new Date('2024-01-01'),
   },
@@ -94,7 +94,7 @@ describe('DetallesProducto', () => {
       imports: [DetallesProducto],
       providers: [
         provideRouter([]),
-        { provide: ProductosService, useValue: productosService },
+        {provide: ProductosService, useValue: productosService},
         {
           provide: ActivatedRoute,
           useValue: {
@@ -152,11 +152,11 @@ describe('DetallesProducto', () => {
         imports: [DetallesProducto],
         providers: [
           provideRouter([]),
-          { provide: ProductosService, useValue: productosService },
+          {provide: ProductosService, useValue: productosService},
           {
             provide: ActivatedRoute,
             useValue: {
-              snapshot: { paramMap: { get: () => null } },
+              snapshot: {paramMap: {get: () => null}},
             },
           },
         ],
@@ -174,7 +174,7 @@ describe('DetallesProducto', () => {
     beforeEach(() => {
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       component.ngOnInit();
     });
@@ -186,7 +186,7 @@ describe('DetallesProducto', () => {
     });
 
     it('muestra mensaje si usuario no existe', () => {
-      const payload = { id: 999, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 999, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       component.mostrarMensaje = vi.fn();
       component.anadirFavorito(mockProductos[0]);
@@ -215,7 +215,7 @@ describe('DetallesProducto', () => {
     beforeEach(() => {
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       component.ngOnInit();
     });
@@ -227,7 +227,7 @@ describe('DetallesProducto', () => {
     });
 
     it('muestra mensaje si usuario no existe', () => {
-      const payload = { id: 999, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 999, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       component.mostrarMensaje = vi.fn();
       component.anadirCarrito(mockProductos[0]);
@@ -238,13 +238,13 @@ describe('DetallesProducto', () => {
       component.mostrarMensaje = vi.fn();
       component.anadirCarrito(mockProductos[0]);
       const usuarios = JSON.parse(localStorage.getItem('listaUsuarios')!);
-      expect(usuarios[0].carrito).toEqual([{ idProducto: 1, cantidad: 1 }]);
+      expect(usuarios[0].carrito).toEqual([{idProducto: 1, cantidad: 1}]);
       expect(component.mostrarMensaje).toHaveBeenCalledWith('Añadido al carrito.');
     });
 
     it('incrementa cantidad si producto ya existe en carrito', () => {
       const usuarios = JSON.parse(localStorage.getItem('listaUsuarios')!);
-      usuarios[0].carrito = [{ idProducto: 1, cantidad: 1 }];
+      usuarios[0].carrito = [{idProducto: 1, cantidad: 1}];
       localStorage.setItem('listaUsuarios', JSON.stringify(usuarios));
       component.mostrarMensaje = vi.fn();
       component.anadirCarrito(mockProductos[0]);
@@ -301,7 +301,7 @@ describe('DetallesProducto', () => {
   describe('toggleFormularioResena', () => {
     beforeEach(() => {
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       component.ngOnInit();
     });
@@ -321,10 +321,10 @@ describe('DetallesProducto', () => {
     });
 
     it('resetea formulario al cerrar', () => {
-      component.nuevaResena = { nota: 3, comentario: 'Test' };
+      component.nuevaResena = {nota: 3, comentario: 'Test'};
       component.mostrarFormularioResena = true;
       component.toggleFormularioResena();
-      expect(component.nuevaResena).toEqual({ nota: 5, comentario: '' });
+      expect(component.nuevaResena).toEqual({nota: 5, comentario: ''});
     });
   });
 
@@ -332,7 +332,7 @@ describe('DetallesProducto', () => {
     beforeEach(() => {
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       component.ngOnInit();
       component.mostrarFormularioResena = true;
@@ -345,7 +345,7 @@ describe('DetallesProducto', () => {
     });
 
     it('añade valoración al producto y persiste', () => {
-      component.nuevaResena = { nota: 5, comentario: 'Excelente producto' };
+      component.nuevaResena = {nota: 5, comentario: 'Excelente producto'};
       component.mostrarMensaje = vi.fn();
 
       component.enviarResena();
@@ -362,7 +362,7 @@ describe('DetallesProducto', () => {
     });
 
     it('muestra mensaje si usuario ya valoró el producto', () => {
-      component.producto!.valoraciones.push({ idUsuario: 1, nota: 4, comentario: 'Ya valorado' });
+      component.producto!.valoraciones.push({idUsuario: 1, nota: 4, comentario: 'Ya valorado'});
       component.mostrarMensaje = vi.fn();
 
       component.enviarResena();
@@ -371,7 +371,7 @@ describe('DetallesProducto', () => {
     });
 
     it('maneja comentario vacío como null', () => {
-      component.nuevaResena = { nota: 4, comentario: '   ' };
+      component.nuevaResena = {nota: 4, comentario: '   '};
       component.enviarResena();
 
       const nuevaVal = component.producto?.valoraciones[2];
@@ -379,23 +379,23 @@ describe('DetallesProducto', () => {
     });
 
     it('resetea y cierra formulario después de enviar', () => {
-      component.nuevaResena = { nota: 5, comentario: 'Test' };
+      component.nuevaResena = {nota: 5, comentario: 'Test'};
       component.enviarResena();
 
       expect(component.mostrarFormularioResena).toBe(false);
-      expect(component.nuevaResena).toEqual({ nota: 5, comentario: '' });
+      expect(component.nuevaResena).toEqual({nota: 5, comentario: ''});
     });
   });
 
   describe('cancelarResena', () => {
     it('cierra formulario y resetea datos', () => {
       component.mostrarFormularioResena = true;
-      component.nuevaResena = { nota: 3, comentario: 'Test' };
+      component.nuevaResena = {nota: 3, comentario: 'Test'};
 
       component.cancelarResena();
 
       expect(component.mostrarFormularioResena).toBe(false);
-      expect(component.nuevaResena).toEqual({ nota: 5, comentario: '' });
+      expect(component.nuevaResena).toEqual({nota: 5, comentario: ''});
     });
   });
 });

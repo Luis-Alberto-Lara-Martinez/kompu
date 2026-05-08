@@ -1,68 +1,104 @@
 <app-menu></app-menu>
 <app-scroll-to-top></app-scroll-to-top>
 
-<div class="container py-4">
+<!-- Breadcrumbs -->
+<nav class="container-fluid py-2" aria-label="Migas de pan">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item"><a routerLink="/" routerLinkActive="active">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Mi cesta</li>
+  </ol>
+</nav>
+
+<main class="container py-4" id="main-content" role="main">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h4 class="fw-semibold">Carrito</h4>
-    <span class="text-muted">{{ carrito.length }} productos</span>
+    <h1 class="fw-semibold">Mi cesta de compra</h1>
+    <span class="badge bg-primary" aria-live="polite" aria-label="Cantidad de productos en el carrito">
+      {{ carrito.length }} producto<span *ngIf="carrito.length !== 1">s</span>
+    </span>
   </div>
 
   @if (carrito.length === 0) {
-  <div class="alert alert-info" role="alert">
-    Tu carrito está vacío.
-  </div>
-  }@else {
-  <div class="d-flex flex-column gap-3">
-    @for (producto of carrito; track $index) {
-    <div class="card shadow-sm">
-      <div class="card-body d-flex align-items-center gap-3">
-        <img class="w-25 h-25" [src]="producto.listaImagenes[0]" [alt]="producto.nombre">
-
-        <div class="flex-grow-1">
-          <div class="d-flex justify-content-between align-items-center">
-            <h6>{{ producto.nombre }}</h6>
-            <div class="fw-semibold">{{ transformarPrecio(producto.precio) }}</div>
-          </div>
-
-          <p class="text-secondary small">{{ producto.descripcion }}</p>
-
-          <div class="d-flex align-items-center gap-2">
-            <label class="small text-secondary me-2">Cantidad</label>
-            <input type="number" class="form-control form-control-sm w-auto" min="1" [value]="producto.cantidad || 1"
-              (input)="actualizarCantidad(producto, $event)">
-
-            <button type="button" class="btn btn-outline-danger btn-sm ms-auto"
-              (click)="eliminarDelCarrito(producto.id)">Eliminar</button>
-          </div>
-        </div>
-      </div>
+    <div class="alert alert-info" role="status">
+      <i class="fa-solid fa-info-circle me-2" aria-hidden="true"></i>
+      Tu carrito está vacío.
+      <a routerLink="/productos" class="alert-link">Continúa comprando</a>
     </div>
-    }
-  </div>
+  } @else {
+    <div class="d-flex flex-column gap-3">
+      @for (producto of carrito; track $index) {
+        <article class="card shadow-sm" role="article" [attr.aria-label]="'Producto: ' + producto.nombre">
+          <div class="card-body d-flex align-items-center gap-3">
+            <img class="w-25 h-25"
+                 [src]="producto.listaImagenes[0]"
+                 [alt]="producto.nombre"
+                 loading="lazy">
 
-  <!-- Resumen -->
-  <div class="card mt-3">
-    <div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3">
-      <div class="d-flex flex-column">
-        <div class="d-flex justify-content-between gap-4">
-          <span class="text-body-secondary">Subtotal (sin IVA):</span>
-          <span class="fw-semibold">{{ (precioTotal/1.21).toFixed(2) }}€</span>
-        </div>
-        <div class="d-flex justify-content-between gap-4">
-          <span class="text-body-secondary">IVA (21%):</span>
-          <span class="fw-semibold">{{ (precioTotal - (precioTotal/1.21)).toFixed(2) }}€</span>
-        </div>
-        <div class="d-flex justify-content-between gap-4 border-top pt-2 mt-2">
-          <span class="fw-semibold">Total:</span>
-          <span class="fw-bold">{{ precioTotal.toFixed(2) }}€</span>
-        </div>
-      </div>
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h2 class="mb-0">
+                  <a [routerLink]="['/productos', producto.id]" class="text-decoration-none">{{ producto.nombre }}</a>
+                </h2>
+                <div class="fw-semibold" [attr.aria-label]="'Precio: ' + transformarPrecio(producto.precio) + ' euros'">
+                  {{ transformarPrecio(producto.precio) }}
+                </div>
+              </div>
 
-      <div class="flex-grow-1 text-end">
-        <app-paypal-button [totalCompra]="precioTotal"></app-paypal-button>
-      </div>
+              <p class="text-secondary small mb-3">{{ producto.descripcion }}</p>
+
+              <div class="d-flex align-items-center gap-2">
+                <fieldset class="d-flex align-items-center gap-2">
+                  <legend class="small text-secondary me-2">Cantidad:</legend>
+                  <input type="number"
+                         class="form-control form-control-sm w-auto"
+                         min="1"
+                         [value]="producto.cantidad || 1"
+                         (input)="actualizarCantidad(producto, $event)"
+                         [attr.aria-label]="'Cantidad de ' + producto.nombre">
+                </fieldset>
+
+                <button type="button"
+                        class="btn btn-outline-danger btn-sm ms-auto"
+                        (click)="eliminarDelCarrito(producto.id)"
+                        [attr.aria-label]="'Eliminar ' + producto.nombre + ' del carrito'">
+                  <i class="fa-solid fa-trash-alt me-1" aria-hidden="true"></i>
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      }
     </div>
-  </div>
+
+    <!-- Resumen -->
+    <section class="card mt-4" aria-labelledby="resumenTitle">
+      <div class="card-header">
+        <h2 id="resumenTitle" class="mb-0">Resumen de compra</h2>
+      </div>
+      <div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex justify-content-between gap-4">
+            <label class="text-body-secondary">Subtotal (sin IVA):</label>
+            <span class="fw-semibold" aria-label="Subtotal sin IVA">{{ (precioTotal / 1.21).toFixed(2) }}€</span>
+          </div>
+          <div class="d-flex justify-content-between gap-4">
+            <label class="text-body-secondary">IVA (21%):</label>
+            <span class="fw-semibold"
+                  aria-label="Impuesto sobre el valor añadido">{{ (precioTotal - (precioTotal / 1.21)).toFixed(2) }}
+              €</span>
+          </div>
+          <div class="d-flex justify-content-between gap-4 border-top pt-2 mt-2">
+            <label class="fw-semibold">Total:</label>
+            <span class="fw-bold h5 mb-0" aria-label="Total a pagar">{{ precioTotal.toFixed(2) }}€</span>
+          </div>
+        </div>
+
+        <div class="flex-grow-1 text-end">
+          <app-paypal-button [totalCompra]="precioTotal"></app-paypal-button>
+        </div>
+      </div>
+    </section>
   }
-</div>
+</main>
+
 <app-pie-pagina></app-pie-pagina>

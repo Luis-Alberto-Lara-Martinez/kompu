@@ -1,124 +1,172 @@
 <app-menu></app-menu>
 <app-scroll-to-top></app-scroll-to-top>
 
+<!-- Breadcrumbs para navegación -->
+<nav class="container-fluid py-2" aria-label="Migas de pan">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item"><a routerLink="/" routerLinkActive="active">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Productos</li>
+  </ol>
+</nav>
+
 <!-- Mensaje emergente -->
 @if (mensajeEmergente) {
-<div class="mensaje-emergente">
-  {{ mensajeEmergente }}
-</div>
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-info-circle me-2" aria-hidden="true"></i>
+    {{ mensajeEmergente }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar mensaje"></button>
+  </div>
 }
 
-<main class="container-fluid py-4" role="main">
+<main class="container-fluid py-4" id="main-content" role="main">
+  <h1 class="sr-only">Catálogo de productos</h1>
   <div class="row">
     <!-- Sidebar de Filtros -->
-    <aside class="col-lg-3 col-md-4 mb-4">
+    <aside class="col-lg-3 col-md-4 mb-4" aria-label="Filtros de búsqueda">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h2 class="h6 mb-0">Filtros</h2>
           <div class="d-flex gap-2">
-            <button type="button" class="btn btn-sm btn-outline-primary" (click)="toggleFiltros()">
+            <button type="button" class="btn btn-sm btn-outline-primary" (click)="toggleFiltros()"
+                    [attr.aria-expanded]="mostrarFiltros"
+                    [attr.aria-label]="mostrarFiltros ? 'Ocultar filtros' : 'Mostrar filtros'">
               {{ mostrarFiltros ? 'Ocultar' : 'Mostrar' }}
             </button>
-            <button type="button" class="btn btn-sm btn-link text-decoration-none" (click)="limpiarFiltros()">
+            <button type="button" class="btn btn-sm btn-link text-decoration-none" (click)="limpiarFiltros()"
+                    aria-label="Limpiar todos los filtros">
               Limpiar
             </button>
           </div>
         </div>
         @if (mostrarFiltros) {
-        <div class="card-body">
-          <!-- Filtro por Categoría -->
-          @if (categorias.length > 0) {
-          <div class="mb-4">
-            <label for="selectCategoria" class="form-label fw-semibold">Categoría</label>
-            <select id="selectCategoria" class="form-select form-select-sm" [(ngModel)]="filtros.categoria"
-              (change)="aplicarFiltros()">
-              <option value="">Todas las categorías</option>
-              @for (cat of categorias; track cat) {
-              <option [value]="cat">{{ cat }}</option>
-              }
-            </select>
-          </div>
-          }
+          <div class="card-body">
+            <!-- Filtro por Categoría -->
+            @if (categorias.length > 0) {
+              <fieldset class="mb-4">
+                <legend class="form-label fw-semibold">Categoría</legend>
+                <select id="selectCategoria" class="form-select form-select-sm" [(ngModel)]="filtros.categoria"
+                        (change)="aplicarFiltros()" aria-label="Filtrar por categoría de productos">
+                  <option value="">Todas las categorías</option>
+                  @for (cat of categorias; track cat) {
+                    <option [value]="cat">{{ cat }}</option>
+                  }
+                </select>
+              </fieldset>
+            }
 
-          <!-- Filtro por Marca -->
-          @if (marcas.length > 0) {
-          <div class="mb-4">
-            <label for="selectMarca" class="form-label fw-semibold">Marca</label>
-            <select id="selectMarca" class="form-select form-select-sm" [(ngModel)]="filtros.marca"
-              (change)="aplicarFiltros()">
-              <option value="">Todas las marcas</option>
-              @for (marca of marcas; track marca) {
-              <option [value]="marca">{{ marca }}</option>
-              }
-            </select>
-          </div>
-          }
+            <!-- Filtro por Marca -->
+            @if (marcas.length > 0) {
+              <fieldset class="mb-4">
+                <legend class="form-label fw-semibold">Marca</legend>
+                <select id="selectMarca" class="form-select form-select-sm" [(ngModel)]="filtros.marca"
+                        (change)="aplicarFiltros()" aria-label="Filtrar por marca de productos">
+                  <option value="">Todas las marcas</option>
+                  @for (marca of marcas; track marca) {
+                    <option [value]="marca">{{ marca }}</option>
+                  }
+                </select>
+              </fieldset>
+            }
 
-          <!-- Filtro por Precio -->
-          <div class="mb-3">
-            <label for="precioMax" class="form-label fw-semibold">Precio máximo: {{ filtros.precioMax }}€</label>
-            <input type="range" class="form-range" id="precioMax" min="0" [max]="precioMaximoProductos" step="10"
-              [(ngModel)]="filtros.precioMax" (input)="aplicarFiltros()">
+            <!-- Filtro por Precio -->
+            <fieldset class="mb-3">
+              <legend class="form-label fw-semibold">Rango de precio</legend>
+              <div>
+                <label for="precioMax" class="form-label" id="precioLabel">Precio máximo:
+                  <strong>{{ filtros.precioMax }}€</strong></label>
+                <input type="range" class="form-range" id="precioMax" min="0" [max]="precioMaximoProductos" step="10"
+                       [(ngModel)]="filtros.precioMax" (input)="aplicarFiltros()"
+                       aria-label="Ajusta el precio máximo" aria-describedby="precioLabel">
+              </div>
+            </fieldset>
           </div>
-        </div>
         }
       </div>
     </aside>
 
     <!-- Grid de Productos -->
     <section class="col-lg-9 col-md-8">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="h3 fw-semibold mb-0">Productos</h1>
-        <!-- Buscador de productos -->
-        <div class="input-group" style="max-width: 400px;">
-          <input type="text" class="form-control" placeholder="Buscar productos..." [(ngModel)]="buscador"
-            (input)="aplicarFiltros()" aria-label="Buscar productos">
-          @if (buscador) {
-          <button class="btn btn-outline-secondary" type="button" (click)="limpiarBuscador()"
-            aria-label="Limpiar búsqueda">
-            ✕
-          </button>
-          }
+      <div class="d-flex flex-column gap-3 mb-4">
+        <div class="d-flex justify-content-between align-items-center">
+          <h1 class="h3 fw-semibold mb-0">Productos</h1>
+          <span class="badge bg-primary" aria-live="polite" aria-label="Cantidad de productos mostrados">
+            {{ productosFiltrados.length }} producto<span *ngIf="productosFiltrados.length !== 1">s</span>
+          </span>
         </div>
-        <!-- Ordenar -->
-        <div class="d-flex align-items-center gap-3">
-          <select class="form-select form-select-sm" style="width: auto;" [(ngModel)]="ordenSeleccionado"
-            (change)="aplicarFiltros()">
-            <option value="">Ordenar por</option>
-            <option value="precio-desc">Precio: Mayor a Menor</option>
-            <option value="precio-asc">Precio: Menor a Mayor</option>
-            <option value="nombre-asc">A-Z</option>
-          </select>
-          <span class="text-muted">{{ productosFiltrados.length }} productos</span>
+
+        <!-- Buscador y Controles -->
+        <div class="d-flex flex-wrap gap-2">
+          <!-- Buscador de productos -->
+          <div class="input-group flex-grow-1" style="max-width: 400px;">
+            <input type="text" class="form-control" placeholder="Buscar productos..." [(ngModel)]="buscador"
+                   (input)="aplicarFiltros()"
+                   aria-label="Buscar productos por nombre o descripción">
+            @if (buscador) {
+              <button class="btn btn-outline-secondary" type="button" (click)="limpiarBuscador()"
+                      aria-label="Limpiar búsqueda">
+                ✕
+              </button>
+            }
+          </div>
+
+          <!-- Ordenar -->
+          <fieldset class="d-flex align-items-center gap-2">
+            <label for="ordenamiento" class="form-label mb-0 text-nowrap fw-semibold">Ordenar:</label>
+            <select id="ordenamiento" class="form-select form-select-sm" style="width: auto;"
+                    [(ngModel)]="ordenSeleccionado"
+                    (change)="aplicarFiltros()" aria-label="Ordenar productos por">
+              <option value="">Por defecto</option>
+              <option value="precio-desc">Precio: Mayor a Menor</option>
+              <option value="precio-asc">Precio: Menor a Mayor</option>
+              <option value="nombre-asc">Nombre: A-Z</option>
+            </select>
+          </fieldset>
         </div>
       </div>
 
-      <div class="row g-3" aria-live="polite">
+      <!-- Grid de productos -->
+      <div class="row g-3" aria-live="polite" aria-label="Lista de productos disponibles">
         @for (p of productosFiltrados; track p.id) {
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-          <!--Animacion-->
-          <article class="card h-100" tabindex="0">
-            <div class="ratio ratio-4x3 bg-light border-bottom">
-              <a [routerLink]="['/productos', p.id]" class="d-block w-100 h-100">
-                <img [src]="p.listaImagenes[0]" class="w-100 h-100" style="object-fit: cover;" [alt]="p.nombre">
-              </a>
-            </div>
-            <div class="card-body d-flex flex-column gap-2">
-              <h2 class="card-title h6 mb-1">
-                <a [routerLink]="['/productos', p.id]" class="text-decoration-none">{{ p.nombre }}</a>
-              </h2>
-              <p class="card-text text-body-secondary mb-1 small">{{ p.descripcion }}</p>
-              <div class="fw-semibold mb-2">{{ p.precio }}€</div>
-              <div class="d-flex flex-wrap gap-2 mt-auto">
-                <a class="btn btn-secondary btn-sm" [routerLink]="['/productos', p.id]">Ver detalle</a>
-                <button type="button" class="btn btn-primary btn-sm" (click)="anadirCarrito(p)">Añadir</button>
-                <button type="button" class="btn btn-outline-secondary btn-sm" (click)="anadirFavorito(p)">♥️</button>
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+            <article class="card h-100" tabindex="0" role="article" aria-label="Producto: {{ p.nombre }}">
+              <div class="ratio ratio-4x3 bg-light border-bottom">
+                <a [routerLink]="['/productos', p.id]" class="d-block w-100 h-100">
+                  <img [src]="p.listaImagenes[0]"
+                       class="w-100 h-100"
+                       style="object-fit: cover;"
+                       [alt]="p.nombre"
+                       loading="lazy">
+                </a>
               </div>
-            </div>
-          </article>
-        </div>
+              <div class="card-body d-flex flex-column gap-2">
+                <h2 class="card-title h6 mb-1">
+                  <a [routerLink]="['/productos', p.id]" class="text-decoration-none">{{ p.nombre }}</a>
+                </h2>
+                <p class="card-text text-body-secondary mb-1 small">{{ p.descripcion }}</p>
+                <div class="fw-semibold mb-2" aria-label="Precio: {{ p.precio }} euros">{{ p.precio }}€</div>
+                <div class="d-flex flex-wrap gap-2 mt-auto">
+                  <a class="btn btn-secondary btn-sm" [routerLink]="['/productos', p.id]"
+                     aria-label="Ver detalles de {{ p.nombre }}">Ver detalle</a>
+                  <button type="button" class="btn btn-primary btn-sm" (click)="anadirCarrito(p)"
+                          [attr.aria-label]="'Añadir ' + p.nombre + ' al carrito'">Añadir
+                  </button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" (click)="anadirFavorito(p)"
+                          [attr.aria-label]="'Añadir ' + p.nombre + ' a favoritos'">♥️
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
         }
 
+        @if (productosFiltrados.length === 0) {
+          <div class="col-12">
+            <div class="alert alert-info" role="status">
+              <i class="fa-solid fa-info-circle me-2" aria-hidden="true"></i>
+              No se encontraron productos con los filtros aplicados. Intenta cambiar los criterios de búsqueda.
+            </div>
+          </div>
+        }
       </div>
     </section>
   </div>

@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { Usuario } from '../../models/usuario';
-import { Pedido } from '../../models/pedido';
+import {Component, Input} from '@angular/core';
+import {Usuario} from '../../models/usuario';
+import {Pedido} from '../../models/pedido';
+
 declare var paypal: any;
 
 @Component({

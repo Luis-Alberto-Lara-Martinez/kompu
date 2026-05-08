@@ -3,74 +3,76 @@
 
 <!-- Hero Banner -->
 <section class="container py-4">
-    <div class="p-4 p-md-5 rounded-4 text-white hero-gradient d-flex flex-column flex-md-row align-items-center gap-4">
-        <div class="flex-grow-1">
-            <h1 class="display-6 fw-bold mb-2">Ofertas tecnológicas y últimos lanzamientos</h1>
-            <p class="mb-3">Descubre las mejores marcas en informática, gaming y accesorios. Envío rápido y precios imbatibles.</p>
-            <div class="d-flex gap-2">
-                <a routerLink="/productos" class="btn btn-light btn-lg fw-semibold">Ver productos</a>
-                <a routerLink="/favoritos" class="btn btn-outline-light btn-lg">Mis favoritos</a>
-            </div>
-        </div>
-        <div class="text-center">
-            <img src="assets\images\icons\kompu-menu.png" alt="Tecnología" class="img-fluid" style="max-height: 180px;">
-        </div>
+  <div class="p-4 p-md-5 rounded-4 text-white hero-gradient d-flex flex-column flex-md-row align-items-center gap-4">
+    <div class="flex-grow-1">
+      <h1 class="display-6 fw-bold mb-2">Ofertas tecnológicas y últimos lanzamientos</h1>
+      <p class="mb-3">Descubre las mejores marcas en informática, gaming y accesorios. Envío rápido y precios
+        imbatibles.</p>
+      <div class="d-flex gap-2">
+        <a routerLink="/productos" class="btn btn-light btn-lg fw-semibold">Ver productos</a>
+        <a routerLink="/favoritos" class="btn btn-outline-light btn-lg">Mis favoritos</a>
+      </div>
     </div>
+    <div class="text-center">
+      <img src="assets\images\icons\kompu-menu.png" alt="Tecnología" class="img-fluid" style="max-height: 180px;">
+    </div>
+  </div>
 </section>
 
 
 <!-- Últimos lanzamientos (Carrusel) -->
 <section class="container py-3">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-        <h2 class="h4 fw-semibold mb-0">Últimos lanzamientos</h2>
-        <a routerLink="/productos" class="btn btn-link">Ver todos</a>
-    </div>
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h2 class="h4 fw-semibold mb-0">Últimos lanzamientos</h2>
+    <a routerLink="/productos" class="btn btn-link">Ver todos</a>
+  </div>
 
-    <div id="ultimosCarrusel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-        <div class="carousel-inner">
-            @for (p of ultimosProductos; track $index) {
-            <div class="carousel-item {{$index === 0 ? 'active' : ''}}">
-                <div class="card shadow mx-auto" style="max-width: 600px;">
-                    <a [routerLink]="['/productos', p.id]" class="d-block">
-                        <img [src]="p.listaImagenes[0]" class="d-block w-100" [alt]="p.nombre" style="object-fit: cover;">
-                    </a>
-                    <div class="card-body text-center">
-                        <h5 class="card-title"><a [routerLink]="['/productos', p.id]" class="text-decoration-none">{{p.nombre}}</a></h5>
-                        <span class="badge fs-6 bg-danger mb-2">{{p.precio}}€</span>
-                        <p class="small text-body-secondary">{{p.descripcion}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary w-100" (click)="anadirCarrito(p)">Añadir al carrito</button>
-                    </div>
-                </div>
+  <div id="ultimosCarrusel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner">
+      @for (p of ultimosProductos; track $index) {
+        <div class="carousel-item {{$index === 0 ? 'active' : ''}}">
+          <div class="card shadow mx-auto" style="max-width: 600px;">
+            <a [routerLink]="['/productos', p.id]" class="d-block">
+              <img [src]="p.listaImagenes[0]" class="d-block w-100" [alt]="p.nombre" style="object-fit: cover;">
+            </a>
+            <div class="card-body text-center">
+              <h5 class="card-title"><a [routerLink]="['/productos', p.id]"
+                                        class="text-decoration-none">{{ p.nombre }}</a></h5>
+              <span class="badge fs-6 bg-danger mb-2">{{ p.precio }}€</span>
+              <p class="small text-body-secondary">{{ p.descripcion }}</p>
             </div>
-            }
+            <div class="card-footer">
+              <button class="btn btn-primary w-100" (click)="anadirCarrito(p)">Añadir al carrito</button>
+            </div>
+          </div>
         </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#ultimosCarrusel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-dark rounded"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#ultimosCarrusel" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-dark rounded"></span>
-        </button>
+      }
     </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#ultimosCarrusel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#ultimosCarrusel" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark rounded"></span>
+    </button>
+  </div>
 </section>
 
 <!-- CTA inferior -->
 <section class="container py-4">
-    <div class="alert alert-primary d-flex justify-content-between align-items-center">
-        <div>
-            <strong>¿Buscas algo en concreto?</strong> Usa el buscador en la sección de productos.
-        </div>
-        <a routerLink="/productos" class="btn btn-primary">Ir a productos</a>
+  <div class="alert alert-primary d-flex justify-content-between align-items-center">
+    <div>
+      <strong>¿Buscas algo en concreto?</strong> Usa el buscador en la sección de productos.
     </div>
+    <a routerLink="/productos" class="btn btn-primary">Ir a productos</a>
+  </div>
 </section>
 
 <!-- Mensaje emergente -->
 @if (mensajeEmergente) {
-    <div class="mensaje-emergente">
-        {{ mensajeEmergente }}
-    </div>
+  <div class="mensaje-emergente">
+    {{ mensajeEmergente }}
+  </div>
 }
 
 <app-pie-pagina></app-pie-pagina>

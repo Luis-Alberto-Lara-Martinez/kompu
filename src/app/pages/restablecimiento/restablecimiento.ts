@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario } from '../../models/usuario';
-import { FormsModule } from '@angular/forms';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Usuario} from '../../models/usuario';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-restablecimiento',
@@ -19,7 +19,8 @@ export class Restablecimiento {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     if (typeof window === 'undefined') return;

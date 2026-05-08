@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { provideRouter } from '@angular/router';
-import { of } from 'rxjs';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {provideRouter, Router} from '@angular/router';
+import {of} from 'rxjs';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 
-import { Registro } from './registro';
-import { UsuariosService } from '../../services/usuarios/usuarios-service';
+import {Registro} from './registro';
+import {UsuariosService} from '../../services/usuarios/usuarios-service';
 
 class UsuariosServiceMock {
   obtenerUsuarios = vi.fn(() => of([]));
   crearToken = vi.fn((usuario: any) => {
-    const payload = { id: usuario.id, exp: Math.floor(Date.now() / 1000) + 3600 };
+    const payload = {id: usuario.id, exp: Math.floor(Date.now() / 1000) + 3600};
     return `header.${btoa(JSON.stringify(payload))}.signature`;
   });
 }
@@ -28,7 +27,7 @@ describe('Registro', () => {
       imports: [Registro],
       providers: [
         provideRouter([]),
-        { provide: UsuariosService, useValue: usuariosService }
+        {provide: UsuariosService, useValue: usuariosService}
       ]
     }).compileComponents();
 
@@ -51,7 +50,7 @@ describe('Registro', () => {
 
   describe('ngOnInit', () => {
     it('redirige a /home si el token es válido', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 60 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 60};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
 
       component.ngOnInit();
@@ -70,18 +69,18 @@ describe('Registro', () => {
 
     it('carga listaUsuarios si no existe en localStorage', () => {
       localStorage.removeItem('listaUsuarios');
-      usuariosService.obtenerUsuarios = vi.fn(() => of([{ id: 1 }] as any));
+      usuariosService.obtenerUsuarios = vi.fn(() => of([{id: 1}] as any));
 
       component.ngOnInit();
 
-      expect(localStorage.getItem('listaUsuarios')).toBe(JSON.stringify([{ id: 1 }]));
+      expect(localStorage.getItem('listaUsuarios')).toBe(JSON.stringify([{id: 1}]));
     });
   });
 
   describe('onRegister', () => {
     beforeEach(() => {
       localStorage.setItem('listaUsuarios', JSON.stringify([
-        { id: 1, email: 'existente@mail.com', clave: btoa('Pass123!'), estado: 'activado' }
+        {id: 1, email: 'existente@mail.com', clave: btoa('Pass123!'), estado: 'activado'}
       ]));
     });
 
@@ -168,7 +167,7 @@ describe('Registro', () => {
 
     it('registra el usuario correctamente y envía correo de bienvenida', async () => {
       const sendMock = vi.fn(() => Promise.resolve());
-      (globalThis as any).emailjs = { send: sendMock };
+      (globalThis as any).emailjs = {send: sendMock};
 
       component.nombre = 'Nuevo Usuario';
       component.email = 'nuevo@mail.com';
@@ -192,7 +191,7 @@ describe('Registro', () => {
 
     it('maneja error al enviar correo de bienvenida', async () => {
       const sendMock = vi.fn(() => Promise.reject('error'));
-      (globalThis as any).emailjs = { send: sendMock };
+      (globalThis as any).emailjs = {send: sendMock};
 
       component.nombre = 'Nuevo Usuario';
       component.email = 'nuevo@mail.com';
@@ -210,7 +209,7 @@ describe('Registro', () => {
 
     it('normaliza el email a minúsculas y trimea los campos', async () => {
       const sendMock = vi.fn(() => Promise.resolve());
-      (globalThis as any).emailjs = { send: sendMock };
+      (globalThis as any).emailjs = {send: sendMock};
 
       component.nombre = '  Test User  ';
       component.email = '  TEST@MAIL.COM  ';

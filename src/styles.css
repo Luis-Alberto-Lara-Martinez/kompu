@@ -1,0 +1,220 @@
+/* ============================================================
+   ESTILOS GLOBALES DE ACCESIBILIDAD Y USABILIDAD
+   ============================================================ */
+
+/* Root Variables */
+:root {
+  --focus-color: #5170fe;
+  --focus-size: 3px;
+}
+
+/* ============================================================
+   1. ESTILOS DE FOCO VISIBLE PARA NAVEGACIÓN POR TECLADO
+   ============================================================ */
+
+:focus-visible {
+  outline: var(--focus-size) solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: var(--focus-size) solid var(--focus-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible {
+  outline: var(--focus-size) solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--focus-size) solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   2. ESTILOS SKIP LINK (IR AL CONTENIDO PRINCIPAL)
+   ============================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+}
+
+/* ============================================================
+   3. ESTILOS PARA FORMULARIOS ACCESIBLES
+   ============================================================ */
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control,
+.form-select,
+.form-range {
+  border-radius: 4px;
+  padding: 0.75rem;
+  font-size: 16px;
+}
+
+.alert {
+  border-left: 4px solid transparent;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.alert-danger {
+  border-left-color: #dc3545;
+}
+
+.alert-success {
+  border-left-color: #28a745;
+}
+
+/* ============================================================
+   4. ELEMENTOS INTERACTIVOS CON MEJOR TAMAÑO
+   ============================================================ */
+
+button,
+.btn {
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:focus-within {
+  box-shadow: 0 0 0 3px rgba(81, 112, 254, 0.25);
+}
+
+/* ============================================================
+   5. INDICADORES VISUALES
+   ============================================================ */
+
+.navbar-nav .nav-link.active {
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.navbar-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #ffc107;
+}
+
+/* ============================================================
+   6. BREADCRUMBS ACCESIBLES
+   ============================================================ */
+
+.breadcrumb {
+  background-color: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  padding: 0 0.5rem;
+  color: #6c757d;
+}
+
+/* ============================================================
+   7. RESPETO POR PREFERENCIAS DE MOVIMIENTO
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   8. RESPONSIVE ACCESIBLE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  button,
+  .btn,
+  input,
+  select {
+    min-height: 48px;
+  }
+}
+
+/* ============================================================
+   9. RANGE INPUT ACCESIBLE
+   ============================================================ */
+
+.form-range::-webkit-slider-thumb {
+  min-height: 24px;
+  min-width: 24px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #5170fe;
+  cursor: pointer;
+}
+
+.form-range::-moz-range-thumb {
+  min-height: 24px;
+  min-width: 24px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #5170fe;
+  cursor: pointer;
+  border: none;
+}
+
+/* ============================================================
+   10. BADGE ACCESIBLE
+   ============================================================ */
+
+.badge {
+  min-height: 24px;
+  min-width: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  padding: 0.35rem 0.65rem;
+}
+

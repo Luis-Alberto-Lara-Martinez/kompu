@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import {Component} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {Router, RouterModule} from '@angular/router';
 import * as emailjsImport from '@emailjs/browser';
-import { UsuariosService } from '../../services/usuarios/usuarios-service';
-import { Usuario } from '../../models/usuario';
+import {UsuariosService} from '../../services/usuarios/usuarios-service';
+import {Usuario} from '../../models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +24,8 @@ export class Login {
   constructor(
     private servicio: UsuariosService,
     private router: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     if (typeof window == "undefined") return;

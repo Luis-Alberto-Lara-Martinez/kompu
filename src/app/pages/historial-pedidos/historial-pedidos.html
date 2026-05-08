@@ -29,11 +29,14 @@
       <div class="card-body p-3">
         <!-- Productos del pedido -->
         <div class="d-flex flex-column gap-2 mb-3 pb-3 border-bottom">
-          <div *ngFor="let producto of pedido.productosConInfo" class="d-flex gap-3 align-items-center p-2 bg-light rounded producto-hover">
-            <img [src]="producto.imagen" [alt]="producto.nombre" class="rounded border" style="width: 80px; height: 80px; object-fit: cover;">
+          <div *ngFor="let producto of pedido.productosConInfo"
+               class="d-flex gap-3 align-items-center p-2 bg-light rounded producto-hover">
+            <img [src]="producto.imagen" [alt]="producto.nombre" class="rounded border"
+                 style="width: 80px; height: 80px; object-fit: cover;">
             <div class="flex-grow-1">
               <p class="mb-1 fw-semibold fs-6">{{ producto.nombre }}</p>
-              <p class="mb-0 small text-secondary">Cantidad: {{ producto.cantidad }} | Precio: {{ producto.precio }}€</p>
+              <p class="mb-0 small text-secondary">Cantidad: {{ producto.cantidad }} | Precio: {{ producto.precio }}
+                €</p>
             </div>
           </div>
         </div>

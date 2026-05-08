@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { provideRouter, Router } from '@angular/router';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
+import {provideRouter, Router} from '@angular/router';
 
-import { DatosPersonales } from './datos-personales';
-import { Usuario } from '../../models/usuario';
+import {DatosPersonales} from './datos-personales';
+import {Usuario} from '../../models/usuario';
 
 const mockUsuarios: Usuario[] = [
   {
@@ -76,7 +76,7 @@ describe('DatosPersonales', () => {
     });
 
     it('no asigna datos si no hay listaUsuarios', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.removeItem('listaUsuarios');
       component.ngOnInit();
@@ -84,7 +84,7 @@ describe('DatosPersonales', () => {
     });
 
     it('no asigna datos si usuario no existe', () => {
-      const payload = { id: 999, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 999, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       component.ngOnInit();
@@ -92,7 +92,7 @@ describe('DatosPersonales', () => {
     });
 
     it('asigna datos correctamente del usuario actual', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       component.ngOnInit();

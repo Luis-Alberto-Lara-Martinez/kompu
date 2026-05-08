@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { provideRouter, Router } from '@angular/router';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
+import {provideRouter, Router} from '@angular/router';
 
-import { Carrito } from './carrito';
-import { Producto } from '../../models/producto';
-import { Usuario } from '../../models/usuario';
+import {Carrito} from './carrito';
+import {Producto} from '../../models/producto';
+import {Usuario} from '../../models/usuario';
 
 const mockProductos: Producto[] = [
   {
@@ -44,8 +44,8 @@ const mockUsuarios: Usuario[] = [
     rol: 'usuario',
     estado: 'activado',
     carrito: [
-      { idProducto: 1, cantidad: 2 },
-      { idProducto: 2, cantidad: 1 },
+      {idProducto: 1, cantidad: 2},
+      {idProducto: 2, cantidad: 1},
     ],
     listaDeseos: [],
   },
@@ -88,7 +88,7 @@ describe('Carrito', () => {
     });
 
     it('combina productos con cantidades del carrito y calcula total', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -112,7 +112,7 @@ describe('Carrito', () => {
 
   describe('eliminarDelCarrito', () => {
     beforeEach(() => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -128,7 +128,7 @@ describe('Carrito', () => {
       expect(component.carrito).toHaveLength(1);
       expect(component.carrito[0].id).toBe(2);
       const usuarios = JSON.parse(localStorage.getItem('listaUsuarios')!);
-      expect(usuarios[0].carrito).toEqual([{ idProducto: 2, cantidad: 1 }]);
+      expect(usuarios[0].carrito).toEqual([{idProducto: 2, cantidad: 1}]);
     });
 
     it('recalcula el total tras eliminar', () => {
@@ -150,7 +150,7 @@ describe('Carrito', () => {
 
   describe('actualizarCantidad', () => {
     beforeEach(() => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -162,7 +162,7 @@ describe('Carrito', () => {
 
     it('actualiza cantidad en el producto y en localStorage', () => {
       const teclado = component.carrito.find(p => p.id === 1)! as any;
-      const event = { target: { value: '3' } } as any;
+      const event = {target: {value: '3'}} as any;
       component.actualizarCantidad(teclado, event);
       expect(teclado.cantidad).toBe(3);
       const usuarios = JSON.parse(localStorage.getItem('listaUsuarios')!);
@@ -172,7 +172,7 @@ describe('Carrito', () => {
 
     it('recalcula el total tras actualizar cantidad', () => {
       const teclado = component.carrito.find(p => p.id === 1)! as any;
-      const event = { target: { value: '3' } } as any;
+      const event = {target: {value: '3'}} as any;
       component.actualizarCantidad(teclado, event);
       // Ratón mantiene 1, teclado pasa a 3
       expect(component.precioTotal).toBe(75 * 3 + 45 * 1);
@@ -180,7 +180,7 @@ describe('Carrito', () => {
 
     it('usa cantidad por defecto 1 si el valor es inválido', () => {
       const teclado = component.carrito.find(p => p.id === 1)! as any;
-      const event = { target: { value: 'abc' } } as any;
+      const event = {target: {value: 'abc'}} as any;
       component.actualizarCantidad(teclado, event);
       expect(teclado.cantidad).toBe(1);
     });

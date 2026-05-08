@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { Menu } from "../../components/menu/menu";
-import { PiePagina } from "../../components/pie-pagina/pie-pagina";
-import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { Producto } from '../../models/producto';
-import { ProductosService } from '../../services/productos/productos-service';
-import { Router, RouterLink } from '@angular/router';
-import { Usuario } from '../../models/usuario';
+import {Component} from '@angular/core';
+import {Menu} from "../../components/menu/menu";
+import {PiePagina} from "../../components/pie-pagina/pie-pagina";
+import {ScrollToTop} from "../../components/scroll-to-top/scroll-to-top";
+import {Producto} from '../../models/producto';
+import {ProductosService} from '../../services/productos/productos-service';
+import {Router, RouterLink} from '@angular/router';
+import {Usuario} from '../../models/usuario';
+
 @Component({
   selector: 'app-home',
   imports: [Menu, PiePagina, ScrollToTop, RouterLink],
@@ -17,7 +18,8 @@ export class Home {
   productos: Producto[] = [];
   mensajeEmergente: string = '';
 
-  constructor(private servicio: ProductosService, private router: Router) { }
+  constructor(private servicio: ProductosService, private router: Router) {
+  }
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;
@@ -73,7 +75,7 @@ export class Home {
       existente.cantidad += 1;
       this.mostrarMensaje('Cantidad aumentada en el carrito.');
     } else {
-      listaUsuarios[usuarioIndex].carrito.push({ idProducto: producto.id, cantidad: 1 });
+      listaUsuarios[usuarioIndex].carrito.push({idProducto: producto.id, cantidad: 1});
       this.mostrarMensaje('Añadido al carrito.');
     }
     localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));

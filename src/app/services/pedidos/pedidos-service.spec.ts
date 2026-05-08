@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { PedidosService } from './pedidos-service';
-import { Pedido } from '../../models/pedido';
-import { provideHttpClient } from '@angular/common/http';
+import {TestBed} from '@angular/core/testing';
+import {HttpTestingController, provideHttpClientTesting} from '@angular/common/http/testing';
+import {PedidosService} from './pedidos-service';
+import {Pedido} from '../../models/pedido';
+import {provideHttpClient} from '@angular/common/http';
 
 describe('PedidosService', () => {
   let service: PedidosService;

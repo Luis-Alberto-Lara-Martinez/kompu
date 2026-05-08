@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Producto } from '../../models/producto';
-import { map, Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Producto} from '../../models/producto';
+import {map, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,13 +9,14 @@ import { map, Observable } from 'rxjs';
 export class ProductosService {
   private urlApi = "assets/data/productos.json";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   obtenerProductos(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.urlApi).pipe(
       map(productos => {
         return productos.map(producto => {
-          return { ...producto, fechaLanzamiento: new Date(producto.fechaLanzamiento) };
+          return {...producto, fechaLanzamiento: new Date(producto.fechaLanzamiento)};
         });
       })
     );

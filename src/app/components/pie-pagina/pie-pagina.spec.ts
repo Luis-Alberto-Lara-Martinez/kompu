@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PiePagina } from './pie-pagina';
+import {PiePagina} from './pie-pagina';
 
 describe('PiePagina', () => {
   let component: PiePagina;

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Menu } from "../../components/menu/menu";
-import { PiePagina } from "../../components/pie-pagina/pie-pagina";
-import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { Router } from '@angular/router';
-import { Pedido } from '../../models/pedido';
-import { Producto } from '../../models/producto';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Menu} from "../../components/menu/menu";
+import {PiePagina} from "../../components/pie-pagina/pie-pagina";
+import {ScrollToTop} from "../../components/scroll-to-top/scroll-to-top";
+import {Router} from '@angular/router';
+import {Pedido} from '../../models/pedido';
+import {Producto} from '../../models/producto';
 
 @Component({
   selector: 'app-historial-pedidos',
@@ -17,7 +17,8 @@ export class HistorialPedidos implements OnInit {
   pedidos: any[] = [];
   listaProductos: Producto[] = [];
 
-  constructor(private router: Router){}
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     if (typeof window === 'undefined') return;
@@ -76,7 +77,7 @@ export class HistorialPedidos implements OnInit {
   }
 
   obtenerClaseEstado(estado: string): string {
-    switch(estado.toLowerCase()) {
+    switch (estado.toLowerCase()) {
       case 'entregado':
         return 'estado-entregado';
       case 'enviado':

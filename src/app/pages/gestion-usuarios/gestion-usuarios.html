@@ -2,59 +2,59 @@
 <app-scroll-to-top></app-scroll-to-top>
 
 <main class="container py-4" role="main">
-	<div class="d-flex justify-content-between align-items-center mb-3">
-		<h1 class="h4 fw-semibold mb-0">Gestión de usuarios</h1>
-		<span class="text-muted">{{ usuarios.length }} usuarios</span>
-	</div>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h4 fw-semibold mb-0">Gestión de usuarios</h1>
+    <span class="text-muted">{{ usuarios.length }} usuarios</span>
+  </div>
 
-	<!-- Mensaje cuando no hay usuarios -->
-	<div *ngIf="usuarios.length === 0" class="alert alert-info" role="alert">
-		No hay usuarios registrados.
-	</div>
+  <!-- Mensaje cuando no hay usuarios -->
+  <div *ngIf="usuarios.length === 0" class="alert alert-info" role="alert">
+    No hay usuarios registrados.
+  </div>
 
-	<!-- Lista de usuarios en cajitas horizontales -->
-	<div class="d-flex flex-column gap-3">
-		<div *ngFor="let u of usuarios" class="card shadow-sm">
-			<div class="card-body d-flex flex-wrap align-items-center gap-3">
-				<!-- Avatar iniciales -->
-				<div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
-						 style="width:56px;height:56px; font-weight:700;">
-					{{ (u.nombre || u.email || 'U').charAt(0).toUpperCase() }}
-				</div>
+  <!-- Lista de usuarios en cajitas horizontales -->
+  <div class="d-flex flex-column gap-3">
+    <div *ngFor="let u of usuarios" class="card shadow-sm">
+      <div class="card-body d-flex flex-wrap align-items-center gap-3">
+        <!-- Avatar iniciales -->
+        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+             style="width:56px;height:56px; font-weight:700;">
+          {{ (u.nombre || u.email || 'U').charAt(0).toUpperCase() }}
+        </div>
 
-				<!-- Información principal -->
-				<div class="flex-grow-1">
-					<div class="d-flex align-items-center gap-2">
-						<h2 class="h6 mb-0">{{ u.nombre }}</h2>
-						<span class="badge" [ngClass]="u.estado === 'activado' ? 'bg-success' : 'bg-secondary'">
+        <!-- Información principal -->
+        <div class="flex-grow-1">
+          <div class="d-flex align-items-center gap-2">
+            <h2 class="h6 mb-0">{{ u.nombre }}</h2>
+            <span class="badge" [ngClass]="u.estado === 'activado' ? 'bg-success' : 'bg-secondary'">
 							{{ u.estado === 'activado' ? 'Activado' : 'Desactivado' }}
 						</span>
-					</div>
-					<div class="text-body-secondary small">
-						<span class="me-3">Email: <strong>{{ u.email }}</strong></span>
-						<span class="me-3">Teléfono: <strong>{{ u.telefono }}</strong></span>
-						<span class="me-3">Rol: <strong class="text-capitalize">{{ u.rol }}</strong></span>
-						<span>Dirección: <strong>{{ u.direccion }}</strong></span>
-					</div>
-				</div>
+          </div>
+          <div class="text-body-secondary small">
+            <span class="me-3">Email: <strong>{{ u.email }}</strong></span>
+            <span class="me-3">Teléfono: <strong>{{ u.telefono }}</strong></span>
+            <span class="me-3">Rol: <strong class="text-capitalize">{{ u.rol }}</strong></span>
+            <span>Dirección: <strong>{{ u.direccion }}</strong></span>
+          </div>
+        </div>
 
-				<!-- Botón activar/desactivar -->
-				<div class="ms-auto d-flex align-items-center">
-					<button type="button"
-									class="btn btn-sm"
-									[ngClass]="u.estado === 'activado' ? 'btn-outline-danger' : 'btn-outline-success'"
-									(click)="toggleEstado(u)">
-						{{ u.estado === 'activado' ? 'Desactivar' : 'Activar' }}
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Botón activar/desactivar -->
+        <div class="ms-auto d-flex align-items-center">
+          <button type="button"
+                  class="btn btn-sm"
+                  [ngClass]="u.estado === 'activado' ? 'btn-outline-danger' : 'btn-outline-success'"
+                  (click)="toggleEstado(u)">
+            {{ u.estado === 'activado' ? 'Desactivar' : 'Activar' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<!-- Nota -->
-	<div class="mt-3 text-body-secondary small">
-		Consejo: usa el botón para cambiar el estado del usuario.
-	</div>
+  <!-- Nota -->
+  <div class="mt-3 text-body-secondary small">
+    Consejo: usa el botón para cambiar el estado del usuario.
+  </div>
 </main>
 
 <app-pie-pagina></app-pie-pagina>

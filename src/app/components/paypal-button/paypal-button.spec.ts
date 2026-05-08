@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { vi } from 'vitest';
-import { PaypalButton } from './paypal-button';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {vi} from 'vitest';
+import {PaypalButton} from './paypal-button';
 
 describe('PaypalButton', () => {
   let component: PaypalButton;
@@ -47,19 +47,19 @@ describe('PaypalButton', () => {
 
   it('debe renderizar el botón y crear orden con total formateado', async () => {
     renderSpy = vi.fn();
-    createSpy = vi.fn().mockResolvedValue({ id: 'ORDER-ID' });
-    buttonsSpy = vi.fn().mockReturnValue({ render: renderSpy });
+    createSpy = vi.fn().mockResolvedValue({id: 'ORDER-ID'});
+    buttonsSpy = vi.fn().mockReturnValue({render: renderSpy});
 
     // Mock de acciones de paypal
-    const actions: any = { order: { create: createSpy, capture: vi.fn() } };
+    const actions: any = {order: {create: createSpy, capture: vi.fn()}};
 
     // Mock de paypal.Buttons
     (globalThis as any).paypal = {
       Buttons: vi.fn((cfg: any) => {
         // Llamar manualmente a createOrder para verificar formato
         component.totalCompra = 200; // 200.00
-        cfg.createOrder({}, { order: { create: createSpy } });
-        return { render: renderSpy };
+        cfg.createOrder({}, {order: {create: createSpy}});
+        return {render: renderSpy};
       })
     };
 
@@ -71,21 +71,21 @@ describe('PaypalButton', () => {
     // Verifica que se formatea a 2 decimales
     expect(createSpy).toHaveBeenCalledWith({
       purchase_units: [
-        { amount: { value: '200.00' } }
+        {amount: {value: '200.00'}}
       ]
     });
   });
 
   it('debe capturar la orden en onApprove y recargar la página', async () => {
     // Preparar datos de localStorage necesarios para crear pedido
-    const payload = { id: 10 };
+    const payload = {id: 10};
     const token = `h.${btoa(JSON.stringify(payload))}.s`;
     mockLocalStorage['token'] = token;
     mockLocalStorage['listaUsuarios'] = JSON.stringify([
-      { id: 10, carrito: [{ idProducto: 1, cantidad: 2 }] }
+      {id: 10, carrito: [{idProducto: 1, cantidad: 2}]}
     ]);
     mockLocalStorage['listaProductos'] = JSON.stringify([
-      { id: 1, precio: 50 }
+      {id: 1, precio: 50}
     ]);
     mockLocalStorage['listaPedidos'] = JSON.stringify([]);
 
@@ -94,19 +94,19 @@ describe('PaypalButton', () => {
     const reloadSpy = vi.fn();
     Object.defineProperty(window, 'location', {
       configurable: true,
-      value: { ...originalLocation, reload: reloadSpy }
+      value: {...originalLocation, reload: reloadSpy}
     });
 
-    captureSpy = vi.fn().mockResolvedValue({ status: 'COMPLETED' });
-    const actionsApprove: any = { order: { capture: captureSpy } };
+    captureSpy = vi.fn().mockResolvedValue({status: 'COMPLETED'});
+    const actionsApprove: any = {order: {capture: captureSpy}};
 
     let onApproveFn: Function | undefined;
-    buttonsSpy = vi.fn().mockReturnValue({ render: vi.fn() });
+    buttonsSpy = vi.fn().mockReturnValue({render: vi.fn()});
 
     (globalThis as any).paypal = {
       Buttons: vi.fn((cfg: any) => {
         onApproveFn = cfg.onApprove;
-        return { render: vi.fn() };
+        return {render: vi.fn()};
       })
     };
 
@@ -141,13 +141,14 @@ describe('PaypalButton', () => {
   });
 
   it('debe manejar errores en onError sin lanzar excepciones', () => {
-    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => { });
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {
+    });
     let onErrorFn: Function | undefined;
 
     (globalThis as any).paypal = {
       Buttons: vi.fn((cfg: any) => {
         onErrorFn = cfg.onError;
-        return { render: vi.fn() };
+        return {render: vi.fn()};
       })
     };
 
@@ -164,32 +165,32 @@ describe('PaypalButton', () => {
     expect(() => (component as any).crearPedidoYLimpiarCarrito()).not.toThrow();
 
     // token presente pero usuario no existe
-    const payload = { id: 99 };
+    const payload = {id: 99};
     const token = `h.${btoa(JSON.stringify(payload))}.s`;
     mockLocalStorage['token'] = token;
-    mockLocalStorage['listaUsuarios'] = JSON.stringify([{ id: 10, carrito: [] }]);
+    mockLocalStorage['listaUsuarios'] = JSON.stringify([{id: 10, carrito: []}]);
     mockLocalStorage['listaProductos'] = JSON.stringify([]);
     // @ts-ignore
     expect(() => (component as any).crearPedidoYLimpiarCarrito()).not.toThrow();
   });
 
   it('debe calcular precios de productos del pedido correctamente', () => {
-    const payload = { id: 5 };
+    const payload = {id: 5};
     const token = `h.${btoa(JSON.stringify(payload))}.s`;
     mockLocalStorage['token'] = token;
     mockLocalStorage['listaUsuarios'] = JSON.stringify([
       {
         id: 5, carrito: [
-          { idProducto: 1, cantidad: 1 },
-          { idProducto: 2, cantidad: 3 },
-          { idProducto: 3, cantidad: 2 },
+          {idProducto: 1, cantidad: 1},
+          {idProducto: 2, cantidad: 3},
+          {idProducto: 3, cantidad: 2},
         ]
       }
     ]);
     mockLocalStorage['listaProductos'] = JSON.stringify([
-      { id: 1, precio: 10 },
-      { id: 2, precio: 0 },
-      { id: 3, precio: 7.5 },
+      {id: 1, precio: 10},
+      {id: 2, precio: 0},
+      {id: 3, precio: 7.5},
     ]);
     mockLocalStorage['listaPedidos'] = JSON.stringify([]);
 

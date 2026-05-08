@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { provideRouter, Router } from '@angular/router';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
+import {provideRouter, Router} from '@angular/router';
 
-import { Favoritos } from './favoritos';
-import { Usuario } from '../../models/usuario';
-import { Producto } from '../../models/producto';
+import {Favoritos} from './favoritos';
+import {Usuario} from '../../models/usuario';
+import {Producto} from '../../models/producto';
 
 const mockProductos: Producto[] = [
   {
@@ -110,7 +110,7 @@ describe('Favoritos', () => {
     });
 
     it('no carga favoritos si no hay listaUsuarios', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.removeItem('listaUsuarios');
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -120,7 +120,7 @@ describe('Favoritos', () => {
     });
 
     it('no carga favoritos si usuario no existe', () => {
-      const payload = { id: 999, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 999, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -130,7 +130,7 @@ describe('Favoritos', () => {
     });
 
     it('no carga favoritos si no hay listaProductos', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       localStorage.removeItem('listaProductos');
@@ -140,7 +140,7 @@ describe('Favoritos', () => {
     });
 
     it('carga favoritos del usuario correctamente', () => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -157,7 +157,7 @@ describe('Favoritos', () => {
         listaDeseos: [1, 999, 3], // 999 no existe
       }];
 
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(usuariosConIdInexistente));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -173,7 +173,7 @@ describe('Favoritos', () => {
         listaDeseos: [],
       }];
 
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(usuariosSinFavoritos));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -185,7 +185,7 @@ describe('Favoritos', () => {
 
   describe('eliminarFavorito comportamiento', () => {
     beforeEach(() => {
-      const payload = { id: 1, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 1, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       localStorage.setItem('listaUsuarios', JSON.stringify(mockUsuarios));
       localStorage.setItem('listaProductos', JSON.stringify(mockProductos));
@@ -229,7 +229,7 @@ describe('Favoritos', () => {
     });
 
     it('no hace nada si usuario no existe', () => {
-      const payload = { id: 999, exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {id: 999, exp: Math.floor(Date.now() / 1000) + 3600};
       localStorage.setItem('token', `h.${btoa(JSON.stringify(payload))}.s`);
       const longitudInicial = component.favoritos.length;
 

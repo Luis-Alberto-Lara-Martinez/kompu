@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
-import { Menu } from "../../components/menu/menu";
-import { PiePagina } from "../../components/pie-pagina/pie-pagina";
-import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Producto } from '../../models/producto';
-import { ProductosService } from '../../services/productos/productos-service';
-import { FormsModule } from '@angular/forms';
-import { Usuario } from '../../models/usuario';
+import {Component} from '@angular/core';
+import {Menu} from "../../components/menu/menu";
+import {PiePagina} from "../../components/pie-pagina/pie-pagina";
+import {ScrollToTop} from "../../components/scroll-to-top/scroll-to-top";
+import {ActivatedRoute, Router, RouterModule} from '@angular/router';
+import {Producto} from '../../models/producto';
+import {ProductosService} from '../../services/productos/productos-service';
+import {FormsModule} from '@angular/forms';
+import {Usuario} from '../../models/usuario';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-productos',
-  imports: [Menu, PiePagina, ScrollToTop, FormsModule, RouterLink],
+  imports: [Menu, PiePagina, ScrollToTop, FormsModule, RouterModule, CommonModule],
   templateUrl: './productos.html',
   styleUrl: './productos.css',
 })
@@ -33,7 +34,8 @@ export class Productos {
     precioMax: 0
   };
 
-  constructor(private route: ActivatedRoute, private router: Router, private productosService: ProductosService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private productosService: ProductosService) {
+  }
 
   ngOnInit(): void {
     // Escuchar cambios en queryParams para el buscador

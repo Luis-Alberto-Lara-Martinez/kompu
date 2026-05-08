@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router, provideRouter } from '@angular/router';
-import { vi } from 'vitest';
-import { Menu } from './menu';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {provideRouter, Router} from '@angular/router';
+import {vi} from 'vitest';
+import {Menu} from './menu';
 
 describe('Menu', () => {
   let component: Menu;

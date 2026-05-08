@@ -1,47 +1,47 @@
 <div class="row vh-100 g-0">
-    <video autoplay muted loop class="position-absolute w-100 h-100">
-        <source src="assets/videos/fondo-login-registro.mp4" type="video/mp4">
-    </video>
+  <video autoplay muted loop class="position-absolute w-100 h-100">
+    <source src="assets/videos/fondo-login-registro.mp4" type="video/mp4">
+  </video>
 
-    <div id="bienvenido"
-        class="d-none col-lg-7 text-white d-lg-flex flex-column justify-content-center align-items-center p-5">
-        <img src="assets/images/icons/kompu.png" alt="logo de Kompu" class="w-25 mb-4" />
-        <h1 class="fw-bold">Bienvenido a Kompu</h1>
-        <p class="fs-4 mt-3">Tu tienda de informática de confianza. Encuentra lo último en tecnología y accesorios.</p>
-    </div>
+  <div id="bienvenido"
+       class="d-none col-lg-7 text-white d-lg-flex flex-column justify-content-center align-items-center p-5">
+    <img src="assets/images/icons/kompu.png" alt="logo de Kompu" class="w-25 mb-4"/>
+    <h1 class="fw-bold">Bienvenido a Kompu</h1>
+    <p class="fs-4 mt-3">Tu tienda de informática de confianza. Encuentra lo último en tecnología y accesorios.</p>
+  </div>
 
-    <div id="bienvenido" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
-        <form id="formulario" (ngSubmit)="crearNuevaClave()" class="bg-white p-5 rounded shadow w-100">
-            <h2 class="text-primary mb-4">RECUPERAR CONTRASEÑA</h2>
+  <div id="bienvenido" class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
+    <form id="formulario" (ngSubmit)="crearNuevaClave()" class="bg-white p-5 rounded shadow w-100">
+      <h2 class="text-primary mb-4">RECUPERAR CONTRASEÑA</h2>
 
-            <!-- Input para la nueva contraseña -->
-            <div class="input-group mb-4 border-bottom">
+      <!-- Input para la nueva contraseña -->
+      <div class="input-group mb-4 border-bottom">
                 <span class="input-group-text bg-white border-0 text-primary">
                     <i class="fa-solid fa-lock"></i>
                 </span>
-                <input type="password" class="form-control border-0" placeholder="Nueva contraseña"
-                    [(ngModel)]="nuevaClave" name="nuevaClave" required />
-            </div>
+        <input type="password" class="form-control border-0" placeholder="Nueva contraseña"
+               [(ngModel)]="nuevaClave" name="nuevaClave" required/>
+      </div>
 
-            <!-- Input para confirmar la nueva contraseña -->
-            <div class="input-group mb-4 border-bottom">
+      <!-- Input para confirmar la nueva contraseña -->
+      <div class="input-group mb-4 border-bottom">
                 <span class="input-group-text bg-white border-0 text-primary">
                     <i class="fa-solid fa-lock"></i>
                 </span>
-                <input type="password" class="form-control border-0" placeholder="Confirmar nueva contraseña"
-                    [(ngModel)]="confirmarNuevaClave" name="confirmarNuevaClave" required />
-            </div>
+        <input type="password" class="form-control border-0" placeholder="Confirmar nueva contraseña"
+               [(ngModel)]="confirmarNuevaClave" name="confirmarNuevaClave" required/>
+      </div>
 
-            @if (error!="") {
-            <div class="alert alert-danger" role="alert"> {{ error }} </div>
-            }
+      @if (error != "") {
+        <div class="alert alert-danger" role="alert"> {{ error }}</div>
+      }
 
-            <button type="submit" class="btn btn-primary w-100 py-2 mt-4" [disabled]="cargando">
-                @if (cargando) {
-                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                }
-                {{ cargando ? 'ENVIANDO...' : 'ENVIAR' }}
-            </button>
-        </form>
-    </div>
+      <button type="submit" class="btn btn-primary w-100 py-2 mt-4" [disabled]="cargando">
+        @if (cargando) {
+          <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+        }
+        {{ cargando ? 'ENVIANDO...' : 'ENVIAR' }}
+      </button>
+    </form>
+  </div>
 </div>

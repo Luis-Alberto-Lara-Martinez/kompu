@@ -1,427 +1,426 @@
 [
-    {
-        "id": 1,
-        "nombre": "Portátil ASUS TUF Gaming FA808UM-S8005",
-        "marca": "Asus",
-        "categoria": "Portátiles",
-        "precio": 1099.99,
-        "stock": 15,
-        "listaImagenes": [
-            "https://thumb.pccomponentes.com/w-530-530/articles/1087/10878956/1982-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-b75b5fe1-0127-45f8-a91f-347823ee8a57.jpg",
-            "https://img.pccomponentes.com/articles/1087/10878956/3244-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-98435336-ab35-4c3f-ac3d-ccad23891950.jpg",
-            "https://img.pccomponentes.com/articles/1087/10878956/4480-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-b92252bc-f269-4e87-adb9-e33a8a315a06.jpg",
-            "https://img.pccomponentes.com/articles/1087/10878956/5212-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-60e92696-20d9-46f4-9f3a-247c827d245e.jpg"
-        ],
-        "descripcion": "Portátil gaming Intel Core i5, 16GB RAM, 512GB SSD, RTX 3050",
-        "valoraciones": [
-            {
-                "idUsuario": 2,
-                "nota": 5,
-                "comentario": "Excelente portátil, funciona perfecto para juegos"
-            },
-            {
-                "idUsuario": 6,
-                "nota": 4,
-                "comentario": "Muy buena relación calidad-precio"
-            }
-        ],
-        "fechaLanzamiento": "2023-09-15"
-    },
-    {
-        "id": 2,
-        "nombre": "Monitor LG UltraGear 27\"",
-        "marca": "LG",
-        "categoria": "Monitores",
-        "precio": 299.99,
-        "stock": 8,
-        "listaImagenes": [
-            "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/111-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-opiniones.jpg",
-            "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/9264-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-186d27c2-943b-4442-ae57-7061881d189b.jpg",
-            "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/10393-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-94bd0e3c-7873-4267-89b3-5f56fe126502.jpg"
-        ],
-        "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
-        "valoraciones": [
-            {
-                "idUsuario": 4,
-                "nota": 5,
-                "comentario": "Calidad de imagen espectacular"
-            }
-        ],
-        "fechaLanzamiento": "2022-11-20"
-    },
-    {
-        "id": 3,
-        "nombre": "Teclado Mecánico Logitech",
-        "marca": "Logitech",
-        "categoria": "Periféricos",
-        "precio": 129.99,
-        "stock": 25,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800",
-            "https://images.unsplash.com/photo-1595225476474-87563907a212?w=800"
-        ],
-        "descripcion": "Teclado mecánico RGB gaming",
-        "valoraciones": [
-            {
-                "idUsuario": 9,
-                "nota": 4,
-                "comentario": "Muy bueno, las teclas son muy responsivas"
-            },
-            {
-                "idUsuario": 2,
-                "nota": 5,
-                "comentario": "El mejor teclado que he tenido"
-            }
-        ],
-        "fechaLanzamiento": "2021-05-10"
-    },
-    {
-        "id": 4,
-        "nombre": "Ratón Razer DeathAdder",
-        "marca": "Razer",
-        "categoria": "Periféricos",
-        "precio": 69.99,
-        "stock": 30,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1527814050087-3793815479db?w=800",
-            "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800"
-        ],
-        "descripcion": "Ratón gaming ergonómico RGB",
-        "valoraciones": [
-            {
-                "idUsuario": 6,
-                "nota": 5,
-                "comentario": "Ergonómico y preciso, ideal para gaming"
-            }
-        ],
-        "fechaLanzamiento": "2020-08-01"
-    },
-    {
-        "id": 5,
-        "nombre": "Tarjeta Gráfica RTX 4070",
-        "marca": "MSI",
-        "categoria": "Componentes",
-        "precio": 649.99,
-        "stock": 5,
-        "listaImagenes": [
-            "https://thumb.pccomponentes.com/w-530-530/articles/1070/10706592/1556-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3.jpg",
-            "https://thumb.pccomponentes.com/w-530-530/articles/1070/10706592/2721-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3-comprar.jpg"
-        ],
-        "descripcion": "Tarjeta gráfica NVIDIA RTX 4070 12GB",
-        "valoraciones": [
-            {
-                "idUsuario": 9,
-                "nota": 5,
-                "comentario": "Potencia increíble, corre todos los juegos en ultra"
-            }
-        ],
-        "fechaLanzamiento": "2023-04-12"
-    },
-    {
-        "id": 6,
-        "nombre": "Procesador AMD Ryzen 7",
-        "marca": "AMD",
-        "categoria": "Componentes",
-        "precio": 449.99,
-        "stock": 12,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=800",
-            "https://images.unsplash.com/photo-1591238372408-0a300b06ec89?w=800"
-        ],
-        "descripcion": "Procesador AMD Ryzen 7 8 núcleos",
-        "valoraciones": [],
-        "fechaLanzamiento": "2022-02-01"
-    },
-    {
-        "id": 7,
-        "nombre": "Memoria RAM 32GB DDR5",
-        "marca": "Corsair",
-        "categoria": "Componentes",
-        "precio": 139.99,
-        "stock": 20,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?w=800",
-            "https://images.unsplash.com/photo-1562976540-1502c2145186?w=800"
-        ],
-        "descripcion": "Kit RAM 32GB DDR5 6000MHz RGB",
-        "valoraciones": [
-            {
-                "idUsuario": 4,
-                "nota": 4,
-                "comentario": "Buena RAM, funciona a la perfección"
-            }
-        ],
-        "fechaLanzamiento": "2023-01-15"
-    },
-    {
-        "id": 8,
-        "nombre": "SSD Samsung 2TB",
-        "marca": "Samsung",
-        "categoria": "Almacenamiento",
-        "precio": 179.99,
-        "stock": 18,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=800",
-            "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800"
-        ],
-        "descripcion": "SSD NVMe M.2 2TB alta velocidad",
-        "valoraciones": [
-            {
-                "idUsuario": 2,
-                "nota": 5,
-                "comentario": "Velocidades impresionantes, muy recomendado"
-            }
-        ],
-        "fechaLanzamiento": "2021-09-30"
-    },
-    {
-        "id": 9,
-        "nombre": "Auriculares HyperX Wireless",
-        "marca": "HyperX",
-        "categoria": "Periféricos",
-        "precio": 149.99,
-        "stock": 22,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=800",
-            "https://images.unsplash.com/photo-1545127398-14699f92334b?w=800"
-        ],
-        "descripcion": "Auriculares gaming inalámbricos",
-        "valoraciones": [],
-        "fechaLanzamiento": "2020-12-05"
-    },
-    {
-        "id": 10,
-        "nombre": "Webcam Logitech Full HD",
-        "marca": "Logitech",
-        "categoria": "Periféricos",
-        "precio": 129.99,
-        "stock": 14,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=800",
-            "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=800"
-        ],
-        "descripcion": "Cámara web Full HD 1080p 60fps",
-        "valoraciones": [
-            {
-                "idUsuario": 10,
-                "nota": 4,
-                "comentario": "Buena calidad de imagen para videoconferencias"
-            }
-        ],
-        "fechaLanzamiento": "2021-03-22"
-    },
-    {
-        "id": 11,
-        "nombre": "Portátil Dell Inspiron 15",
-        "marca": "Dell",
-        "categoria": "Portátiles",
-        "precio": 999.99,
-        "stock": 10,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800"
-        ],
-        "descripcion": "Portátil Dell i7, 16GB RAM, 512GB SSD",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-08-10"
-    },
-    {
-        "id": 12,
-        "nombre": "Monitor Samsung Odyssey 32\"",
-        "marca": "Samsung",
-        "categoria": "Monitores",
-        "precio": 399.99,
-        "stock": 6,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=800"
-        ],
-        "descripcion": "Monitor gaming 32 pulgadas QHD 240Hz",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-06-25"
-    },
-    {
-        "id": 13,
-        "nombre": "Teclado Razer BlackWidow",
-        "marca": "Razer",
-        "categoria": "Periféricos",
-        "precio": 149.99,
-        "stock": 16,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1601445638532-3c6f6c3aa1d6?w=800"
-        ],
-        "descripcion": "Teclado mecánico RGB gaming",
-        "valoraciones": [],
-        "fechaLanzamiento": "2022-12-05"
-    },
-    {
-        "id": 14,
-        "nombre": "Ratón Logitech G502",
-        "marca": "Logitech",
-        "categoria": "Periféricos",
-        "precio": 59.99,
-        "stock": 28,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1563297007-0686b7003af7?w=800"
-        ],
-        "descripcion": "Ratón gaming con sensor de alta precisión",
-        "valoraciones": [],
-        "fechaLanzamiento": "2022-11-15"
-    },
-    {
-        "id": 15,
-        "nombre": "Tarjeta Gráfica RTX 4080",
-        "marca": "MSI",
-        "categoria": "Componentes",
-        "precio": 899.99,
-        "stock": 3,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=800"
-        ],
-        "descripcion": "Tarjeta gráfica NVIDIA RTX 4080 16GB",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-07-01"
-    },
-    {
-        "id": 16,
-        "nombre": "Procesador Intel Core i9",
-        "marca": "Intel",
-        "categoria": "Componentes",
-        "precio": 599.99,
-        "stock": 7,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=800"
-        ],
-        "descripcion": "Procesador Intel Core i9 12 núcleos",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-03-20"
-    },
-    {
-        "id": 17,
-        "nombre": "Memoria RAM 16GB DDR4",
-        "marca": "Kingston",
-        "categoria": "Componentes",
-        "precio": 79.99,
-        "stock": 35,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1562976540-1502c2145186?w=800"
-        ],
-        "descripcion": "Kit RAM 16GB DDR4 3200MHz",
-        "valoraciones": [],
-        "fechaLanzamiento": "2022-10-10"
-    },
-    {
-        "id": 18,
-        "nombre": "SSD Crucial 1TB",
-        "marca": "Crucial",
-        "categoria": "Almacenamiento",
-        "precio": 119.99,
-        "stock": 24,
-        "listaImagenes": [
-            "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/1627-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme.jpg",
-            "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/2456-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme-comprar.jpg",
-            "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/3427-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme-mejor-precio.jpg"
-        ],
-        "descripcion": "SSD NVMe M.2 1TB alta velocidad",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-01-05"
-    },
-    {
-        "id": 19,
-        "nombre": "Auriculares Logitech G Pro X",
-        "marca": "Logitech",
-        "categoria": "Periféricos",
-        "precio": 129.99,
-        "stock": 19,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1599669454699-248893623440?w=800"
-        ],
-        "descripcion": "Auriculares gaming con micrófono profesional",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-02-28"
-    },
-    {
-        "id": 20,
-        "nombre": "Webcam Razer Kiyo",
-        "marca": "Razer",
-        "categoria": "Periféricos",
-        "precio": 109.99,
-        "stock": 11,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1570993492903-ba4c3088f100?w=800"
-        ],
-        "descripcion": "Cámara web Full HD 1080p con anillo de luz",
-        "valoraciones": [],
-        "fechaLanzamiento": "2022-09-15"
-    },
-    {
-        "id": 21,
-        "nombre": "Portátil HP Pavilion",
-        "marca": "HP",
-        "categoria": "Portátiles",
-        "precio": 899.99,
-        "stock": 13,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=800"
-        ],
-        "descripcion": "Portátil HP i5, 16GB RAM, 512GB SSD",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-05-12"
-    },
-    {
-        "id": 22,
-        "nombre": "Monitor Acer Predator 27\"",
-        "marca": "Acer",
-        "categoria": "Monitores",
-        "precio": 329.99,
-        "stock": 9,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800"
-        ],
-        "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-04-28"
-    },
-    {
-        "id": 23,
-        "nombre": "Teclado Corsair K70 RGB",
-        "marca": "Corsair",
-        "categoria": "Periféricos",
-        "precio": 139.99,
-        "stock": 17,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=800"
-        ],
-        "descripcion": "Teclado mecánico RGB gaming",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-03-10"
-    },
-    {
-        "id": 24,
-        "nombre": "Ratón SteelSeries Rival 3",
-        "marca": "SteelSeries",
-        "categoria": "Periféricos",
-        "precio": 49.99,
-        "stock": 32,
-        "listaImagenes": [
-            "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/1428-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-caracteristicas.jpg",
-            "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/3824-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-review.jpg",
-            "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/4354-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-foto.jpg"
-        ],
-        "descripcion": "Ratón gaming RGB con sensor óptico",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-06-05"
-    },
-    {
-        "id": 25,
-        "nombre": "Tarjeta Gráfica RTX 4060",
-        "marca": "Gigabyte",
-        "categoria": "Componentes",
-        "precio": 529.99,
-        "stock": 4,
-        "listaImagenes": [
-            "https://images.unsplash.com/photo-1591405351990-4726e331f141?w=800"
-        ],
-        "descripcion": "Tarjeta gráfica NVIDIA RTX 4060 8GB",
-        "valoraciones": [],
-        "fechaLanzamiento": "2023-07-20"
-    }
+  {
+    "id": 1,
+    "nombre": "Portátil ASUS TUF Gaming FA808UM-S8005",
+    "marca": "Asus",
+    "categoria": "Portátiles",
+    "precio": 1099.99,
+    "stock": 15,
+    "listaImagenes": [
+      "https://img.pccomponentes.com/articles/1087/10878956/3244-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-98435336-ab35-4c3f-ac3d-ccad23891950.jpg",
+      "https://img.pccomponentes.com/articles/1087/10878956/4480-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-b92252bc-f269-4e87-adb9-e33a8a315a06.jpg",
+      "https://img.pccomponentes.com/articles/1087/10878956/5212-asus-tuf-gaming-fa808um-s8005-amd-ryzen-7-260-32gb-1tb-ssd-rtx-5060-18-60e92696-20d9-46f4-9f3a-247c827d245e.jpg"
+    ],
+    "descripcion": "Portátil gaming Intel Core i5, 16GB RAM, 512GB SSD, RTX 3050",
+    "valoraciones": [
+      {
+        "idUsuario": 2,
+        "nota": 5,
+        "comentario": "Excelente portátil, funciona perfecto para juegos"
+      },
+      {
+        "idUsuario": 6,
+        "nota": 4,
+        "comentario": "Muy buena relación calidad-precio"
+      }
+    ],
+    "fechaLanzamiento": "2023-09-15"
+  },
+  {
+    "id": 2,
+    "nombre": "Monitor LG UltraGear 27\"",
+    "marca": "LG",
+    "categoria": "Monitores",
+    "precio": 299.99,
+    "stock": 8,
+    "listaImagenes": [
+      "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/111-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-opiniones.jpg",
+      "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/9264-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-186d27c2-943b-4442-ae57-7061881d189b.jpg",
+      "https://thumb.pccomponentes.com/w-530-530/articles/1084/10842858/10393-lg-ultragear-27gs60qc-b-27-led-va-qhd-180hz-freesync-curva-94bd0e3c-7873-4267-89b3-5f56fe126502.jpg"
+    ],
+    "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
+    "valoraciones": [
+      {
+        "idUsuario": 4,
+        "nota": 5,
+        "comentario": "Calidad de imagen espectacular"
+      }
+    ],
+    "fechaLanzamiento": "2022-11-20"
+  },
+  {
+    "id": 3,
+    "nombre": "Teclado Mecánico Logitech",
+    "marca": "Logitech",
+    "categoria": "Periféricos",
+    "precio": 129.99,
+    "stock": 25,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800",
+      "https://images.unsplash.com/photo-1595225476474-87563907a212?w=800"
+    ],
+    "descripcion": "Teclado mecánico RGB gaming",
+    "valoraciones": [
+      {
+        "idUsuario": 9,
+        "nota": 4,
+        "comentario": "Muy bueno, las teclas son muy responsivas"
+      },
+      {
+        "idUsuario": 2,
+        "nota": 5,
+        "comentario": "El mejor teclado que he tenido"
+      }
+    ],
+    "fechaLanzamiento": "2021-05-10"
+  },
+  {
+    "id": 4,
+    "nombre": "Ratón Razer DeathAdder",
+    "marca": "Razer",
+    "categoria": "Periféricos",
+    "precio": 69.99,
+    "stock": 30,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1527814050087-3793815479db?w=800",
+      "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800"
+    ],
+    "descripcion": "Ratón gaming ergonómico RGB",
+    "valoraciones": [
+      {
+        "idUsuario": 6,
+        "nota": 5,
+        "comentario": "Ergonómico y preciso, ideal para gaming"
+      }
+    ],
+    "fechaLanzamiento": "2020-08-01"
+  },
+  {
+    "id": 5,
+    "nombre": "Tarjeta Gráfica RTX 4070",
+    "marca": "MSI",
+    "categoria": "Componentes",
+    "precio": 649.99,
+    "stock": 5,
+    "listaImagenes": [
+      "https://thumb.pccomponentes.com/w-530-530/articles/1070/10706592/1556-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3.jpg",
+      "https://thumb.pccomponentes.com/w-530-530/articles/1070/10706592/2721-gigabyte-geforce-rtx-4070-windforce-oc-12gb-gddr6x-dlss3-comprar.jpg"
+    ],
+    "descripcion": "Tarjeta gráfica NVIDIA RTX 4070 12GB",
+    "valoraciones": [
+      {
+        "idUsuario": 9,
+        "nota": 5,
+        "comentario": "Potencia increíble, corre todos los juegos en ultra"
+      }
+    ],
+    "fechaLanzamiento": "2023-04-12"
+  },
+  {
+    "id": 6,
+    "nombre": "Procesador AMD Ryzen 7",
+    "marca": "AMD",
+    "categoria": "Componentes",
+    "precio": 449.99,
+    "stock": 12,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=800",
+      "https://images.unsplash.com/photo-1591238372408-0a300b06ec89?w=800"
+    ],
+    "descripcion": "Procesador AMD Ryzen 7 8 núcleos",
+    "valoraciones": [],
+    "fechaLanzamiento": "2022-02-01"
+  },
+  {
+    "id": 7,
+    "nombre": "Memoria RAM 32GB DDR5",
+    "marca": "Corsair",
+    "categoria": "Componentes",
+    "precio": 139.99,
+    "stock": 20,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?w=800",
+      "https://images.unsplash.com/photo-1562976540-1502c2145186?w=800"
+    ],
+    "descripcion": "Kit RAM 32GB DDR5 6000MHz RGB",
+    "valoraciones": [
+      {
+        "idUsuario": 4,
+        "nota": 4,
+        "comentario": "Buena RAM, funciona a la perfección"
+      }
+    ],
+    "fechaLanzamiento": "2023-01-15"
+  },
+  {
+    "id": 8,
+    "nombre": "SSD Samsung 2TB",
+    "marca": "Samsung",
+    "categoria": "Almacenamiento",
+    "precio": 179.99,
+    "stock": 18,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=800",
+      "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800"
+    ],
+    "descripcion": "SSD NVMe M.2 2TB alta velocidad",
+    "valoraciones": [
+      {
+        "idUsuario": 2,
+        "nota": 5,
+        "comentario": "Velocidades impresionantes, muy recomendado"
+      }
+    ],
+    "fechaLanzamiento": "2021-09-30"
+  },
+  {
+    "id": 9,
+    "nombre": "Auriculares HyperX Wireless",
+    "marca": "HyperX",
+    "categoria": "Periféricos",
+    "precio": 149.99,
+    "stock": 22,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=800",
+      "https://images.unsplash.com/photo-1545127398-14699f92334b?w=800"
+    ],
+    "descripcion": "Auriculares gaming inalámbricos",
+    "valoraciones": [],
+    "fechaLanzamiento": "2020-12-05"
+  },
+  {
+    "id": 10,
+    "nombre": "Webcam Logitech Full HD",
+    "marca": "Logitech",
+    "categoria": "Periféricos",
+    "precio": 129.99,
+    "stock": 14,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=800",
+      "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=800"
+    ],
+    "descripcion": "Cámara web Full HD 1080p 60fps",
+    "valoraciones": [
+      {
+        "idUsuario": 10,
+        "nota": 4,
+        "comentario": "Buena calidad de imagen para videoconferencias"
+      }
+    ],
+    "fechaLanzamiento": "2021-03-22"
+  },
+  {
+    "id": 11,
+    "nombre": "Portátil Dell Inspiron 15",
+    "marca": "Dell",
+    "categoria": "Portátiles",
+    "precio": 999.99,
+    "stock": 10,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800"
+    ],
+    "descripcion": "Portátil Dell i7, 16GB RAM, 512GB SSD",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-08-10"
+  },
+  {
+    "id": 12,
+    "nombre": "Monitor Samsung Odyssey 32\"",
+    "marca": "Samsung",
+    "categoria": "Monitores",
+    "precio": 399.99,
+    "stock": 6,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=800"
+    ],
+    "descripcion": "Monitor gaming 32 pulgadas QHD 240Hz",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-06-25"
+  },
+  {
+    "id": 13,
+    "nombre": "Teclado Razer BlackWidow",
+    "marca": "Razer",
+    "categoria": "Periféricos",
+    "precio": 149.99,
+    "stock": 16,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1601445638532-3c6f6c3aa1d6?w=800"
+    ],
+    "descripcion": "Teclado mecánico RGB gaming",
+    "valoraciones": [],
+    "fechaLanzamiento": "2022-12-05"
+  },
+  {
+    "id": 14,
+    "nombre": "Ratón Logitech G502",
+    "marca": "Logitech",
+    "categoria": "Periféricos",
+    "precio": 59.99,
+    "stock": 28,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1563297007-0686b7003af7?w=800"
+    ],
+    "descripcion": "Ratón gaming con sensor de alta precisión",
+    "valoraciones": [],
+    "fechaLanzamiento": "2022-11-15"
+  },
+  {
+    "id": 15,
+    "nombre": "Tarjeta Gráfica RTX 4080",
+    "marca": "MSI",
+    "categoria": "Componentes",
+    "precio": 899.99,
+    "stock": 3,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=800"
+    ],
+    "descripcion": "Tarjeta gráfica NVIDIA RTX 4080 16GB",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-07-01"
+  },
+  {
+    "id": 16,
+    "nombre": "Procesador Intel Core i9",
+    "marca": "Intel",
+    "categoria": "Componentes",
+    "precio": 599.99,
+    "stock": 7,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=800"
+    ],
+    "descripcion": "Procesador Intel Core i9 12 núcleos",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-03-20"
+  },
+  {
+    "id": 17,
+    "nombre": "Memoria RAM 16GB DDR4",
+    "marca": "Kingston",
+    "categoria": "Componentes",
+    "precio": 79.99,
+    "stock": 35,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1562976540-1502c2145186?w=800"
+    ],
+    "descripcion": "Kit RAM 16GB DDR4 3200MHz",
+    "valoraciones": [],
+    "fechaLanzamiento": "2022-10-10"
+  },
+  {
+    "id": 18,
+    "nombre": "SSD Crucial 1TB",
+    "marca": "Crucial",
+    "categoria": "Almacenamiento",
+    "precio": 119.99,
+    "stock": 24,
+    "listaImagenes": [
+      "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/1627-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme.jpg",
+      "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/2456-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme-comprar.jpg",
+      "https://thumb.pccomponentes.com/w-530-530/articles/1088/10889236/3427-crucial-e100-1tb-disco-ssd-m2-pcie-40-5000mb-s-nvme-mejor-precio.jpg"
+    ],
+    "descripcion": "SSD NVMe M.2 1TB alta velocidad",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-01-05"
+  },
+  {
+    "id": 19,
+    "nombre": "Auriculares Logitech G Pro X",
+    "marca": "Logitech",
+    "categoria": "Periféricos",
+    "precio": 129.99,
+    "stock": 19,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1599669454699-248893623440?w=800"
+    ],
+    "descripcion": "Auriculares gaming con micrófono profesional",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-02-28"
+  },
+  {
+    "id": 20,
+    "nombre": "Webcam Razer Kiyo",
+    "marca": "Razer",
+    "categoria": "Periféricos",
+    "precio": 109.99,
+    "stock": 11,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1570993492903-ba4c3088f100?w=800"
+    ],
+    "descripcion": "Cámara web Full HD 1080p con anillo de luz",
+    "valoraciones": [],
+    "fechaLanzamiento": "2022-09-15"
+  },
+  {
+    "id": 21,
+    "nombre": "Portátil HP Pavilion",
+    "marca": "HP",
+    "categoria": "Portátiles",
+    "precio": 899.99,
+    "stock": 13,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=800"
+    ],
+    "descripcion": "Portátil HP i5, 16GB RAM, 512GB SSD",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-05-12"
+  },
+  {
+    "id": 22,
+    "nombre": "Monitor Acer Predator 27\"",
+    "marca": "Acer",
+    "categoria": "Monitores",
+    "precio": 329.99,
+    "stock": 9,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800"
+    ],
+    "descripcion": "Monitor gaming 27 pulgadas QHD 165Hz",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-04-28"
+  },
+  {
+    "id": 23,
+    "nombre": "Teclado Corsair K70 RGB",
+    "marca": "Corsair",
+    "categoria": "Periféricos",
+    "precio": 139.99,
+    "stock": 17,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=800"
+    ],
+    "descripcion": "Teclado mecánico RGB gaming",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-03-10"
+  },
+  {
+    "id": 24,
+    "nombre": "Ratón SteelSeries Rival 3",
+    "marca": "SteelSeries",
+    "categoria": "Periféricos",
+    "precio": 49.99,
+    "stock": 32,
+    "listaImagenes": [
+      "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/1428-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-caracteristicas.jpg",
+      "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/3824-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-review.jpg",
+      "https://thumb.pccomponentes.com/w-530-530/articles/1090/10906863/4354-raton-gaming-steelseries-rival-3-gen-2-con-cable-8500-dpi-6-botones-135ms-latencia-negro-foto.jpg"
+    ],
+    "descripcion": "Ratón gaming RGB con sensor óptico",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-06-05"
+  },
+  {
+    "id": 25,
+    "nombre": "Tarjeta Gráfica RTX 4060",
+    "marca": "Gigabyte",
+    "categoria": "Componentes",
+    "precio": 529.99,
+    "stock": 4,
+    "listaImagenes": [
+      "https://images.unsplash.com/photo-1591405351990-4726e331f141?w=800"
+    ],
+    "descripcion": "Tarjeta gráfica NVIDIA RTX 4060 8GB",
+    "valoraciones": [],
+    "fechaLanzamiento": "2023-07-20"
+  }
 ]

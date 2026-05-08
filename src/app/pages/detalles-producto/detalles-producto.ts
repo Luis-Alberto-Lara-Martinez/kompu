@@ -1,14 +1,13 @@
-import { Component, Inject } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { Menu } from "../../components/menu/menu";
-import { PiePagina } from "../../components/pie-pagina/pie-pagina";
-import { ScrollToTop } from "../../components/scroll-to-top/scroll-to-top";
-import { Producto } from '../../models/producto';
-import { ProductosService } from '../../services/productos/productos-service';
-import { Usuario } from '../../models/usuario';
-import { PLATFORM_ID } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {Menu} from "../../components/menu/menu";
+import {PiePagina} from "../../components/pie-pagina/pie-pagina";
+import {ScrollToTop} from "../../components/scroll-to-top/scroll-to-top";
+import {Producto} from '../../models/producto';
+import {ProductosService} from '../../services/productos/productos-service';
+import {Usuario} from '../../models/usuario';
 
 @Component({
   selector: 'app-detalles-producto',
@@ -35,7 +34,8 @@ export class DetallesProducto {
     private router: Router,
     private productosService: ProductosService,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -178,7 +178,7 @@ export class DetallesProducto {
     this.mostrarFormularioResena = !this.mostrarFormularioResena;
     if (!this.mostrarFormularioResena) {
       // Resetear formulario al cerrar
-      this.nuevaResena = { nota: 5, comentario: '' };
+      this.nuevaResena = {nota: 5, comentario: ''};
     }
   }
 
@@ -219,13 +219,13 @@ export class DetallesProducto {
     }
 
     // Resetear y cerrar formulario
-    this.nuevaResena = { nota: 5, comentario: '' };
+    this.nuevaResena = {nota: 5, comentario: ''};
     this.mostrarFormularioResena = false;
     this.mostrarMensaje('¡Gracias por tu reseña!');
   }
 
   cancelarResena(): void {
     this.mostrarFormularioResena = false;
-    this.nuevaResena = { nota: 5, comentario: '' };
+    this.nuevaResena = {nota: 5, comentario: ''};
   }
 }

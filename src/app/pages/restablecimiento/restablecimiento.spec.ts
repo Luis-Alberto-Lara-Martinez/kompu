@@ -1,9 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router, ActivatedRoute } from '@angular/router';
-import { provideRouter } from '@angular/router';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ActivatedRoute, provideRouter, Router} from '@angular/router';
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 
-import { Restablecimiento } from './restablecimiento';
+import {Restablecimiento} from './restablecimiento';
 
 describe('Restablecimiento', () => {
   let component: Restablecimiento;
@@ -46,10 +45,10 @@ describe('Restablecimiento', () => {
 
   describe('ngOnInit', () => {
     it('procesa el token y establece el email si es válido', () => {
-      const payload = { email: 'test@mail.com', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {email: 'test@mail.com', exp: Math.floor(Date.now() / 1000) + 3600};
       const payloadBase64 = btoa(JSON.stringify(payload));
       const token = `h.${payloadBase64}.s`;
-      activatedRoute.snapshot.queryParams = { tokenR: token };
+      activatedRoute.snapshot.queryParams = {tokenR: token};
 
       component.ngOnInit();
 
@@ -57,13 +56,13 @@ describe('Restablecimiento', () => {
     });
 
     it('procesa el token Base64URL correctamente', () => {
-      const payload = { email: 'user@test.com', exp: Math.floor(Date.now() / 1000) + 3600 };
+      const payload = {email: 'user@test.com', exp: Math.floor(Date.now() / 1000) + 3600};
       const payloadBase64 = btoa(JSON.stringify(payload))
         .replace(/\+/g, '-')
         .replace(/\//g, '_')
         .replace(/=/g, '');
       const token = `h.${payloadBase64}.s`;
-      activatedRoute.snapshot.queryParams = { tokenR: token };
+      activatedRoute.snapshot.queryParams = {tokenR: token};
 
       component.ngOnInit();
 
@@ -105,7 +104,7 @@ describe('Restablecimiento', () => {
 
     it('actualiza la contraseña y navega a /login si todo es correcto', async () => {
       vi.useFakeTimers();
-      const usuario = { id: 1, email: 'test@mail.com', clave: btoa('oldpass'), estado: 'activado' };
+      const usuario = {id: 1, email: 'test@mail.com', clave: btoa('oldpass'), estado: 'activado'};
       localStorage.setItem('listaUsuarios', JSON.stringify([usuario]));
 
       component.nuevaClave = 'NewPass123!';
@@ -142,7 +141,7 @@ describe('Restablecimiento', () => {
 
     it('no actualiza la contraseña si el usuario no existe', async () => {
       vi.useFakeTimers();
-      const usuario = { id: 1, email: 'otro@mail.com', clave: btoa('oldpass'), estado: 'activado' };
+      const usuario = {id: 1, email: 'otro@mail.com', clave: btoa('oldpass'), estado: 'activado'};
       localStorage.setItem('listaUsuarios', JSON.stringify([usuario]));
 
       component.nuevaClave = 'NewPass123!';
